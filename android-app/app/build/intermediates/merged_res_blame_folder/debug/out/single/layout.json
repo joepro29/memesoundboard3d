@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.memesoundboard3d.app-mergeDebugResources-45:/layout/activity_main.xml",
+        "source": "com.memesoundboard3d.app-main-48:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.memesoundboard3d.app-mergeDebugResources-45:/layout/item_sound.xml",
+        "source": "com.memesoundboard3d.app-main-48:/layout/item_sound.xml"
+    }
+]

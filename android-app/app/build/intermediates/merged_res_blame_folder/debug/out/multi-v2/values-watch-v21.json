@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.memesoundboard3d.app-mergeDebugResources-44:/values-watch-v21/values-watch-v21.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\hamso\\.gradle\\caches\\transforms-3\\fbaa43fb7f060b7765f40b7e8355d6ec\\transformed\\appcompat-1.6.1\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "from": {
+                        "startLines": "2,6,10",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,271,499",
+                        "endLines": "5,9,13",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "266,494,724"
+                    }
+                }
+            ]
+        }
+    ]
+}

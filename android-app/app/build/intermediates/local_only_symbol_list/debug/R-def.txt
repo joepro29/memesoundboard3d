@@ -1,0 +1,30 @@
+R_DEF: Internal format may change without notice
+local
+color accent
+color card_bg
+color dark_bg
+color neon_green
+color primary
+color primary_dark
+color text_primary
+color text_secondary
+drawable ic_stop
+drawable tab_background
+drawable tab_background_selected
+id cardView
+id fabStop
+id recyclerView
+id soundCount
+id soundIcon
+id soundName
+id tab_all
+id tab_anime
+id tab_classic
+id tab_effects
+id tab_funny
+id tab_gaming
+id tab_viral
+layout activity_main
+layout item_sound
+string app_name
+style Theme.MemeSoundboard3D

@@ -1,0 +1,7 @@
+- [x] Setup Gradle Wrapper
+    - [x] Create `gradle/wrapper/gradle-wrapper.properties`
+- [x] Update Build Configuration
+    - [x] Update `build.gradle` (AGP, Kotlin version, and clean task)
+- [x] Verification
+    - [x] Run Gradle Sync
+    - [x] Run `gradlew help` (if possible) or `gradle_build`

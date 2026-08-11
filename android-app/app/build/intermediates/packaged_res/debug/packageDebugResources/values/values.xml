@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">#00D4FF</color>
+    <color name="card_bg">#1A1A2E</color>
+    <color name="dark_bg">#0A0A0F</color>
+    <color name="neon_green">#00FF88</color>
+    <color name="primary">#FF0061</color>
+    <color name="primary_dark">#B51B44</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#AAAAAA</color>
+    <string name="app_name">Meme Soundboard 3D</string>
+    <style name="Theme.MemeSoundboard3D" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:statusBarColor">@color/dark_bg</item>
+        <item name="android:navigationBarColor">@color/dark_bg</item>
+        <item name="android:windowBackground">@color/dark_bg</item>
+    </style>
+</resources>

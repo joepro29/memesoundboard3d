@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Meme Soundboard | Ultimate Sound Effects</title>
+    
+    <!-- Google AdSense Verification -->
+    <meta name="google-adsense-account" content="ca-pub-8360673445127627">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8360673445127627" crossorigin="anonymous"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ff0061;
+            --secondary: #b51b44;
+            --accent: #00d4ff;
+            --neon-green: #00ff88;
+            --neon-purple: #9b51e0;
+            --dark-bg: #0a0a0f;
+            --card-bg: rgba(20, 20, 35, 0.8);
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--dark-bg);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* 3D Background */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(180deg, rgba(10, 10, 15, 0.95) 0%, rgba(10, 10, 15, 0.8) 100%);
+            backdrop-filter: blur(20px);
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 0, 97, 0.3);
+            box-shadow: 0 0 30px rgba(255, 0, 97, 0.2);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 0, 97, 0.5);
+            animation: logoGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes logoGlow {
+            from { filter: drop-shadow(0 0 5px var(--primary)); }
+            to { filter: drop-shadow(0 0 20px var(--accent)); }
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 40px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid rgba(255, 0, 97, 0.3);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .search-box::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(255, 0, 97, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 0, 97, 0.3);
+        }
+
+        .stat-value {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Category Tabs */
+        .categories {
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .category-tabs {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .category-tab {
+            padding: 10px 24px;
+            border: 2px solid rgba(255, 0, 97, 0.3);
+            border-radius: 25px;
+            background: transparent;
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .category-tab:hover {
+            background: rgba(255, 0, 97, 0.2);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 0, 97, 0.3);
+        }
+
+        .category-tab.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-color: var(--primary);
+            box-shadow: 0 0 30px rgba(255, 0, 97, 0.5);
+        }
+
+        /* Sound Grid */
+        .sound-grid {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+        }
+
+        /* 3D Sound Card */
+        .sound-card {
+            perspective: 1000px;
+            height: 220px;
+        }
+
+        .sound-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sound-card:hover .sound-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .sound-card-front, .sound-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        .sound-card-front {
+            background: linear-gradient(145deg, var(--card-bg), rgba(30, 30, 50, 0.9));
+            border: 2px solid rgba(255, 0, 97, 0.2);
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .sound-card-back {
+            background: linear-gradient(145deg, var(--primary), var(--secondary));
+            transform: rotateY(180deg);
+            border: 2px solid var(--primary);
+        }
+
+        .sound-icon {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(255, 0, 97, 0.2), rgba(0, 212, 255, 0.2));
+            border-radius: 50%;
+            font-size: 2rem;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-5px) scale(1.05); }
+        }
+
+        .sound-name {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .sound-card-back .sound-name {
+            font-size: 0.9rem;
+        }
+
+        .play-indicator {
+            position: absolute;
+            bottom: 15px;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sound-card-back .play-indicator {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Download Button */
+        .download-btn {
+            position: absolute;
+            bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: rgba(0, 255, 136, 0.2);
+            border: 2px solid var(--neon-green);
+            border-radius: 20px;
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 10;
+        }
+
+        .download-btn:hover {
+            background: var(--neon-green);
+            color: var(--dark-bg);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+        }
+
+        .download-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        .download-btn.downloading {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .download-btn.downloading::after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            border: 2px solid transparent;
+            border-top-color: currentColor;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        /* Download All Button */
+        .download-all-container {
+            text-align: center;
+            margin: 30px auto;
+        }
+
+        .download-all-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--neon-green), #00cc6a);
+            border: none;
+            border-radius: 30px;
+            color: var(--dark-bg);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 5px 30px rgba(0, 255, 136, 0.4);
+        }
+
+        .download-all-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.6);
+        }
+
+        .download-all-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            padding: 15px 30px;
+            background: linear-gradient(135deg, var(--neon-green), #00cc6a);
+            color: var(--dark-bg);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.4);
+            z-index: 10000;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Ad Modal */
+        .ad-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 20000;
+            backdrop-filter: blur(10px);
+        }
+
+        .ad-modal-overlay.active {
+            display: flex;
+        }
+
+        .ad-modal {
+            background: linear-gradient(145deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.2);
+            animation: modalSlideIn 0.4s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: scale(0.8) translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .ad-modal h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--accent), var(--neon-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ad-modal p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+
+        .ad-container {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 25px;
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            overflow: hidden;
+        }
+
+        .ad-container ins {
+            max-width: 100%;
+        }
+
+        .ad-timer-text {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 5px;
+        }
+
+        .ad-timer-container {
+            margin-bottom: 20px;
+        }
+
+        .ad-timer {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .ad-progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+
+        .ad-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--neon-green));
+            border-radius: 3px;
+            width: 0%;
+            transition: width 1s linear;
+        }
+
+        .ad-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .ad-btn {
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ad-btn-skip {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .ad-btn-skip:hover {
+            border-color: rgba(255, 255, 255, 0.5);
+            color: #fff;
+        }
+
+        .ad-btn-download {
+            background: linear-gradient(135deg, var(--neon-green), #00cc6a);
+            border: none;
+            color: var(--dark-bg);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .ad-btn-download.active {
+            opacity: 1;
+            pointer-events: auto;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+        }
+
+        .ad-btn-download.active:hover {
+            transform: scale(1.05);
+        }
+
+        .ad-sound-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 0, 97, 0.1);
+            border-radius: 10px;
+        }
+
+        .ad-sound-icon {
+            font-size: 2.5rem;
+        }
+
+        .ad-sound-name {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .ad-sound-category {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+        }
+
+        /* Volume Control */
+        .volume-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            background: rgba(20, 20, 35, 0.9);
+            border-radius: 30px;
+            border: 2px solid rgba(255, 0, 97, 0.3);
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .volume-icon {
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .volume-slider {
+            -webkit-appearance: none;
+            width: 100px;
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.2);
+            outline: none;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(255, 0, 97, 0.5);
+        }
+
+        /* Recently Played */
+        .recent-section {
+            max-width: 1400px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .recent-list {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) transparent;
+        }
+
+        .recent-item {
+            flex-shrink: 0;
+            padding: 8px 16px;
+            background: rgba(255, 0, 97, 0.1);
+            border: 1px solid rgba(255, 0, 97, 0.3);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .recent-item:hover {
+            background: rgba(255, 0, 97, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* Favorites */
+        .favorite-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0, 0, 0, 0.3);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .favorite-btn:hover {
+            background: rgba(255, 0, 97, 0.3);
+            color: #fff;
+        }
+
+        .favorite-btn.active {
+            color: #ff4757;
+            background: rgba(255, 71, 87, 0.2);
+        }
+
+        /* Keyboard Shortcuts Modal */
+        .shortcuts-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 25000;
+        }
+
+        .shortcuts-modal.active {
+            display: flex;
+        }
+
+        .shortcuts-content {
+            background: linear-gradient(145deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .shortcuts-content h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .shortcut-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .shortcut-key {
+            padding: 4px 12px;
+            background: rgba(255, 0, 97, 0.2);
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .shortcuts-close {
+            margin-top: 20px;
+            padding: 10px 30px;
+            background: var(--primary);
+            border: none;
+            border-radius: 20px;
+            color: #fff;
+            cursor: pointer;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+        }
+
+        /* Help Button */
+        .help-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #0099cc);
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .help-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.6);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 600px;
+            background: rgba(20, 20, 35, 0.8);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 0, 97, 0.2);
+        }
+
+        .stats-item {
+            text-align: center;
+        }
+
+        .stats-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .stats-label {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .volume-container {
+                bottom: 15px;
+                right: 15px;
+                padding: 8px 15px;
+            }
+
+            .volume-slider {
+                width: 70px;
+            }
+
+            .help-btn {
+                bottom: 15px;
+                left: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .stats-bar {
+                gap: 15px;
+                padding: 10px;
+            }
+
+            .stats-value {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Playing Animation */
+        .sound-card.playing .sound-card-front {
+            border-color: var(--neon-green);
+            box-shadow: 
+                0 0 30px rgba(0, 255, 136, 0.5),
+                0 0 60px rgba(0, 255, 136, 0.3),
+                inset 0 0 20px rgba(0, 255, 136, 0.1);
+        }
+
+        .sound-card.playing .sound-icon {
+            animation: pulseGlow 0.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            from { 
+                box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+                transform: scale(1);
+            }
+            to { 
+                box-shadow: 0 0 40px rgba(0, 255, 136, 0.8);
+                transform: scale(1.1);
+            }
+        }
+
+        /* Sound Waves Animation */
+        .sound-waves {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .sound-card.playing .sound-waves {
+            opacity: 1;
+        }
+
+        .wave {
+            position: absolute;
+            border: 2px solid var(--neon-green);
+            border-radius: 50%;
+            animation: waveExpand 1.5s ease-out infinite;
+        }
+
+        .wave:nth-child(1) { animation-delay: 0s; }
+        .wave:nth-child(2) { animation-delay: 0.3s; }
+        .wave:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes waveExpand {
+            0% {
+                width: 50px;
+                height: 50px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+            100% {
+                width: 150px;
+                height: 150px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(180deg, rgba(10, 10, 15, 0.9) 0%, rgba(10, 10, 15, 0.98) 100%);
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 0, 97, 0.2);
+            text-align: center;
+        }
+
+        .footer-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-text a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Visualizer Overlay - Hidden */
+        #visualizer-overlay {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 120px;
+            height: 120px;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.6;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .search-container {
+                margin: 0;
+                max-width: 100%;
+            }
+
+            .stats {
+                display: none;
+            }
+
+            .sound-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 15px;
+            }
+
+            .sound-card {
+                height: 180px;
+            }
+
+            .sound-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .sound-name {
+                font-size: 0.85rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .download-btn {
+                padding: 6px 12px;
+                font-size: 0.7rem;
+            }
+
+            .download-all-btn {
+                padding: 12px 25px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 4px solid rgba(255, 0, 97, 0.2);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Particle effect on click */
+        .particle {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            animation: particleFade 0.8s ease-out forwards;
+        }
+
+        @keyframes particleFade {
+            0% {
+                opacity: 1;
+                transform: scale(1) translate(0, 0);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0) translate(var(--tx, 0), var(--ty, 0));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- 3D Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Visualizer Overlay -->
+    <canvas id="visualizer-overlay"></canvas>
+
+    <div class="content-wrapper">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <div class="logo">MEME SOUNDBOARD 3D</div>
+                <div class="search-container">
+                    <input type="text" class="search-box" placeholder="Search sounds..." id="searchInput">
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span>SOUNDS:</span>
+                        <span class="stat-value" id="soundCount">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>PLAYING:</span>
+                        <span class="stat-value" id="playingCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Category Tabs -->
+        <div class="categories">
+            <div class="category-tabs" id="categoryTabs">
+                <button class="category-tab active" data-category="all">All Sounds</button>
+                <button class="category-tab" data-category="viral">Viral</button>
+                <button class="category-tab" data-category="gaming">Gaming</button>
+                <button class="category-tab" data-category="anime">Anime</button>
+                <button class="category-tab" data-category="classics">Classics</button>
+                <button class="category-tab" data-category="effects">Effects</button>
+                <button class="category-tab" data-category="funny">Funny</button>
+            </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stats-item">
+                <div class="stats-value" id="totalSounds">0</div>
+                <div class="stats-label">Total Sounds</div>
+            </div>
+            <div class="stats-item">
+                <div class="stats-value" id="totalPlays">0</div>
+                <div class="stats-label">Total Plays</div>
+            </div>
+            <div class="stats-item">
+                <div class="stats-value" id="favoriteCount">0</div>
+                <div class="stats-label">Favorites</div>
+            </div>
+        </div>
+
+        <!-- Recently Played -->
+        <div class="recent-section" id="recentSection" style="display: none;">
+            <div class="section-title">
+                <span>🕐</span> Recently Played
+            </div>
+            <div class="recent-list" id="recentList"></div>
+        </div>
+
+        <!-- Download All Button -->
+        <div class="download-all-container">
+            <button class="download-all-btn" id="downloadAllBtn">
+                <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Download All Sounds
+            </button>
+        </div>
+
+        <!-- Sound Grid -->
+        <div class="sound-grid" id="soundGrid"></div>
+
+        <!-- Toast Notification -->
+        <div class="toast" id="toast">Download started!</div>
+
+        <!-- Ad Modal -->
+        <div class="ad-modal-overlay" id="adModal">
+            <div class="ad-modal">
+                <h2>Watch Ad to Download</h2>
+                <p>Please watch this short ad to download the sound for free</p>
+                
+                <div class="ad-sound-info" id="adSoundInfo">
+                    <span class="ad-sound-icon" id="adSoundIcon">🔊</span>
+                    <div>
+                        <div class="ad-sound-name" id="adSoundName">Sound Name</div>
+                        <div class="ad-sound-category" id="adSoundCategory">Category</div>
+                    </div>
+                </div>
+
+                <div class="ad-container" id="adContainer">
+                    <!-- GOOGLE ADSENSE - Download Modal -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-8360673445127627"
+                         data-ad-slot="6123708142"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                <div class="ad-timer-container">
+                    <div class="ad-timer" id="adTimer">10</div>
+                    <p class="ad-timer-text">Ad must finish before download</p>
+                    <div class="ad-progress-bar">
+                        <div class="ad-progress-fill" id="adProgressFill"></div>
+                    </div>
+                </div>
+
+                <div class="ad-buttons">
+                    <button class="ad-btn ad-btn-skip" id="adCloseBtn">Close</button>
+                    <button class="ad-btn ad-btn-download" id="adDownloadBtn">
+                        Download Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p class="footer-text">MEME SOUNDBOARD 3D</p>
+        </footer>
+    </div>
+
+    <script>
+        // Sound Data - 101 sounds from instants.meme
+        const sounds = [
+            { name: "Vine Boom", url: "https://cdn.instants.meme/2026/01/18/vine-boom-sound.mp3", icon: "💥", category: "classic" },
+            { name: "Bruh", url: "https://cdn.instants.meme/2026/01/18/bruh.mp3", icon: "🤦", category: "classic" },
+            { name: "Sad Violin", url: "https://cdn.instants.meme/2026/01/18/sad-violin-the-meme-one.mp3", icon: "🎻", category: "classic" },
+            { name: "MLG Air Horn", url: "https://cdn.instants.meme/2026/01/18/mlg-air-horn.mp3", icon: "📯", category: "classic" },
+            { name: "Sanctuary Guardian", url: "https://cdn.instants.meme/2026/01/18/what-bottom-text-meme-sanctuary-guardian-s.mp3", icon: "🏛️", category: "classic" },
+            { name: "Dun Dun Dun", url: "https://cdn.instants.meme/2026/01/18/dun-dun-dunnnnnnnn.mp3", icon: "🥁", category: "classic" },
+            { name: "Metal Gear Alert", url: "https://cdn.instants.meme/2026/01/18/metal-gear-solid-alert.mp3", icon: "⚠️", category: "classic" },
+            { name: "Outro Song", url: "https://cdn.instants.meme/2026/01/18/outro-song.mp3", icon: "🎵", category: "classic" },
+            { name: "Buzzer", url: "https://cdn.instants.meme/2026/01/18/buzzer.mp3", icon: "📢", category: "classic" },
+            { name: "Censor Beep", url: "https://cdn.instants.meme/2026/01/18/censor-beep.mp3", icon: "🔇", category: "classic" },
+            { name: "Ding", url: "https://cdn.instants.meme/2026/01/18/ding-sound-effect.mp3", icon: "🔔", category: "classic" },
+            { name: "Punch", url: "https://cdn.instants.meme/2026/01/18/punch-sound.mp3", icon: "👊", category: "classic" },
+            { name: "Fart", url: "https://cdn.instants.meme/2026/01/18/fart.mp3", icon: "💨", category: "classic" },
+            { name: "Taco Bell Bong", url: "https://cdn.instants.meme/2026/01/18/taco-bell-bong.mp3", icon: "🔔", category: "classic" },
+            { name: "Discord Notif", url: "https://cdn.instants.meme/2026/01/18/discord-notification.mp3", icon: "💬", category: "classic" },
+            { name: "Discord Call", url: "https://cdn.instants.meme/2026/01/19/discord-call.mp3", icon: "📞", category: "classic" },
+            { name: "Metal Pipe", url: "https://cdn.instants.meme/2026/01/18/metal-pipe-clang.mp3", icon: "🔩", category: "classic" },
+            { name: "Instagram Thud", url: "https://cdn.instants.meme/2026/01/18/instagram-thud.mp3", icon: "📱", category: "classic" },
+            { name: "Meme Sound", url: "https://cdn.instants.meme/2026/01/18/meme.mp3", icon: "🎭", category: "classic" },
+            { name: "Apple Pay", url: "https://cdn.instants.meme/2026/01/18/apple-pay.mp3", icon: "💳", category: "classic" },
+            { name: "67", url: "https://cdn.instants.meme/2026/01/18/67.mp3", icon: "🔢", category: "classic" },
+            { name: "Lobotomy Sound", url: "https://cdn.instants.meme/2026/01/18/lobotomy-sound-effect.mp3", icon: "🧠", category: "classic" },
+            { name: "Anime Ahh", url: "https://cdn.instants.meme/2026/01/18/anime-ahh.mp3", icon: "🌸", category: "classic" },
+            { name: "Awkward Cricket", url: "https://cdn.instants.meme/2026/01/19/awkward-cricket.mp3", icon: "🦗", category: "classic" },
+            { name: "Discord Leave", url: "https://cdn.instants.meme/2026/01/18/discord-leave-noise.mp3", icon: "🚪", category: "classic" },
+            { name: "Mouse Click", url: "https://cdn.instants.meme/2026/01/18/mouse-click-sound.mp3", icon: "🖱️", category: "classic" },
+            { name: "Fnaf Music Box", url: "https://cdn.instants.meme/2026/01/19/fnaf-1-music-box.mp3", icon: "🎭", category: "classic" },
+            { name: "GTA Wasted", url: "https://cdn.instants.meme/2026/01/19/gta-v-wasted.mp3", icon: "💀", category: "classic" },
+            { name: "Pluh", url: "https://cdn.instants.meme/2026/01/18/pluh.mp3", icon: "🗣️", category: "classic" },
+            { name: "Iphone Notif", url: "https://cdn.instants.meme/2026/01/18/iphone-notification.mp3", icon: "📱", category: "classic" },
+
+            { name: "Emotional Damage", url: "https://cdn.instants.meme/2026/01/18/emotional-damage-meme.mp3", icon: "😱", category: "viral" },
+            { name: "Tuco Get Out", url: "https://cdn.instants.meme/2026/01/18/tuco-get-out.mp3", icon: "🏃", category: "viral" },
+            { name: "Galaxy Meme", url: "https://cdn.instants.meme/2026/01/18/galaxy-meme.mp3", icon: "🌌", category: "viral" },
+            { name: "Spider-Man Song", url: "https://cdn.instants.meme/2026/01/18/spiderman-meme-song.mp3", icon: "🕷️", category: "viral" },
+            { name: "Rizz Sound", url: "https://cdn.instants.meme/2026/01/18/rizz-sound-effect.mp3", icon: "😎", category: "viral" },
+            { name: "Run Vine", url: "https://cdn.instants.meme/2026/01/18/run-vine.mp3", icon: "🏃", category: "viral" },
+            { name: "Wide Putin", url: "https://cdn.instants.meme/2026/01/19/wide-putin-meme.mp3", icon: "🇷🇺", category: "viral" },
+            { name: "Weeknd Rizz", url: "https://cdn.instants.meme/2026/01/18/the-weeknd-rizzz.mp3", icon: "🎤", category: "viral" },
+            { name: "Social Credit", url: "https://cdn.instants.meme/2026/01/18/999-social-credit-siren.mp3", icon: "🚨", category: "viral" },
+            { name: "Oh My God Bro", url: "https://cdn.instants.meme/2026/01/18/oh-my-god-bro-oh-hell-nah-man.mp3", icon: "😤", category: "viral" },
+            { name: "Zvuk Litvina", url: "https://cdn.instants.meme/2026/01/18/zvuk-litvina.mp3", icon: "🇱🇹", category: "viral" },
+            { name: "Mr Beast Money", url: "https://cdn.instants.meme/2026/01/19/mr-beast-give-me-sum-money.mp3", icon: "💰", category: "viral" },
+            { name: "Skibidi Toilet", url: "https://cdn.instants.meme/2026/01/18/my-mommy-said-no-more-skibidi-toilet.mp3", icon: "🚽", category: "viral" },
+            { name: "Asian Huh", url: "https://cdn.instants.meme/2026/01/18/asian-meme-huh.mp3", icon: "🤔", category: "viral" },
+            { name: "Womp Womp", url: "https://cdn.instants.meme/2026/01/19/womp-womp-womp.mp3", icon: "😢", category: "viral" },
+            { name: "Vizg Svini", url: "https://cdn.instants.meme/2026/01/19/vizg-svini.mp3", icon: "🐷", category: "viral" },
+            { name: "Gudok Poezda", url: "https://cdn.instants.meme/2026/01/19/gudok-poezda.mp3", icon: "🚂", category: "viral" },
+            { name: "Yeah Boiii", url: "https://cdn.instants.meme/2026/01/18/yeah-boiii-i-i-i.mp3", icon: "🎉", category: "viral" },
+            { name: "Let Me Know", url: "https://cdn.instants.meme/2026/01/18/let-me-know.mp3", icon: "📢", category: "viral" },
+            { name: "Mac Quack", url: "https://cdn.instants.meme/2026/01/18/mac-quack.mp3", icon: "🦆", category: "viral" },
+            { name: "Huh Ceeday", url: "https://cdn.instants.meme/2026/01/18/huh-ceeday.mp3", icon: "❓", category: "viral" },
+            { name: "Haha Funny Laugh", url: "https://cdn.instants.meme/2026/01/18/haha-funny-laugh.mp3", icon: "😂", category: "viral" },
+            { name: "Heavenly Music", url: "https://cdn.instants.meme/2026/01/18/heavenly-musiic.mp3", icon: "😇", category: "viral" },
+            { name: "Core Sound", url: "https://cdn.instants.meme/2026/01/18/core-sound-effect.mp3", icon: "🎯", category: "viral" },
+            { name: "We Are Charlie Kirk", url: "https://cdn.instants.meme/2026/01/18/we-are-charlie-kirk.mp3", icon: "📢", category: "viral" },
+            { name: "Pop Sfx", url: "https://cdn.instants.meme/2026/01/19/pop-sfx.mp3", icon: "🔊", category: "viral" },
+            { name: "Na Na Na", url: "https://cdn.instants.meme/2026/01/18/na-na-na.mp3", icon: "🎵", category: "viral" },
+
+            { name: "Among Us Reveal", url: "https://cdn.instants.meme/2026/01/18/among-us-role-reveal-sound.mp3", icon: "ඞ", category: "gaming" },
+            { name: "Fortnite Death", url: "https://cdn.instants.meme/2026/01/18/death-sound-fortnite.mp3", icon: "💀", category: "gaming" },
+            { name: "Mario Jump", url: "https://cdn.instants.meme/2026/01/18/mario-jump.mp3", icon: "🍄", category: "gaming" },
+            { name: "Prowler", url: "https://cdn.instants.meme/2026/01/18/prowler-sound-effect.mp3", icon: "🕷️", category: "gaming" },
+            { name: "Brainrot Troll", url: "https://cdn.instants.meme/2026/01/19/strawberry-elephant-spawn-troll-steal-a-brainrot.mp3", icon: "🧠", category: "gaming" },
+            { name: "67 Kid", url: "https://cdn.instants.meme/2026/01/19/67-kid.mp3", icon: "👶", category: "gaming" },
+            { name: "Goku Drip", url: "https://cdn.instants.meme/2026/01/18/goku-drip.mp3", icon: "🐉", category: "gaming" },
+            { name: "Low Honor RDR2", url: "https://cdn.instants.meme/2026/01/18/low-honor-rdr-2.mp3", icon: "🤠", category: "gaming" },
+            { name: "Lagging Loading", url: "https://cdn.instants.meme/2026/01/18/lagging-loading.mp3", icon: "⏳", category: "gaming" },
+            { name: "Daddyy Chill", url: "https://cdn.instants.meme/2026/01/18/daddyy-chill.mp3", icon: "🧊", category: "gaming" },
+            { name: "Stranger Things Clock", url: "https://cdn.instants.meme/2026/01/18/stranger-things-clock-sound.mp3", icon: "⏰", category: "gaming" },
+            { name: "Correct Answer", url: "https://cdn.instants.meme/2026/01/18/correct-answer-gameshow.mp3", icon: "✅", category: "gaming" },
+            { name: "Smoke Detector Beep", url: "https://cdn.instants.meme/2026/01/18/smoke-detector-beep.mp3", icon: "🚨", category: "gaming" },
+            { name: "Man Snoring", url: "https://cdn.instants.meme/2026/01/19/man-snoring-meme.mp3", icon: "😴", category: "gaming" },
+            { name: "He He He Ha", url: "https://cdn.instants.meme/2026/01/18/he-he-he-ha-clash-royale-deep-fried.mp3", icon: "👑", category: "gaming" },
+            { name: "Lego Breaking", url: "https://cdn.instants.meme/2026/01/18/lego-breaking.mp3", icon: "🧱", category: "gaming" },
+
+            { name: "Anime Wow", url: "https://cdn.instants.meme/2026/01/18/anime-wow.mp3", icon: "😮", category: "anime" },
+            { name: "Huh Cat", url: "https://cdn.instants.meme/2026/01/19/huh-cat.mp3", icon: "🙀", category: "anime" },
+            { name: "MEOW", url: "https://cdn.instants.meme/2026/01/18/m-e-o-w.mp3", icon: "🐱", category: "anime" },
+            { name: "Wow Anime", url: "https://cdn.instants.meme/2026/01/19/wow-anime-meme.mp3", icon: "😮", category: "anime" },
+            { name: "Where Are You Going", url: "https://cdn.instants.meme/2026/01/19/where-are-you-goingg.mp3", icon: "🏃", category: "anime" },
+            { name: "Michael Dont Leave", url: "https://cdn.instants.meme/2026/01/18/michael-dont-leave-me-here.mp3", icon: "😢", category: "anime" },
+            { name: "We Are Charlie Kirk Loud", url: "https://cdn.instants.meme/2026/01/18/we-are-charlie-kirk-loud-asf.mp3", icon: "📢", category: "anime" },
+            { name: "Ngakak Laugh", url: "https://cdn.instants.meme/2026/01/18/ngakak-laugh-annoying.mp3", icon: "😂", category: "anime" },
+            { name: "YAAAAAAAAY", url: "https://cdn.instants.meme/2026/01/18/yaaaaaaaay.mp3", icon: "🎉", category: "anime" },
+            { name: "Mambo Anime", url: "https://cdn.instants.meme/2026/01/19/mamboman-bo-shi-ge-ju-matikanetannhauser.mp3", icon: "🎵", category: "anime" },
+            { name: "Fahhhhh", url: "https://cdn.instants.meme/2026/01/18/fahhhhh.mp3", icon: "😫", category: "anime" },
+            { name: "Please Speed", url: "https://cdn.instants.meme/2026/01/18/please-speed-i-need-this.mp3", icon: "🏎️", category: "anime" },
+            { name: "City Boy", url: "https://cdn.instants.meme/2026/01/18/city-boy.mp3", icon: "🏙️", category: "anime" },
+            { name: "Lizard Button", url: "https://cdn.instants.meme/2026/01/18/lizard-button.mp3", icon: "🦎", category: "anime" },
+
+            { name: "SpongeBob Fail", url: "https://cdn.instants.meme/2026/01/18/spongebob-fail.mp3", icon: "🧽", category: "funny" },
+            { name: "Snore Mimimi", url: "https://cdn.instants.meme/2026/01/18/snore-mimimimimimi.mp3", icon: "😴", category: "funny" },
+            { name: "Baby Laughing", url: "https://cdn.instants.meme/2026/01/18/baby-laughing-meme.mp3", icon: "👶", category: "funny" },
+            { name: "Cat Laugh", url: "https://cdn.instants.meme/2026/01/18/cat-laugh-meme-1.mp3", icon: "🐱", category: "funny" },
+            { name: "Sad Meow", url: "https://cdn.instants.meme/2026/01/18/sad-meow-song.mp3", icon: "😿", category: "funny" },
+            { name: "Door Knocking", url: "https://cdn.instants.meme/2026/01/18/door-knocking-sound-effect.mp3", icon: "🚪", category: "funny" },
+            { name: "SpongeBob Later", url: "https://cdn.instants.meme/2026/01/18/a-few-moments-later-sponge-bob-sfx-fun.mp3", icon: "⏱️", category: "funny" },
+            { name: "ACK", url: "https://cdn.instants.meme/2026/01/18/ack.mp3", icon: "😠", category: "funny" },
+            { name: "Romance", url: "https://cdn.instants.meme/2026/01/18/romanceeeeeeeeeeeeee.mp3", icon: "💕", category: "funny" },
+            { name: "Oh Brother Stinks", url: "https://cdn.instants.meme/2026/01/18/oh-brother-this-guy-stinks.mp3", icon: "🤢", category: "funny" },
+            { name: "GopGopGop", url: "https://cdn.instants.meme/2026/01/18/gopgopgop.mp3", icon: "🗣️", category: "funny" },
+            { name: "Im Bout To Eat", url: "https://cdn.instants.meme/2026/01/18/im-bout-to-eat-this-chick-fil-a.mp3", icon: "🍗", category: "funny" },
+            { name: "Aaaa Lutador", url: "https://cdn.instants.meme/2026/01/18/aaaaaaaaaaaaaaaaaaaa-e-lutador.mp3", icon: "🤼", category: "funny" },
+
+            { name: "Shocked Sound", url: "https://cdn.instants.meme/2026/01/18/shocked-sound.mp3", icon: "😲", category: "effects" },
+            { name: "Metal Pipe Falling", url: "https://cdn.instants.meme/2026/01/18/jixaw-metal-pipe-falling-sound.mp3", icon: "🪠", category: "effects" },
+            { name: "Apple Pay Sound", url: "https://cdn.instants.meme/2026/01/19/apple-pay-sound.mp3", icon: "🍎", category: "effects" },
+            { name: "Slap Hard", url: "https://cdn.instants.meme/2026/01/18/slap-hard.mp3", icon: "👋", category: "effects" },
+            { name: "Fahhhhhhhh Earrape", url: "https://cdn.instants.meme/2026/01/18/fahhhhhhhh-earrape.mp3", icon: "🔊", category: "effects" },
+            { name: "Fahhhhhhhhhh", url: "https://cdn.instants.meme/2026/01/18/fahhhhhhhhhhhhhhh.mp3", icon: "🔊", category: "effects" },
+            { name: "Skachai Maks", url: "https://cdn.instants.meme/2026/01/19/skachai-maks.mp3", icon: "🎵", category: "effects" },
+            { name: "Zvuk Fotoapparata", url: "https://cdn.instants.meme/2026/01/18/zvuk-fotoapparata.mp3", icon: "📷", category: "effects" },
+            { name: "Undertaker Bell", url: "https://cdn.instants.meme/2026/01/18/the-undertaker-bell.mp3", icon: "🔔", category: "effects" },
+            { name: "Skeleton Banging", url: "https://cdn.instants.meme/2026/01/18/skeleton-banging.mp3", icon: "💀", category: "effects" },
+            { name: "Whip", url: "https://cdn.instants.meme/2026/01/18/whip.mp3", icon: "🪢", category: "effects" },
+            { name: "Enrique", url: "https://cdn.instants.meme/2026/01/18/enrique.mp3", icon: "🎵", category: "effects" },
+            { name: "Running Sound", url: "https://cdn.instants.meme/2026/01/19/running-sound.mp3", icon: "🏃", category: "effects" },
+            { name: "Bad to the Bone", url: "https://cdn.instants.meme/2026/01/18/bad-to-the-bone-meme.mp3", icon: "🎸", category: "effects" },
+            { name: "Skeleton Shield", url: "https://cdn.instants.meme/2026/01/18/skeleton-with-shield.mp3", icon: "🛡️", category: "effects" }
+        ];
+
+        // Audio Context & Analyzer
+        let audioContext;
+        let analyser;
+        let currentAudio = null;
+        let playingCount = 0;
+        let audioInitialized = false;
+
+        // Initialize Audio Context on first user interaction
+        function initAudioContext() {
+            if (audioInitialized) return;
+            
+            try {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                analyser = audioContext.createAnalyser();
+                analyser.fftSize = 256;
+                audioInitialized = true;
+            } catch (e) {
+                console.log('Audio context not supported');
+            }
+        }
+
+        // Resume Audio Context (needed for Chrome)
+        function resumeAudioContext() {
+            if (audioContext && audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            init3DBackground();
+            initVisualizer();
+            renderSounds(sounds);
+            initSearch();
+            initCategories();
+            updateStats();
+            
+            setTimeout(() => {
+                document.getElementById('loadingScreen').classList.add('hidden');
+            }, 1000);
+
+            // Initialize audio on first user interaction
+            document.addEventListener('click', () => {
+                initAudioContext();
+                resumeAudioContext();
+            }, { once: true });
+        });
+
+        // 3D Background Animation
+        function init3DBackground() {
+            const canvas = document.getElementById('bg-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const particles = [];
+            const particleCount = 100;
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    z: Math.random() * 1000,
+                    size: Math.random() * 3 + 1,
+                    speedX: (Math.random() - 0.5) * 0.5,
+                    speedY: (Math.random() - 0.5) * 0.5,
+                    speedZ: Math.random() * 2 + 1
+                });
+            }
+
+            function animate() {
+                ctx.fillStyle = 'rgba(10, 10, 15, 0.1)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                particles.forEach((p, i) => {
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    p.z -= p.speedZ;
+
+                    if (p.z <= 0) {
+                        p.z = 1000;
+                        p.x = Math.random() * canvas.width;
+                        p.y = Math.random() * canvas.height;
+                    }
+
+                    const scale = 1000 / p.z;
+                    const x2d = p.x * scale + canvas.width * (1 - scale);
+                    const y2d = p.y * scale + canvas.height * (1 - scale);
+                    const size2d = p.size * scale;
+
+                    ctx.beginPath();
+                    ctx.arc(x2d, y2d, size2d, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 0, 97, ${scale * 0.5})`;
+                    ctx.fill();
+
+                    // Draw connections
+                    particles.forEach((p2, j) => {
+                        if (i === j) return;
+                        const dx = p.x - p2.x;
+                        const dy = p.y - p2.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (dist < 100) {
+                            ctx.beginPath();
+                            ctx.moveTo(x2d, y2d);
+                            const scale2 = 1000 / p2.z;
+                            ctx.lineTo(p2.x * scale2 + canvas.width * (1 - scale2), p2.y * scale2 + canvas.height * (1 - scale2));
+                            ctx.strokeStyle = `rgba(0, 212, 255, ${(1 - dist / 100) * 0.3})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    });
+                });
+
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+
+        // Audio Visualizer
+        function initVisualizer() {
+            const canvas = document.getElementById('visualizer-overlay');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = 120;
+            canvas.height = 120;
+
+            function drawVisualizer() {
+                requestAnimationFrame(drawVisualizer);
+                
+                if (!analyser || !audioInitialized) {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    return;
+                }
+                
+                const bufferLength = analyser.frequencyBinCount;
+                const dataArray = new Uint8Array(bufferLength);
+                analyser.getByteFrequencyData(dataArray);
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                const centerX = canvas.width / 2;
+                const centerY = canvas.height / 2;
+                const radius = 30;
+
+                for (let i = 0; i < bufferLength; i++) {
+                    const barHeight = (dataArray[i] / 255) * 25;
+                    const angle = (i / bufferLength) * Math.PI * 2;
+                    
+                    const x1 = centerX + Math.cos(angle) * radius;
+                    const y1 = centerY + Math.sin(angle) * radius;
+                    const x2 = centerX + Math.cos(angle) * (radius + barHeight);
+                    const y2 = centerY + Math.sin(angle) * (radius + barHeight);
+
+                    ctx.beginPath();
+                    ctx.moveTo(x1, y1);
+                    ctx.lineTo(x2, y2);
+                    ctx.strokeStyle = `hsl(${i * 2}, 100%, 50%)`;
+                    ctx.lineWidth = 1.5;
+                    ctx.stroke();
+                }
+            }
+
+            drawVisualizer();
+        }
+
+        // Play Sound
+        function playSound(sound, card) {
+            // Initialize audio context on first user interaction
+            initAudioContext();
+            resumeAudioContext();
+
+            // Stop current audio if playing
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+                document.querySelectorAll('.sound-card.playing').forEach(c => c.classList.remove('playing'));
+                playingCount = 0;
+            }
+
+            const audio = new Audio();
+            audio.crossOrigin = "anonymous";
+            audio.preload = "auto";
+            audio.src = sound.url;
+            
+            audio.addEventListener('play', () => {
+                card.classList.add('playing');
+                playingCount++;
+                updateStats();
+            });
+
+            audio.addEventListener('ended', () => {
+                card.classList.remove('playing');
+                playingCount--;
+                updateStats();
+                currentAudio = null;
+            });
+
+            audio.addEventListener('error', (e) => {
+                console.error('Audio error:', e);
+                card.classList.remove('playing');
+                showToast('Error playing sound - try again');
+            });
+
+            // Try to connect to analyzer for visualizer (may fail due to CORS)
+            if (audioInitialized && analyser) {
+                try {
+                    const source = audioContext.createMediaElementSource(audio);
+                    source.connect(analyser);
+                    analyser.connect(audioContext.destination);
+                } catch (e) {
+                    // Ignore - will still play without visualizer
+                    console.log('Visualizer not connected');
+                }
+            }
+
+            // Play the audio
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(e => {
+                    console.error('Play failed:', e);
+                    // Try again without analyzer connection
+                    audio.play().catch(e2 => {
+                        console.error('Second play attempt failed:', e2);
+                    });
+                });
+            }
+            
+            currentAudio = audio;
+            createParticles(card);
+        }
+
+        // Create Particles on Click
+        function createParticles(element) {
+            const rect = element.getBoundingClientRect();
+            const colors = ['#ff0061', '#00d4ff', '#00ff88', '#9b51e0', '#ff6600'];
+
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = rect.left + rect.width / 2 + 'px';
+                particle.style.top = rect.top + rect.height / 2 + 'px';
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                const angle = Math.random() * Math.PI * 2;
+                const velocity = Math.random() * 100 + 50;
+                const tx = Math.cos(angle) * velocity;
+                const ty = Math.sin(angle) * velocity;
+                
+                particle.style.setProperty('--tx', tx + 'px');
+                particle.style.setProperty('--ty', ty + 'px');
+                
+                document.body.appendChild(particle);
+                
+                setTimeout(() => particle.remove(), 800);
+            }
+        }
+
+        // Render Sounds
+        function renderSounds(soundsToRender) {
+            const grid = document.getElementById('soundGrid');
+            grid.innerHTML = '';
+
+            soundsToRender.forEach((sound, index) => {
+                const card = document.createElement('div');
+                card.className = 'sound-card';
+                card.style.animationDelay = `${index * 0.05}s`;
+                
+                card.innerHTML = `
+                    <div class="sound-card-inner">
+                        <div class="sound-card-front">
+                            <div class="sound-icon">${sound.icon}</div>
+                            <div class="sound-name">${sound.name}</div>
+                            <div class="play-indicator">Click to Play</div>
+                            <div class="sound-waves">
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+                            </div>
+                        </div>
+                        <div class="sound-card-back">
+                            <div class="sound-icon" style="font-size: 2.5rem;">${sound.icon}</div>
+                            <div class="sound-name">${sound.name}</div>
+                            <button class="download-btn" onclick="event.stopPropagation(); downloadSound('${sound.url}', '${sound.name.replace(/'/g, "\\'")}', '${sound.category}', '${sound.icon}', this)">
+                                <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                                Download
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                card.addEventListener('click', () => playSound(sound, card));
+                grid.appendChild(card);
+            });
+
+            updateStats();
+        }
+
+        // Search
+        function initSearch() {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase();
+                const filtered = sounds.filter(s => 
+                    s.name.toLowerCase().includes(query) || 
+                    s.category.toLowerCase().includes(query)
+                );
+                renderSounds(filtered);
+            });
+        }
+
+        // Categories
+        function initCategories() {
+            const tabs = document.querySelectorAll('.category-tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    const category = tab.dataset.category;
+                    if (category === 'all') {
+                        renderSounds(sounds);
+                    } else {
+                        const filtered = sounds.filter(s => s.category === category);
+                        renderSounds(filtered);
+                    }
+                });
+            });
+        }
+
+        // Update Stats
+        function updateStats() {
+            document.getElementById('soundCount').textContent = sounds.length;
+            document.getElementById('playingCount').textContent = playingCount;
+        }
+
+        // Ad Modal State
+        let adModalActive = false;
+        let adTimerInterval = null;
+        let currentDownloadUrl = '';
+        let currentDownloadName = '';
+        const AD_DURATION = 10; // seconds
+
+        // Open Ad Modal
+        function openAdModal(url, name, category, icon) {
+            if (adModalActive) return;
+            
+            adModalActive = true;
+            currentDownloadUrl = url;
+            currentDownloadName = name;
+
+            // Set sound info
+            document.getElementById('adSoundIcon').textContent = icon;
+            document.getElementById('adSoundName').textContent = name;
+            document.getElementById('adSoundCategory').textContent = category;
+
+            // Reset modal state
+            document.getElementById('adTimer').textContent = AD_DURATION;
+            document.getElementById('adProgressFill').style.width = '0%';
+            document.getElementById('adDownloadBtn').classList.remove('active');
+            document.getElementById('adDownloadBtn').textContent = 'Watch Ad First';
+
+            // Show modal
+            document.getElementById('adModal').classList.add('active');
+
+            // Start timer
+            startAdTimer();
+        }
+
+        // Start Ad Timer
+        function startAdTimer() {
+            let timeLeft = AD_DURATION;
+            const timerEl = document.getElementById('adTimer');
+            const progressFill = document.getElementById('adProgressFill');
+            const downloadBtn = document.getElementById('adDownloadBtn');
+
+            // Clear any existing interval
+            if (adTimerInterval) {
+                clearInterval(adTimerInterval);
+            }
+
+            adTimerInterval = setInterval(() => {
+                timeLeft--;
+                timerEl.textContent = timeLeft;
+                
+                // Update progress bar
+                const progress = ((AD_DURATION - timeLeft) / AD_DURATION) * 100;
+                progressFill.style.width = progress + '%';
+
+                if (timeLeft <= 0) {
+                    clearInterval(adTimerInterval);
+                    adTimerInterval = null;
+                    
+                    // Enable download button
+                    downloadBtn.classList.add('active');
+                    downloadBtn.textContent = 'Download Now';
+                    timerEl.textContent = '✓';
+                    timerEl.style.color = 'var(--neon-green)';
+                }
+            }, 1000);
+        }
+
+        // Close Ad Modal
+        function closeAdModal() {
+            adModalActive = false;
+            document.getElementById('adModal').classList.remove('active');
+            
+            if (adTimerInterval) {
+                clearInterval(adTimerInterval);
+                adTimerInterval = null;
+            }
+        }
+
+        // Download Single Sound (with Ad)
+        async function downloadSound(url, name, category, icon, btn) {
+            // Open ad modal first
+            openAdModal(url, name, category, icon);
+        }
+
+        // Actual Download Function (called after ad)
+        async function performDownload() {
+            const url = currentDownloadUrl;
+            const name = currentDownloadName;
+
+            try {
+                const response = await fetch(url);
+                const blob = await response.blob();
+                const downloadUrl = URL.createObjectURL(blob);
+                
+                const a = document.createElement('a');
+                a.href = downloadUrl;
+                a.download = name.replace(/[^a-z0-9]/gi, '_').toLowerCase() + '.mp3';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(downloadUrl);
+
+                showToast(`${name} downloaded!`);
+            } catch (error) {
+                console.error('Download failed:', error);
+                window.open(url, '_blank');
+                showToast('Opening in new tab...');
+            }
+
+            closeAdModal();
+        }
+
+        // Download All Sounds (with Ads)
+        async function downloadAllSounds() {
+            const btn = document.getElementById('downloadAllBtn');
+            btn.disabled = true;
+
+            for (let i = 0; i < sounds.length; i++) {
+                const sound = sounds[i];
+                
+                // Wait for ad modal to be closed for each sound
+                await new Promise((resolve) => {
+                    const checkModal = setInterval(() => {
+                        if (!adModalActive) {
+                            clearInterval(checkModal);
+                            resolve();
+                        }
+                    }, 100);
+                });
+
+                // Show progress
+                showToast(`Ready to download ${i + 1}/${sounds.length}: ${sound.name}`);
+                
+                // Open ad modal for this sound
+                openAdModal(sound.url, sound.name, sound.category, sound.icon);
+                
+                // Wait a bit before next sound
+                await new Promise(resolve => setTimeout(resolve, 500));
+            }
+
+            btn.disabled = false;
+            showToast('All sounds downloaded!');
+        }
+
+        // Show Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Initialize Event Listeners
+        document.getElementById('downloadAllBtn').addEventListener('click', downloadAllSounds);
+        document.getElementById('adCloseBtn').addEventListener('click', closeAdModal);
+        document.getElementById('adDownloadBtn').addEventListener('click', performDownload);
+
+        // Close modal on overlay click
+        document.getElementById('adModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('adModal')) {
+                closeAdModal();
+            }
+        });
+    </script>
+</body>
+</html>
