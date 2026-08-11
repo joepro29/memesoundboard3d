@@ -1179,126 +1179,736 @@
     <script>
         // Sound Data - 101 sounds from instants.meme
         const sounds = [
-            { name: "Vine Boom", url: "https://cdn.instants.meme/2026/01/18/vine-boom-sound.mp3", icon: "💥", category: "classic" },
-            { name: "Bruh", url: "https://cdn.instants.meme/2026/01/18/bruh.mp3", icon: "🤦", category: "classic" },
-            { name: "Sad Violin", url: "https://cdn.instants.meme/2026/01/18/sad-violin-the-meme-one.mp3", icon: "🎻", category: "classic" },
-            { name: "MLG Air Horn", url: "https://cdn.instants.meme/2026/01/18/mlg-air-horn.mp3", icon: "📯", category: "classic" },
-            { name: "Sanctuary Guardian", url: "https://cdn.instants.meme/2026/01/18/what-bottom-text-meme-sanctuary-guardian-s.mp3", icon: "🏛️", category: "classic" },
-            { name: "Dun Dun Dun", url: "https://cdn.instants.meme/2026/01/18/dun-dun-dunnnnnnnn.mp3", icon: "🥁", category: "classic" },
-            { name: "Metal Gear Alert", url: "https://cdn.instants.meme/2026/01/18/metal-gear-solid-alert.mp3", icon: "⚠️", category: "classic" },
-            { name: "Outro Song", url: "https://cdn.instants.meme/2026/01/18/outro-song.mp3", icon: "🎵", category: "classic" },
-            { name: "Buzzer", url: "https://cdn.instants.meme/2026/01/18/buzzer.mp3", icon: "📢", category: "classic" },
-            { name: "Censor Beep", url: "https://cdn.instants.meme/2026/01/18/censor-beep.mp3", icon: "🔇", category: "classic" },
-            { name: "Ding", url: "https://cdn.instants.meme/2026/01/18/ding-sound-effect.mp3", icon: "🔔", category: "classic" },
-            { name: "Punch", url: "https://cdn.instants.meme/2026/01/18/punch-sound.mp3", icon: "👊", category: "classic" },
-            { name: "Fart", url: "https://cdn.instants.meme/2026/01/18/fart.mp3", icon: "💨", category: "classic" },
-            { name: "Taco Bell Bong", url: "https://cdn.instants.meme/2026/01/18/taco-bell-bong.mp3", icon: "🔔", category: "classic" },
-            { name: "Discord Notif", url: "https://cdn.instants.meme/2026/01/18/discord-notification.mp3", icon: "💬", category: "classic" },
-            { name: "Discord Call", url: "https://cdn.instants.meme/2026/01/19/discord-call.mp3", icon: "📞", category: "classic" },
-            { name: "Metal Pipe", url: "https://cdn.instants.meme/2026/01/18/metal-pipe-clang.mp3", icon: "🔩", category: "classic" },
-            { name: "Instagram Thud", url: "https://cdn.instants.meme/2026/01/18/instagram-thud.mp3", icon: "📱", category: "classic" },
-            { name: "Meme Sound", url: "https://cdn.instants.meme/2026/01/18/meme.mp3", icon: "🎭", category: "classic" },
-            { name: "Apple Pay", url: "https://cdn.instants.meme/2026/01/18/apple-pay.mp3", icon: "💳", category: "classic" },
-            { name: "67", url: "https://cdn.instants.meme/2026/01/18/67.mp3", icon: "🔢", category: "classic" },
-            { name: "Lobotomy Sound", url: "https://cdn.instants.meme/2026/01/18/lobotomy-sound-effect.mp3", icon: "🧠", category: "classic" },
-            { name: "Anime Ahh", url: "https://cdn.instants.meme/2026/01/18/anime-ahh.mp3", icon: "🌸", category: "classic" },
-            { name: "Awkward Cricket", url: "https://cdn.instants.meme/2026/01/19/awkward-cricket.mp3", icon: "🦗", category: "classic" },
-            { name: "Discord Leave", url: "https://cdn.instants.meme/2026/01/18/discord-leave-noise.mp3", icon: "🚪", category: "classic" },
-            { name: "Mouse Click", url: "https://cdn.instants.meme/2026/01/18/mouse-click-sound.mp3", icon: "🖱️", category: "classic" },
-            { name: "Fnaf Music Box", url: "https://cdn.instants.meme/2026/01/19/fnaf-1-music-box.mp3", icon: "🎭", category: "classic" },
-            { name: "GTA Wasted", url: "https://cdn.instants.meme/2026/01/19/gta-v-wasted.mp3", icon: "💀", category: "classic" },
-            { name: "Pluh", url: "https://cdn.instants.meme/2026/01/18/pluh.mp3", icon: "🗣️", category: "classic" },
-            { name: "Iphone Notif", url: "https://cdn.instants.meme/2026/01/18/iphone-notification.mp3", icon: "📱", category: "classic" },
+            { name: "67", url: "https://cdn.instants.meme/2026/01/18/67.mp3", icon: "💥", category: "classic" }
+            { name: "67 Estourado", url: "https://cdn.instants.meme/2026/01/18/67-estourado.mp3", icon: "🤦", category: "viral" }
+            { name: "67 Gazan", url: "https://cdn.instants.meme/2026/01/18/67-gazan.mp3", icon: "🎻", category: "gaming" }
+            { name: "67 Harry", url: "https://cdn.instants.meme/2026/01/18/67-harry.mp3", icon: "📯", category: "anime" }
+            { name: "67 Kid Phonk", url: "https://cdn.instants.meme/2026/01/18/67-kid-phonk.mp3", icon: "🏛️", category: "funny" }
+            { name: "67 King", url: "https://cdn.instants.meme/2026/01/18/67-king.mp3", icon: "🥁", category: "effects" }
+            { name: "67 Meme", url: "https://cdn.instants.meme/2026/01/18/67-meme.mp3", icon: "⚠️", category: "classic" }
+            { name: "67 Merry Rizzmas", url: "https://cdn.instants.meme/2026/01/18/67-merry-rizzmas.mp3", icon: "🎵", category: "viral" }
+            { name: "67 Steal A Brainrot", url: "https://cdn.instants.meme/2026/01/18/67-steal-a-brainrot.mp3", icon: "📢", category: "gaming" }
+            { name: "999 Social Credit Siren", url: "https://cdn.instants.meme/2026/01/18/999-social-credit-siren.mp3", icon: "🔇", category: "anime" }
+            { name: "Aaaaaaaaaaaaaaaaaa", url: "https://cdn.instants.meme/2026/01/18/aaaaaaaaaaaaaaaaaa.mp3", icon: "🔔", category: "funny" }
+            { name: "Aaaaaaaaaaaaaaaaaaaaa", url: "https://cdn.instants.meme/2026/01/18/aaaaaaaaaaaaaaaaaaaaa.mp3", icon: "👊", category: "effects" }
+            { name: "Aaaaaaaaaaaaaaaaaaaa E Lutador", url: "https://cdn.instants.meme/2026/01/18/aaaaaaaaaaaaaaaaaaaa-e-lutador.mp3", icon: "💨", category: "classic" }
+            { name: "Aaaaaaaaaaaaaaaaaaaa Zapchon", url: "https://cdn.instants.meme/2026/01/18/aaaaaaaaaaaaaaaaaaaa-zapchon.mp3", icon: "💬", category: "viral" }
+            { name: "Aaaaaaaaaaaaaaaaaah", url: "https://cdn.instants.meme/2026/01/18/aaaaaaaaaaaaaaaaaah.mp3", icon: "📞", category: "gaming" }
+            { name: "Aaaaaaaaaaaaaaaaaah E S", url: "https://cdn.instants.meme/2026/01/18/aaaaaaaaaaaaaaaaaah-e-s.mp3", icon: "🔩", category: "anime" }
+            { name: "Ack", url: "https://cdn.instants.meme/2026/01/18/ack.mp3", icon: "📱", category: "funny" }
+            { name: "A Few Moments Later Sponge Bob Sfx Fun", url: "https://cdn.instants.meme/2026/01/18/a-few-moments-later-sponge-bob-sfx-fun.mp3", icon: "🎭", category: "effects" }
+            { name: "Among Us Role Reveal Sound", url: "https://cdn.instants.meme/2026/01/18/among-us-role-reveal-sound.mp3", icon: "💳", category: "classic" }
+            { name: "Anime Ahh", url: "https://cdn.instants.meme/2026/01/18/anime-ahh.mp3", icon: "🔢", category: "viral" }
+            { name: "Anime Wow", url: "https://cdn.instants.meme/2026/01/18/anime-wow.mp3", icon: "🧠", category: "gaming" }
+            { name: "Apple Pay", url: "https://cdn.instants.meme/2026/01/18/apple-pay.mp3", icon: "🌸", category: "anime" }
+            { name: "Arthur Morgan Bad To The Bone Cbt", url: "https://cdn.instants.meme/2026/01/18/arthur-morgan-bad-to-the-bone-cbt.mp3", icon: "🦗", category: "funny" }
+            { name: "Asian Meme Huh", url: "https://cdn.instants.meme/2026/01/18/asian-meme-huh.mp3", icon: "🚪", category: "effects" }
+            { name: "Baby Laughing Meme", url: "https://cdn.instants.meme/2026/01/18/baby-laughing-meme.mp3", icon: "🖱️", category: "classic" }
+            { name: "Bad To The Bone Apple Ios Riff Low Qual", url: "https://cdn.instants.meme/2026/01/18/bad-to-the-bone-apple-ios-riff-low-qual.mp3", icon: "💀", category: "viral" }
+            { name: "Bad To The Bone Bass Boosted", url: "https://cdn.instants.meme/2026/01/18/bad-to-the-bone-bass-boosted.mp3", icon: "🗣️", category: "gaming" }
+            { name: "Bad To The Bone But Louder", url: "https://cdn.instants.meme/2026/01/18/bad-to-the-bone-but-louder.mp3", icon: "😱", category: "anime" }
+            { name: "Bad To The Bone Extended", url: "https://cdn.instants.meme/2026/01/18/bad-to-the-bone-extended.mp3", icon: "🏃", category: "funny" }
+            { name: "Bad To The Bone Guys", url: "https://cdn.instants.meme/2026/01/18/bad-to-the-bone-guys.mp3", icon: "🌌", category: "effects" }
+            { name: "Bad To The Bone Meme", url: "https://cdn.instants.meme/2026/01/18/bad-to-the-bone-meme.mp3", icon: "🕷️", category: "classic" }
+            { name: "Bad To The Bone Opening Riff", url: "https://cdn.instants.meme/2026/01/18/bad-to-the-bone-opening-riff.mp3", icon: "😎", category: "viral" }
+            { name: "Bad To The Boner Boi", url: "https://cdn.instants.meme/2026/01/18/bad-to-the-boner-boi.mp3", icon: "🇷🇺", category: "gaming" }
+            { name: "Bad To The Bone Riff Sped Up", url: "https://cdn.instants.meme/2026/01/18/bad-to-the-bone-riff-sped-up.mp3", icon: "🎤", category: "anime" }
+            { name: "Bad To The Bone Shrinking", url: "https://cdn.instants.meme/2026/01/18/bad-to-the-bone-shrinking.mp3", icon: "🚨", category: "funny" }
+            { name: "Bruh", url: "https://cdn.instants.meme/2026/01/18/bruh.mp3", icon: "😤", category: "effects" }
+            { name: "Buzzer", url: "https://cdn.instants.meme/2026/01/18/buzzer.mp3", icon: "🇱🇹", category: "classic" }
+            { name: "Cat Laugh Meme 1", url: "https://cdn.instants.meme/2026/01/18/cat-laugh-meme-1.mp3", icon: "💰", category: "viral" }
+            { name: "Censor Beep", url: "https://cdn.instants.meme/2026/01/18/censor-beep.mp3", icon: "🚽", category: "gaming" }
+            { name: "Chalo", url: "https://cdn.instants.meme/2026/01/18/chalo.mp3", icon: "🤔", category: "anime" }
+            { name: "Chicken On Tree Screaming", url: "https://cdn.instants.meme/2026/01/18/chicken-on-tree-screaming.mp3", icon: "😢", category: "funny" }
+            { name: "City Boy", url: "https://cdn.instants.meme/2026/01/18/city-boy.mp3", icon: "🐷", category: "effects" }
+            { name: "Core Sound Effect", url: "https://cdn.instants.meme/2026/01/18/core-sound-effect.mp3", icon: "🚂", category: "classic" }
+            { name: "Daddychill", url: "https://cdn.instants.meme/2026/01/18/daddychill.mp3", icon: "🎉", category: "viral" }
+            { name: "Daddyy Chill", url: "https://cdn.instants.meme/2026/01/18/daddyy-chill.mp3", icon: "📢", category: "gaming" }
+            { name: "Death Sound Fortnite", url: "https://cdn.instants.meme/2026/01/18/death-sound-fortnite.mp3", icon: "🦆", category: "anime" }
+            { name: "Dexter Meme", url: "https://cdn.instants.meme/2026/01/18/dexter-meme.mp3", icon: "❓", category: "funny" }
+            { name: "Ding Sound Effect", url: "https://cdn.instants.meme/2026/01/18/ding-sound-effect.mp3", icon: "😂", category: "effects" }
+            { name: "Discord Leave Noise", url: "https://cdn.instants.meme/2026/01/18/discord-leave-noise.mp3", icon: "😇", category: "classic" }
+            { name: "Discord Notification", url: "https://cdn.instants.meme/2026/01/18/discord-notification.mp3", icon: "🎯", category: "viral" }
+            { name: "Door Knocking Sound Effect", url: "https://cdn.instants.meme/2026/01/18/door-knocking-sound-effect.mp3", icon: "🔊", category: "gaming" }
+            { name: "Dun Dun Dunnnnnnnn", url: "https://cdn.instants.meme/2026/01/18/dun-dun-dunnnnnnnn.mp3", icon: "🎵", category: "anime" }
+            { name: "Emotional Damage Meme", url: "https://cdn.instants.meme/2026/01/18/emotional-damage-meme.mp3", icon: "ඞ", category: "funny" }
+            { name: "Enrique", url: "https://cdn.instants.meme/2026/01/18/enrique.mp3", icon: "🍄", category: "effects" }
+            { name: "Faaaaaaaaaah Gunshot", url: "https://cdn.instants.meme/2026/01/18/faaaaaaaaaah-gunshot.mp3", icon: "🧱", category: "classic" }
+            { name: "Faaaaaa Fioti", url: "https://cdn.instants.meme/2026/01/18/faaaaaa-fioti.mp3", icon: "😮", category: "viral" }
+            { name: "Faaaaac", url: "https://cdn.instants.meme/2026/01/18/faaaaac.mp3", icon: "🙀", category: "gaming" }
+            { name: "Faaaaaeaeaeh", url: "https://cdn.instants.meme/2026/01/18/faaaaaeaeaeh.mp3", icon: "🐱", category: "anime" }
+            { name: "Faaaaaieeerrrr", url: "https://cdn.instants.meme/2026/01/18/faaaaaieeerrrr.mp3", icon: "🏎️", category: "funny" }
+            { name: "Faaaaaq Biiiiich", url: "https://cdn.instants.meme/2026/01/18/faaaaaq-biiiiich.mp3", icon: "🏙️", category: "effects" }
+            { name: "Faaaah", url: "https://cdn.instants.meme/2026/01/18/faaaah.mp3", icon: "🦎", category: "classic" }
+            { name: "Faaaa W Pump Shotgun", url: "https://cdn.instants.meme/2026/01/18/faaaa-w-pump-shotgun.mp3", icon: "🧽", category: "viral" }
+            { name: "Faaah", url: "https://cdn.instants.meme/2026/01/18/faaah.mp3", icon: "😴", category: "gaming" }
+            { name: "Faaah Bass Boosted", url: "https://cdn.instants.meme/2026/01/18/faaah-bass-boosted.mp3", icon: "👶", category: "anime" }
+            { name: "Faaahhh", url: "https://cdn.instants.meme/2026/01/18/faaahhh.mp3", icon: "😿", category: "funny" }
+            { name: "Faaahhhhhhhhhhhh", url: "https://cdn.instants.meme/2026/01/18/faaahhhhhhhhhhhh.mp3", icon: "⏱️", category: "effects" }
+            { name: "Faaah O Original Encontrado", url: "https://cdn.instants.meme/2026/01/18/faaah-o-original-encontrado.mp3", icon: "😠", category: "classic" }
+            { name: "Faah 1", url: "https://cdn.instants.meme/2026/01/18/faah-1.mp3", icon: "💕", category: "viral" }
+            { name: "Faahhhh Slowed And Reverbed", url: "https://cdn.instants.meme/2026/01/18/faahhhh-slowed-and-reverbed.mp3", icon: "🤢", category: "gaming" }
+            { name: "Faah Reverb", url: "https://cdn.instants.meme/2026/01/18/faah-reverb.mp3", icon: "🤼", category: "anime" }
+            { name: "Faah Slowed", url: "https://cdn.instants.meme/2026/01/18/faah-slowed.mp3", icon: "😲", category: "funny" }
+            { name: "Faah Sped Up", url: "https://cdn.instants.meme/2026/01/18/faah-sped-up.mp3", icon: "🪠", category: "effects" }
+            { name: "Faaoh Arigato", url: "https://cdn.instants.meme/2026/01/18/faaoh-arigato.mp3", icon: "🍎", category: "classic" }
+            { name: "Fahhh", url: "https://cdn.instants.meme/2026/01/18/fahhh.mp3", icon: "👋", category: "viral" }
+            { name: "Fahhhhh", url: "https://cdn.instants.meme/2026/01/18/fahhhhh.mp3", icon: "📷", category: "gaming" }
+            { name: "Fahhhhhhhh Earrape", url: "https://cdn.instants.meme/2026/01/18/fahhhhhhhh-earrape.mp3", icon: "🪢", category: "anime" }
+            { name: "Fahhhhhhhhhhhhhh", url: "https://cdn.instants.meme/2026/01/18/fahhhhhhhhhhhhhh.mp3", icon: "💥", category: "funny" }
+            { name: "Fahhhhhhhhhhhhhhh", url: "https://cdn.instants.meme/2026/01/18/fahhhhhhhhhhhhhhh.mp3", icon: "🤦", category: "effects" }
+            { name: "Fart", url: "https://cdn.instants.meme/2026/01/18/fart.mp3", icon: "🎻", category: "classic" }
+            { name: "Galaxy Meme", url: "https://cdn.instants.meme/2026/01/18/galaxy-meme.mp3", icon: "📯", category: "viral" }
+            { name: "Goku Drip", url: "https://cdn.instants.meme/2026/01/18/goku-drip.mp3", icon: "🏛️", category: "gaming" }
+            { name: "Gopgopgop", url: "https://cdn.instants.meme/2026/01/18/gopgopgop.mp3", icon: "🥁", category: "anime" }
+            { name: "Haha Funny Laugh", url: "https://cdn.instants.meme/2026/01/18/haha-funny-laugh.mp3", icon: "⚠️", category: "funny" }
+            { name: "Heavenly Musiic", url: "https://cdn.instants.meme/2026/01/18/heavenly-musiic.mp3", icon: "🎵", category: "effects" }
+            { name: "Heavenly Sheesh", url: "https://cdn.instants.meme/2026/01/18/heavenly-sheesh.mp3", icon: "📢", category: "classic" }
+            { name: "He He He Ha Clash Royale Deep Fried", url: "https://cdn.instants.meme/2026/01/18/he-he-he-ha-clash-royale-deep-fried.mp3", icon: "🔇", category: "viral" }
+            { name: "Heh Yeah Boii", url: "https://cdn.instants.meme/2026/01/18/heh-yeah-boii.mp3", icon: "🔔", category: "gaming" }
+            { name: "Huh Ceeday", url: "https://cdn.instants.meme/2026/01/18/huh-ceeday.mp3", icon: "👊", category: "anime" }
+            { name: "I Got This Fahhhhhh", url: "https://cdn.instants.meme/2026/01/18/i-got-this-fahhhhhh.mp3", icon: "💨", category: "funny" }
+            { name: "Im Bout To Eat This Chick Fil A", url: "https://cdn.instants.meme/2026/01/18/im-bout-to-eat-this-chick-fil-a.mp3", icon: "💬", category: "effects" }
+            { name: "Indian Song", url: "https://cdn.instants.meme/2026/01/18/indian-song.mp3", icon: "📞", category: "classic" }
+            { name: "Instagram Thud", url: "https://cdn.instants.meme/2026/01/18/instagram-thud.mp3", icon: "🔩", category: "viral" }
+            { name: "Iphone Notification", url: "https://cdn.instants.meme/2026/01/18/iphone-notification.mp3", icon: "📱", category: "gaming" }
+            { name: "Jixaw Metal Pipe Falling Sound", url: "https://cdn.instants.meme/2026/01/18/jixaw-metal-pipe-falling-sound.mp3", icon: "🎭", category: "anime" }
+            { name: "Lagging Loading", url: "https://cdn.instants.meme/2026/01/18/lagging-loading.mp3", icon: "💳", category: "funny" }
+            { name: "Let Me Know", url: "https://cdn.instants.meme/2026/01/18/let-me-know.mp3", icon: "🔢", category: "effects" }
+            { name: "Lil Yeah Boiii Dixie", url: "https://cdn.instants.meme/2026/01/18/lil-yeah-boiii-dixie.mp3", icon: "🧠", category: "classic" }
+            { name: "Lil Yeah Boiiii", url: "https://cdn.instants.meme/2026/01/18/lil-yeah-boiiii.mp3", icon: "🌸", category: "viral" }
+            { name: "Lil Yeah Boiiiii", url: "https://cdn.instants.meme/2026/01/18/lil-yeah-boiiiii.mp3", icon: "🦗", category: "gaming" }
+            { name: "Lil Yeah Boiiiii Queta", url: "https://cdn.instants.meme/2026/01/18/lil-yeah-boiiiii-queta.mp3", icon: "🚪", category: "anime" }
+            { name: "Lil Yeah Boiii Organic", url: "https://cdn.instants.meme/2026/01/18/lil-yeah-boiii-organic.mp3", icon: "🖱️", category: "funny" }
+            { name: "Lizard Button", url: "https://cdn.instants.meme/2026/01/18/lizard-button.mp3", icon: "💀", category: "effects" }
+            { name: "Lobotomy Sound Effect", url: "https://cdn.instants.meme/2026/01/18/lobotomy-sound-effect.mp3", icon: "🗣️", category: "classic" }
+            { name: "Low Honor Rdr 2", url: "https://cdn.instants.meme/2026/01/18/low-honor-rdr-2.mp3", icon: "😱", category: "viral" }
+            { name: "Mac Quack", url: "https://cdn.instants.meme/2026/01/18/mac-quack.mp3", icon: "🏃", category: "gaming" }
+            { name: "Mario Jump", url: "https://cdn.instants.meme/2026/01/18/mario-jump.mp3", icon: "🌌", category: "anime" }
+            { name: "Meme", url: "https://cdn.instants.meme/2026/01/18/meme.mp3", icon: "🕷️", category: "funny" }
+            { name: "M E O W", url: "https://cdn.instants.meme/2026/01/18/m-e-o-w.mp3", icon: "😎", category: "effects" }
+            { name: "Metal Gear Solid Alert", url: "https://cdn.instants.meme/2026/01/18/metal-gear-solid-alert.mp3", icon: "🇷🇺", category: "classic" }
+            { name: "Metal Pipe Clang", url: "https://cdn.instants.meme/2026/01/18/metal-pipe-clang.mp3", icon: "🎤", category: "viral" }
+            { name: "Michael Dont Leave Me Here", url: "https://cdn.instants.meme/2026/01/18/michael-dont-leave-me-here.mp3", icon: "🚨", category: "gaming" }
+            { name: "Michael Dont Leave Me Here Higher Pitch", url: "https://cdn.instants.meme/2026/01/18/michael-dont-leave-me-here-higher-pitch.mp3", icon: "😤", category: "anime" }
+            { name: "Michel Dont Leave Me Here Toad", url: "https://cdn.instants.meme/2026/01/18/michel-dont-leave-me-here-toad.mp3", icon: "🇱🇹", category: "funny" }
+            { name: "Mlg Air Horn", url: "https://cdn.instants.meme/2026/01/18/mlg-air-horn.mp3", icon: "💰", category: "effects" }
+            { name: "Mouse Click Sound", url: "https://cdn.instants.meme/2026/01/18/mouse-click-sound.mp3", icon: "🚽", category: "classic" }
+            { name: "My Mommy Said No More", url: "https://cdn.instants.meme/2026/01/18/my-mommy-said-no-more.mp3", icon: "🤔", category: "viral" }
+            { name: "My Mommy Said No More Skibidi Toilet", url: "https://cdn.instants.meme/2026/01/18/my-mommy-said-no-more-skibidi-toilet.mp3", icon: "😢", category: "gaming" }
+            { name: "My Mommy Said No More Skibidi Toilet Loud Asf", url: "https://cdn.instants.meme/2026/01/18/my-mommy-said-no-more-skibidi-toilet-loud-asf.mp3", icon: "🐷", category: "anime" }
+            { name: "My Mommy Said No More Skibidi Toilet Part 2", url: "https://cdn.instants.meme/2026/01/18/my-mommy-said-no-more-skibidi-toilet-part-2.mp3", icon: "🚂", category: "funny" }
+            { name: "Ngakak Laugh Annoying", url: "https://cdn.instants.meme/2026/01/18/ngakak-laugh-annoying.mp3", icon: "🎉", category: "effects" }
+            { name: "Oh Brother This Guys Stinks Loud", url: "https://cdn.instants.meme/2026/01/18/oh-brother-this-guys-stinks-loud.mp3", icon: "📢", category: "classic" }
+            { name: "Oh Brother This Guy Stinks High", url: "https://cdn.instants.meme/2026/01/18/oh-brother-this-guy-stinks-high.mp3", icon: "🦆", category: "viral" }
+            { name: "Oh Brother This Guy Stinksss", url: "https://cdn.instants.meme/2026/01/18/oh-brother-this-guy-stinksss.mp3", icon: "❓", category: "gaming" }
+            { name: "Oh My God Bro Oh Hell Nah Man", url: "https://cdn.instants.meme/2026/01/18/oh-my-god-bro-oh-hell-nah-man.mp3", icon: "😂", category: "anime" }
+            { name: "Oh My God Meme", url: "https://cdn.instants.meme/2026/01/18/oh-my-god-meme.mp3", icon: "😇", category: "funny" }
+            { name: "Oi Oi Oe Oi A Eye Eye", url: "https://cdn.instants.meme/2026/01/18/oi-oi-oe-oi-a-eye-eye.mp3", icon: "🎯", category: "effects" }
+            { name: "Outro Song", url: "https://cdn.instants.meme/2026/01/18/outro-song.mp3", icon: "🔊", category: "classic" }
+            { name: "Please Speed", url: "https://cdn.instants.meme/2026/01/18/please-speed.mp3", icon: "🎵", category: "viral" }
+            { name: "Please Speed I Need This", url: "https://cdn.instants.meme/2026/01/18/please-speed-i-need-this.mp3", icon: "ඞ", category: "gaming" }
+            { name: "Pluh", url: "https://cdn.instants.meme/2026/01/18/pluh.mp3", icon: "🍄", category: "anime" }
+            { name: "Prowler Sound Effect", url: "https://cdn.instants.meme/2026/01/18/prowler-sound-effect.mp3", icon: "🧱", category: "funny" }
+            { name: "Punch Sound", url: "https://cdn.instants.meme/2026/01/18/punch-sound.mp3", icon: "😮", category: "effects" }
+            { name: "Rizz Sound Effect", url: "https://cdn.instants.meme/2026/01/18/rizz-sound-effect.mp3", icon: "🙀", category: "classic" }
+            { name: "Romanceeeeeeeeeeeeee", url: "https://cdn.instants.meme/2026/01/18/romanceeeeeeeeeeeeee.mp3", icon: "🐱", category: "viral" }
+            { name: "Run Vine", url: "https://cdn.instants.meme/2026/01/18/run-vine.mp3", icon: "🏎️", category: "gaming" }
+            { name: "Sad Meow Song", url: "https://cdn.instants.meme/2026/01/18/sad-meow-song.mp3", icon: "🏙️", category: "anime" }
+            { name: "Sad Violin The Meme One", url: "https://cdn.instants.meme/2026/01/18/sad-violin-the-meme-one.mp3", icon: "🦎", category: "funny" }
+            { name: "Shocked Sound", url: "https://cdn.instants.meme/2026/01/18/shocked-sound.mp3", icon: "🧽", category: "effects" }
+            { name: "Skeleton Banging", url: "https://cdn.instants.meme/2026/01/18/skeleton-banging.mp3", icon: "😴", category: "classic" }
+            { name: "Skeleton With Shield", url: "https://cdn.instants.meme/2026/01/18/skeleton-with-shield.mp3", icon: "👶", category: "viral" }
+            { name: "Slap Battles Slap", url: "https://cdn.instants.meme/2026/01/18/slap-battles-slap.mp3", icon: "😿", category: "gaming" }
+            { name: "Slap Hard", url: "https://cdn.instants.meme/2026/01/18/slap-hard.mp3", icon: "⏱️", category: "anime" }
+            { name: "Slap Mario Terminal Montage", url: "https://cdn.instants.meme/2026/01/18/slap-mario-terminal-montage.mp3", icon: "😠", category: "funny" }
+            { name: "Slap Sound Effect Funny Memes", url: "https://cdn.instants.meme/2026/01/18/slap-sound-effect-funny-memes.mp3", icon: "💕", category: "effects" }
+            { name: "Sleeping Snoring", url: "https://cdn.instants.meme/2026/01/18/sleeping-snoring.mp3", icon: "🤢", category: "classic" }
+            { name: "Smoke Detector Beep", url: "https://cdn.instants.meme/2026/01/18/smoke-detector-beep.mp3", icon: "🤼", category: "viral" }
+            { name: "Snore Mimimimimimi", url: "https://cdn.instants.meme/2026/01/18/snore-mimimimimimi.mp3", icon: "😲", category: "gaming" }
+            { name: "Snoring Guy", url: "https://cdn.instants.meme/2026/01/18/snoring-guy.mp3", icon: "🪠", category: "anime" }
+            { name: "Snoring With Whistle", url: "https://cdn.instants.meme/2026/01/18/snoring-with-whistle.mp3", icon: "🍎", category: "funny" }
+            { name: "Snoring Wolf Sfx", url: "https://cdn.instants.meme/2026/01/18/snoring-wolf-sfx.mp3", icon: "👋", category: "effects" }
+            { name: "Spiderman Meme Song", url: "https://cdn.instants.meme/2026/01/18/spiderman-meme-song.mp3", icon: "📷", category: "classic" }
+            { name: "Spongebob Fail", url: "https://cdn.instants.meme/2026/01/18/spongebob-fail.mp3", icon: "🪢", category: "viral" }
+            { name: "Stranger Things Clock Sound", url: "https://cdn.instants.meme/2026/01/18/stranger-things-clock-sound.mp3", icon: "💥", category: "gaming" }
+            { name: "Taco Bell Bong", url: "https://cdn.instants.meme/2026/01/18/taco-bell-bong.mp3", icon: "🤦", category: "anime" }
+            { name: "Theburntpeanut Hooray", url: "https://cdn.instants.meme/2026/01/18/theburntpeanut-hooray.mp3", icon: "🎻", category: "funny" }
+            { name: "The Undertaker Bell", url: "https://cdn.instants.meme/2026/01/18/the-undertaker-bell.mp3", icon: "📯", category: "effects" }
+            { name: "The Weeknd Rizzz", url: "https://cdn.instants.meme/2026/01/18/the-weeknd-rizzz.mp3", icon: "🏛️", category: "classic" }
+            { name: "Tuco Get Out", url: "https://cdn.instants.meme/2026/01/18/tuco-get-out.mp3", icon: "🥁", category: "viral" }
+            { name: "Vine Boom Sound", url: "https://cdn.instants.meme/2026/01/18/vine-boom-sound.mp3", icon: "⚠️", category: "gaming" }
+            { name: "We Are Charlie Kirk", url: "https://cdn.instants.meme/2026/01/18/we-are-charlie-kirk.mp3", icon: "🎵", category: "anime" }
+            { name: "We Are Charlie Kirk Loud Asf", url: "https://cdn.instants.meme/2026/01/18/we-are-charlie-kirk-loud-asf.mp3", icon: "📢", category: "funny" }
+            { name: "We Are Charlie Kirk Song", url: "https://cdn.instants.meme/2026/01/18/we-are-charlie-kirk-song.mp3", icon: "🔇", category: "effects" }
+            { name: "What Bottom Text Meme Sanctuary Guardian S", url: "https://cdn.instants.meme/2026/01/18/what-bottom-text-meme-sanctuary-guardian-s.mp3", icon: "🔔", category: "classic" }
+            { name: "Whip", url: "https://cdn.instants.meme/2026/01/18/whip.mp3", icon: "👊", category: "viral" }
+            { name: "Yaaaaaaaaaaaaaaaaaaa", url: "https://cdn.instants.meme/2026/01/18/yaaaaaaaaaaaaaaaaaaa.mp3", icon: "💨", category: "gaming" }
+            { name: "Yaaaaaaaay", url: "https://cdn.instants.meme/2026/01/18/yaaaaaaaay.mp3", icon: "💬", category: "anime" }
+            { name: "Yeah Boiii", url: "https://cdn.instants.meme/2026/01/18/yeah-boiii.mp3", icon: "📞", category: "funny" }
+            { name: "Yeah Boiiii", url: "https://cdn.instants.meme/2026/01/18/yeah-boiiii.mp3", icon: "🔩", category: "effects" }
+            { name: "Yeah Boiii I I I", url: "https://cdn.instants.meme/2026/01/18/yeah-boiii-i-i-i.mp3", icon: "📱", category: "classic" }
+            { name: "Yeah Boiii I I I Bass Boosted", url: "https://cdn.instants.meme/2026/01/18/yeah-boiii-i-i-i-bass-boosted.mp3", icon: "🎭", category: "viral" }
+            { name: "Yeah Boiii Organic", url: "https://cdn.instants.meme/2026/01/18/yeah-boiii-organic.mp3", icon: "💳", category: "gaming" }
+            { name: "Yes Lara Voice", url: "https://cdn.instants.meme/2026/01/18/yes-lara-voice.mp3", icon: "🔢", category: "anime" }
+            { name: "Your Phone Is Ringing Pick It Up Now", url: "https://cdn.instants.meme/2026/01/18/your-phone-is-ringing-pick-it-up-now.mp3", icon: "🧠", category: "funny" }
+            { name: "Yozgat Yarigi", url: "https://cdn.instants.meme/2026/01/18/yozgat-yarigi.mp3", icon: "🌸", category: "effects" }
+            { name: "Zvuk Fotoapparata", url: "https://cdn.instants.meme/2026/01/18/zvuk-fotoapparata.mp3", icon: "🦗", category: "classic" }
+            { name: "Zvuk Litvina", url: "https://cdn.instants.meme/2026/01/18/zvuk-litvina.mp3", icon: "🚪", category: "viral" }
+            { name: "67 Kid", url: "https://cdn.instants.meme/2026/01/19/67-kid.mp3", icon: "🖱️", category: "gaming" }
+            { name: "Apple Pay Sound", url: "https://cdn.instants.meme/2026/01/19/apple-pay-sound.mp3", icon: "💀", category: "anime" }
+            { name: "Asian Gong Music", url: "https://cdn.instants.meme/2026/01/19/asian-gong-music.mp3", icon: "🗣️", category: "funny" }
+            { name: "Awkward Cricket", url: "https://cdn.instants.meme/2026/01/19/awkward-cricket.mp3", icon: "😱", category: "effects" }
+            { name: "Correct Answer Gameshow", url: "https://cdn.instants.meme/2026/01/19/correct-answer-gameshow.mp3", icon: "🏃", category: "classic" }
+            { name: "Discord Call", url: "https://cdn.instants.meme/2026/01/19/discord-call.mp3", icon: "🌌", category: "viral" }
+            { name: "Evolution Mega Knight", url: "https://cdn.instants.meme/2026/01/19/evolution-mega-knight.mp3", icon: "🕷️", category: "gaming" }
+            { name: "Fnaf 1 Music Box", url: "https://cdn.instants.meme/2026/01/19/fnaf-1-music-box.mp3", icon: "😎", category: "anime" }
+            { name: "Gta V Wasted", url: "https://cdn.instants.meme/2026/01/19/gta-v-wasted.mp3", icon: "🇷🇺", category: "funny" }
+            { name: "Gudok Poezda", url: "https://cdn.instants.meme/2026/01/19/gudok-poezda.mp3", icon: "🎤", category: "effects" }
+            { name: "Huh Cat", url: "https://cdn.instants.meme/2026/01/19/huh-cat.mp3", icon: "🚨", category: "classic" }
+            { name: "Mamboman Bo Shi Ge Ju Matikanetannhauser", url: "https://cdn.instants.meme/2026/01/19/mamboman-bo-shi-ge-ju-matikanetannhauser.mp3", icon: "😤", category: "viral" }
+            { name: "Man Snoring Meme", url: "https://cdn.instants.meme/2026/01/19/man-snoring-meme.mp3", icon: "🇱🇹", category: "gaming" }
+            { name: "Mr Beast Give Me Sum Money", url: "https://cdn.instants.meme/2026/01/19/mr-beast-give-me-sum-money.mp3", icon: "💰", category: "anime" }
+            { name: "Na Na Na", url: "https://cdn.instants.meme/2026/01/19/na-na-na.mp3", icon: "🚽", category: "funny" }
+            { name: "Ne Diyooo Oglum", url: "https://cdn.instants.meme/2026/01/19/ne-diyooo-oglum.mp3", icon: "🤔", category: "effects" }
+            { name: "Oh Brother This Guy Stinks", url: "https://cdn.instants.meme/2026/01/19/oh-brother-this-guy-stinks.mp3", icon: "😢", category: "classic" }
+            { name: "Pop Sfx", url: "https://cdn.instants.meme/2026/01/19/pop-sfx.mp3", icon: "🐷", category: "viral" }
+            { name: "Rahhh", url: "https://cdn.instants.meme/2026/01/19/rahhh.mp3", icon: "🚂", category: "gaming" }
+            { name: "Running Sound", url: "https://cdn.instants.meme/2026/01/19/running-sound.mp3", icon: "🎉", category: "anime" }
+            { name: "Skachai Maks", url: "https://cdn.instants.meme/2026/01/19/skachai-maks.mp3", icon: "📢", category: "funny" }
+            { name: "Strawberry Elephant Spawn Troll Steal A Brainrot", url: "https://cdn.instants.meme/2026/01/19/strawberry-elephant-spawn-troll-steal-a-brainrot.mp3", icon: "🦆", category: "effects" }
+            { name: "Vizg Svini", url: "https://cdn.instants.meme/2026/01/19/vizg-svini.mp3", icon: "❓", category: "classic" }
+            { name: "Where Are You Goingg", url: "https://cdn.instants.meme/2026/01/19/where-are-you-goingg.mp3", icon: "😂", category: "viral" }
+            { name: "Wide Putin Meme", url: "https://cdn.instants.meme/2026/01/19/wide-putin-meme.mp3", icon: "😇", category: "gaming" }
+            { name: "Womp Womp Womp", url: "https://cdn.instants.meme/2026/01/19/womp-womp-womp.mp3", icon: "🎯", category: "anime" }
+            { name: "Wow Anime Meme", url: "https://cdn.instants.meme/2026/01/19/wow-anime-meme.mp3", icon: "🔊", category: "funny" }
+            { name: "You Are An Idiot", url: "https://cdn.instants.meme/2026/01/19/you-are-an-idiot.mp3", icon: "🎵", category: "effects" }
+            { name: "Get Out", url: "https://cdn.instants.meme/2026/03/09/get-out.mp3", icon: "ඞ", category: "classic" }
+            { name: "Loud", url: "https://cdn.instants.meme/2026/03/09/loud.mp3", icon: "🍄", category: "viral" }
+            { name: "Chick", url: "https://cdn.instants.meme/2026/03/10/chick.mp3", icon: "🧱", category: "gaming" }
+            { name: "Happy New Year", url: "https://cdn.instants.meme/2026/03/10/happy-new-year.mp3", icon: "😮", category: "anime" }
+            { name: "Ive Got This Faaaaaaaaahhhhh", url: "https://cdn.instants.meme/2026/03/12/ive-got-this-faaaaaaaaahhhhh.mp3", icon: "🙀", category: "funny" }
+            { name: "Shut Up", url: "https://cdn.instants.meme/2026/03/12/shut-up.mp3", icon: "🐱", category: "effects" }
+            { name: "Error Soundss", url: "https://cdn.instants.meme/2026/03/13/error-soundss.mp3", icon: "🏎️", category: "classic" }
+            { name: "What A Good Boy", url: "https://cdn.instants.meme/2026/03/13/what-a-good-boy.mp3", icon: "🏙️", category: "viral" }
+            { name: "Goo Goo Gagaaa", url: "https://cdn.instants.meme/2026/03/14/goo-goo-gagaaa.mp3", icon: "🦎", category: "gaming" }
+            { name: "Im Bout To Cuhhhh", url: "https://cdn.instants.meme/2026/03/16/im-bout-to-cuhhhh.mp3", icon: "🧽", category: "anime" }
+            { name: "Rehehehe", url: "https://cdn.instants.meme/2026/03/16/rehehehe.mp3", icon: "😴", category: "funny" }
+            { name: "Anderdingus", url: "https://cdn.instants.meme/2026/03/17/anderdingus.mp3", icon: "👶", category: "effects" }
+            { name: "Diddy Done", url: "https://cdn.instants.meme/2026/03/17/diddy-done.mp3", icon: "😿", category: "classic" }
+            { name: "Lack Of A Father Figure", url: "https://cdn.instants.meme/2026/03/17/lack-of-a-father-figure.mp3", icon: "⏱️", category: "viral" }
+            { name: "Da Baby Lets Gooooooo", url: "https://cdn.instants.meme/2026/03/18/da-baby-lets-gooooooo.mp3", icon: "😠", category: "gaming" }
+            { name: "Roblox Oof", url: "https://cdn.instants.meme/2026/03/18/roblox-oof.mp3", icon: "💕", category: "anime" }
+            { name: "Vy Pozvonili Tsariu Batiushke", url: "https://cdn.instants.meme/2026/03/18/vy-pozvonili-tsariu-batiushke.mp3", icon: "🤢", category: "funny" }
+            { name: "15 On A Role Bro", url: "https://cdn.instants.meme/2026/03/19/15-on-a-role-bro.mp3", icon: "🤼", category: "effects" }
+            { name: "Aww", url: "https://cdn.instants.meme/2026/03/19/aww.mp3", icon: "😲", category: "classic" }
+            { name: "Yippeeeeeeeeeeeeee", url: "https://cdn.instants.meme/2026/03/19/yippeeeeeeeeeeeeee.mp3", icon: "🪠", category: "viral" }
+            { name: "Another One Dj Khaled", url: "https://cdn.instants.meme/2026/03/20/another-one-dj-khaled.mp3", icon: "🍎", category: "gaming" }
+            { name: "Green Giant", url: "https://cdn.instants.meme/2026/03/20/green-giant.mp3", icon: "👋", category: "anime" }
+            { name: "Mi Bombo", url: "https://cdn.instants.meme/2026/03/20/mi-bombo.mp3", icon: "📷", category: "funny" }
+            { name: "Fears To Fathom Notification Sound", url: "https://cdn.instants.meme/2026/03/23/fears-to-fathom-notification-sound.mp3", icon: "🪢", category: "effects" }
+            { name: "Meme Final", url: "https://cdn.instants.meme/2026/03/23/meme-final.mp3", icon: "💥", category: "classic" }
+            { name: "Subway Surfers Bass Boosted", url: "https://cdn.instants.meme/2026/03/23/subway-surfers-bass-boosted.mp3", icon: "🤦", category: "viral" }
+            { name: "Daddys Home", url: "https://cdn.instants.meme/2026/03/24/daddys-home.mp3", icon: "🎻", category: "gaming" }
+            { name: "Low Cortisol Song", url: "https://cdn.instants.meme/2026/03/24/low-cortisol-song.mp3", icon: "📯", category: "anime" }
+            { name: "Say Wallahi Bro", url: "https://cdn.instants.meme/2026/03/24/say-wallahi-bro.mp3", icon: "🏛️", category: "funny" }
+            { name: "500 Cigarettes Tiktok Version", url: "https://cdn.instants.meme/2026/03/25/500-cigarettes-tiktok-version.mp3", icon: "🥁", category: "effects" }
+            { name: "Ia Nikogo Ne Ubival", url: "https://cdn.instants.meme/2026/03/25/ia-nikogo-ne-ubival.mp3", icon: "⚠️", category: "classic" }
+            { name: "Danger Alarm Sound Effect Meme", url: "https://cdn.instants.meme/2026/03/26/danger-alarm-sound-effect-meme.mp3", icon: "🎵", category: "viral" }
+            { name: "Jeopardy Theme Song", url: "https://cdn.instants.meme/2026/03/26/jeopardy-theme-song.mp3", icon: "📢", category: "gaming" }
+            { name: "Lego Breaking", url: "https://cdn.instants.meme/2026/03/26/lego-breaking.mp3", icon: "🔇", category: "anime" }
+            { name: "Aaaaagg Olamaz Kadin Surucu", url: "https://cdn.instants.meme/2026/03/27/aaaaagg-olamaz-kadin-surucu.mp3", icon: "🔔", category: "funny" }
+            { name: "Cest Qui Liquide", url: "https://cdn.instants.meme/2026/03/27/cest-qui-liquide.mp3", icon: "👊", category: "effects" }
+            { name: "Sakupen Circles Scream", url: "https://cdn.instants.meme/2026/03/27/sakupen-circles-scream.mp3", icon: "💨", category: "classic" }
+            { name: "Baba Booey", url: "https://cdn.instants.meme/2026/03/31/baba-booey.mp3", icon: "💬", category: "viral" }
+            { name: "Pookie Bear", url: "https://cdn.instants.meme/2026/03/31/pookie-bear.mp3", icon: "📞", category: "gaming" }
+            { name: "Yippee Tbh", url: "https://cdn.instants.meme/2026/03/31/yippee-tbh.mp3", icon: "🔩", category: "anime" }
+            { name: "Guisell", url: "https://cdn.instants.meme/2026/04/01/guisell.mp3", icon: "📱", category: "funny" }
+            { name: "Il Fait Au Moins 8000", url: "https://cdn.instants.meme/2026/04/01/il-fait-au-moins-8000.mp3", icon: "🎭", category: "effects" }
+            { name: "Melodians", url: "https://cdn.instants.meme/2026/04/01/melodians.mp3", icon: "💳", category: "classic" }
+            { name: "2 Dj Scuffed Another One", url: "https://cdn.instants.meme/2026/05/04/2-dj-scuffed-another-one.mp3", icon: "🔢", category: "viral" }
+            { name: "500 Cigarette", url: "https://cdn.instants.meme/2026/05/04/500-cigarette.mp3", icon: "🧠", category: "gaming" }
+            { name: "500 Cigarettes 500 Cigarettes 500 Cigarettes", url: "https://cdn.instants.meme/2026/05/04/500-cigarettes-500-cigarettes-500-cigarettes.mp3", icon: "🌸", category: "anime" }
+            { name: "500 Cigarettes Meme", url: "https://cdn.instants.meme/2026/05/04/500-cigarettes-meme.mp3", icon: "🦗", category: "funny" }
+            { name: "500 Cigarettes Tiktok Version", url: "https://cdn.instants.meme/2026/05/04/500-cigarettes-tiktok-version.mp3", icon: "🚪", category: "effects" }
+            { name: "Aaaargg Five Days Left", url: "https://cdn.instants.meme/2026/05/04/aaaargg-five-days-left.mp3", icon: "🖱️", category: "classic" }
+            { name: "Alarm Danger Danger", url: "https://cdn.instants.meme/2026/05/04/alarm-danger-danger.mp3", icon: "💀", category: "viral" }
+            { name: "Alastor Says Baba Booey", url: "https://cdn.instants.meme/2026/05/04/alastor-says-baba-booey.mp3", icon: "🗣️", category: "gaming" }
+            { name: "Another One", url: "https://cdn.instants.meme/2026/05/04/another-one.mp3", icon: "😱", category: "anime" }
+            { name: "Another One Bites The Dust", url: "https://cdn.instants.meme/2026/05/04/another-one-bites-the-dust.mp3", icon: "🏃", category: "funny" }
+            { name: "Another One Fhfffff", url: "https://cdn.instants.meme/2026/05/04/another-one-fhfffff.mp3", icon: "🌌", category: "effects" }
+            { name: "Another One Thank You", url: "https://cdn.instants.meme/2026/05/04/another-one-thank-you.mp3", icon: "🕷️", category: "classic" }
+            { name: "Bababooey 2", url: "https://cdn.instants.meme/2026/05/04/bababooey-2.mp3", icon: "😎", category: "viral" }
+            { name: "Bababooey Pitched Up", url: "https://cdn.instants.meme/2026/05/04/bababooey-pitched-up.mp3", icon: "🇷🇺", category: "gaming" }
+            { name: "Bass Boosted Subway Surfers Level", url: "https://cdn.instants.meme/2026/05/04/bass-boosted-subway-surfers-level.mp3", icon: "🎤", category: "anime" }
+            { name: "Bass Boosted Subway Surfers Level 2", url: "https://cdn.instants.meme/2026/05/04/bass-boosted-subway-surfers-level-2.mp3", icon: "🚨", category: "funny" }
+            { name: "Bass Boosted Subway Surfers Level Max", url: "https://cdn.instants.meme/2026/05/04/bass-boosted-subway-surfers-level-max.mp3", icon: "😤", category: "effects" }
+            { name: "Colin Hanssons Baba Booey", url: "https://cdn.instants.meme/2026/05/04/colin-hanssons-baba-booey.mp3", icon: "🇱🇹", category: "classic" }
+            { name: "Djkhaled Anotherone", url: "https://cdn.instants.meme/2026/05/04/djkhaled-anotherone.mp3", icon: "💰", category: "viral" }
+            { name: "Intro Theme Jeopardy", url: "https://cdn.instants.meme/2026/05/04/intro-theme-jeopardy.mp3", icon: "🚽", category: "gaming" }
+            { name: "Jeopardy", url: "https://cdn.instants.meme/2026/05/04/jeopardy.mp3", icon: "🤔", category: "anime" }
+            { name: "Jeopardy Bass Boosted", url: "https://cdn.instants.meme/2026/05/04/jeopardy-bass-boosted.mp3", icon: "😢", category: "funny" }
+            { name: "Jeopardy Board Fill 2016", url: "https://cdn.instants.meme/2026/05/04/jeopardy-board-fill-2016.mp3", icon: "🐷", category: "effects" }
+            { name: "Jeopardy Flute", url: "https://cdn.instants.meme/2026/05/04/jeopardy-flute.mp3", icon: "🚂", category: "classic" }
+            { name: "Jeopardy Outro No Talking", url: "https://cdn.instants.meme/2026/05/04/jeopardy-outro-no-talking.mp3", icon: "🎉", category: "viral" }
+            { name: "Jeopardytheme", url: "https://cdn.instants.meme/2026/05/04/jeopardytheme.mp3", icon: "📢", category: "gaming" }
+            { name: "Jeopardy Theme Main Part Only", url: "https://cdn.instants.meme/2026/05/04/jeopardy-theme-main-part-only.mp3", icon: "🦆", category: "anime" }
+            { name: "Jeopardy Theme Swedish Version", url: "https://cdn.instants.meme/2026/05/04/jeopardy-theme-swedish-version.mp3", icon: "❓", category: "funny" }
+            { name: "Junayd Say Wallahi", url: "https://cdn.instants.meme/2026/05/04/junayd-say-wallahi.mp3", icon: "😂", category: "effects" }
+            { name: "Lan Baba Booey", url: "https://cdn.instants.meme/2026/05/04/lan-baba-booey.mp3", icon: "😇", category: "classic" }
+            { name: "Low Cortisol Meme", url: "https://cdn.instants.meme/2026/05/04/low-cortisol-meme.mp3", icon: "🎯", category: "viral" }
+            { name: "Low Cortisol Song 5 Seconds", url: "https://cdn.instants.meme/2026/05/04/low-cortisol-song-5-seconds.mp3", icon: "🔊", category: "gaming" }
+            { name: "Low Cortisol Speed Up", url: "https://cdn.instants.meme/2026/05/04/low-cortisol-speed-up.mp3", icon: "🎵", category: "anime" }
+            { name: "Mario Yipee", url: "https://cdn.instants.meme/2026/05/04/mario-yipee.mp3", icon: "ඞ", category: "funny" }
+            { name: "Me Corro Aaaaagh", url: "https://cdn.instants.meme/2026/05/04/me-corro-aaaaagh.mp3", icon: "🍄", category: "effects" }
+            { name: "Mi Bomba", url: "https://cdn.instants.meme/2026/05/04/mi-bomba.mp3", icon: "🧱", category: "classic" }
+            { name: "Mi Bombo Autotune Fade", url: "https://cdn.instants.meme/2026/05/04/mi-bombo-autotune-fade.mp3", icon: "😮", category: "viral" }
+            { name: "Mi Bomboclaut", url: "https://cdn.instants.meme/2026/05/04/mi-bomboclaut.mp3", icon: "🙀", category: "gaming" }
+            { name: "Mi Bombo Duolingo", url: "https://cdn.instants.meme/2026/05/04/mi-bombo-duolingo.mp3", icon: "🐱", category: "anime" }
+            { name: "Mibombo Fart", url: "https://cdn.instants.meme/2026/05/04/mibombo-fart.mp3", icon: "🏎️", category: "funny" }
+            { name: "Mi Bombo Impact", url: "https://cdn.instants.meme/2026/05/04/mi-bombo-impact.mp3", icon: "🏙️", category: "effects" }
+            { name: "Mi Bombo Loud Af", url: "https://cdn.instants.meme/2026/05/04/mi-bombo-loud-af.mp3", icon: "🦎", category: "classic" }
+            { name: "Mi Bombo Loud Boom", url: "https://cdn.instants.meme/2026/05/04/mi-bombo-loud-boom.mp3", icon: "🧽", category: "viral" }
+            { name: "Mi Bombo Sword", url: "https://cdn.instants.meme/2026/05/04/mi-bombo-sword.mp3", icon: "😴", category: "gaming" }
+            { name: "Mi Bombo Version Sepadelyia", url: "https://cdn.instants.meme/2026/05/04/mi-bombo-version-sepadelyia.mp3", icon: "👶", category: "anime" }
+            { name: "Mi Bombo With Fart", url: "https://cdn.instants.meme/2026/05/04/mi-bombo-with-fart.mp3", icon: "😿", category: "funny" }
+            { name: "Mi Bombo X Metal Pipe", url: "https://cdn.instants.meme/2026/05/04/mi-bombo-x-metal-pipe.mp3", icon: "⏱️", category: "effects" }
+            { name: "Mkb Aaaaag", url: "https://cdn.instants.meme/2026/05/04/mkb-aaaaag.mp3", icon: "😠", category: "classic" }
+            { name: "Outro Theme Jeopardy", url: "https://cdn.instants.meme/2026/05/04/outro-theme-jeopardy.mp3", icon: "💕", category: "viral" }
+            { name: "Sachin Pookie Bear", url: "https://cdn.instants.meme/2026/05/04/sachin-pookie-bear.mp3", icon: "🤢", category: "gaming" }
+            { name: "Sakupen 100 Loud", url: "https://cdn.instants.meme/2026/05/04/sakupen-100-loud.mp3", icon: "🤼", category: "anime" }
+            { name: "Sakupen 82 Scream Totalgd", url: "https://cdn.instants.meme/2026/05/04/sakupen-82-scream-totalgd.mp3", icon: "😲", category: "funny" }
+            { name: "Sakupen Circles", url: "https://cdn.instants.meme/2026/05/04/sakupen-circles.mp3", icon: "🪠", category: "effects" }
+            { name: "Saywalahi", url: "https://cdn.instants.meme/2026/05/04/saywalahi.mp3", icon: "🍎", category: "classic" }
+            { name: "Say Wallahi", url: "https://cdn.instants.meme/2026/05/04/say-wallahi.mp3", icon: "👋", category: "viral" }
+            { name: "Say Wallahi Bro Bass Boosted", url: "https://cdn.instants.meme/2026/05/04/say-wallahi-bro-bass-boosted.mp3", icon: "📷", category: "gaming" }
+            { name: "Say Wallahi Bro Say Wallahi", url: "https://cdn.instants.meme/2026/05/04/say-wallahi-bro-say-wallahi.mp3", icon: "🪢", category: "anime" }
+            { name: "Say Wallahi Bro Song", url: "https://cdn.instants.meme/2026/05/04/say-wallahi-bro-song.mp3", icon: "💥", category: "funny" }
+            { name: "Say Wallahi Im Not A Scary Thug", url: "https://cdn.instants.meme/2026/05/04/say-wallahi-im-not-a-scary-thug.mp3", icon: "🤦", category: "effects" }
+            { name: "Say Wallahi Ishowspeed", url: "https://cdn.instants.meme/2026/05/04/say-wallahi-ishowspeed.mp3", icon: "🎻", category: "classic" }
+            { name: "Subway Surfers Bass Boost", url: "https://cdn.instants.meme/2026/05/04/subway-surfers-bass-boost.mp3", icon: "📯", category: "viral" }
+            { name: "This Is Jeopardy", url: "https://cdn.instants.meme/2026/05/04/this-is-jeopardy.mp3", icon: "🏛️", category: "gaming" }
+            { name: "What Uhh", url: "https://cdn.instants.meme/2026/05/04/what-uhh.mp3", icon: "🥁", category: "anime" }
+            { name: "Yipee Jevil", url: "https://cdn.instants.meme/2026/05/04/yipee-jevil.mp3", icon: "⚠️", category: "funny" }
+            { name: "Yippeee", url: "https://cdn.instants.meme/2026/05/04/yippeee.mp3", icon: "🎵", category: "effects" }
+            { name: "Yippee Jazz", url: "https://cdn.instants.meme/2026/05/04/yippee-jazz.mp3", icon: "📢", category: "classic" }
+            { name: "Yippee Kay Yej", url: "https://cdn.instants.meme/2026/05/04/yippee-kay-yej.mp3", icon: "🔇", category: "viral" }
+            { name: "Yippee Ki Yay Mr Falcon", url: "https://cdn.instants.meme/2026/05/04/yippee-ki-yay-mr-falcon.mp3", icon: "🔔", category: "gaming" }
+            { name: "Yippee Robotniks Mean Bean Machine", url: "https://cdn.instants.meme/2026/05/04/yippee-robotniks-mean-bean-machine.mp3", icon: "👊", category: "anime" }
+            { name: "Yippee Sena", url: "https://cdn.instants.meme/2026/05/04/yippee-sena.mp3", icon: "💨", category: "funny" }
+            { name: "Yippee Teto", url: "https://cdn.instants.meme/2026/05/04/yippee-teto.mp3", icon: "💬", category: "effects" }
+            { name: "Yippe Mf", url: "https://cdn.instants.meme/2026/05/04/yippe-mf.mp3", icon: "📞", category: "classic" }
+            { name: "Yippieee", url: "https://cdn.instants.meme/2026/05/04/yippieee.mp3", icon: "🔩", category: "viral" }
+            { name: "Ahhhhhhhhh Anime", url: "https://cdn.instants.meme/2026/05/05/ahhhhhhhhh-anime.mp3", icon: "📱", category: "gaming" }
+            { name: "Anim Ahh", url: "https://cdn.instants.meme/2026/05/05/anim-ahh.mp3", icon: "🎭", category: "anime" }
+            { name: "Anime Ah", url: "https://cdn.instants.meme/2026/05/05/anime-ah.mp3", icon: "💳", category: "funny" }
+            { name: "Anime Ahhh", url: "https://cdn.instants.meme/2026/05/05/anime-ahhh.mp3", icon: "🔢", category: "effects" }
+            { name: "Anime Ahhhh", url: "https://cdn.instants.meme/2026/05/05/anime-ahhhh.mp3", icon: "🧠", category: "classic" }
+            { name: "Anime Ahhhhhhhghgh", url: "https://cdn.instants.meme/2026/05/05/anime-ahhhhhhhghgh.mp3", icon: "🌸", category: "viral" }
+            { name: "Anime Ahh Random Smth", url: "https://cdn.instants.meme/2026/05/05/anime-ahh-random-smth.mp3", icon: "🦗", category: "gaming" }
+            { name: "Anime Girl Ahh", url: "https://cdn.instants.meme/2026/05/05/anime-girl-ahh.mp3", icon: "🚪", category: "anime" }
+            { name: "Anime Scared Girl", url: "https://cdn.instants.meme/2026/05/05/anime-scared-girl.mp3", icon: "🖱️", category: "funny" }
+            { name: "Another Love Anime Ahh", url: "https://cdn.instants.meme/2026/05/05/another-love-anime-ahh.mp3", icon: "💀", category: "effects" }
+            { name: "Bass Boosted Metal Pipe", url: "https://cdn.instants.meme/2026/05/05/bass-boosted-metal-pipe.mp3", icon: "🗣️", category: "classic" }
+            { name: "Bruh 800 Slow", url: "https://cdn.instants.meme/2026/05/05/bruh-800-slow.mp3", icon: "😱", category: "viral" }
+            { name: "Bruh Bruh", url: "https://cdn.instants.meme/2026/05/05/bruh-bruh.mp3", icon: "🏃", category: "gaming" }
+            { name: "Bruh Fart Noise", url: "https://cdn.instants.meme/2026/05/05/bruh-fart-noise.mp3", icon: "🌌", category: "anime" }
+            { name: "Bruh Look At This Dude", url: "https://cdn.instants.meme/2026/05/05/bruh-look-at-this-dude.mp3", icon: "🕷️", category: "funny" }
+            { name: "Bruh Meme Remake", url: "https://cdn.instants.meme/2026/05/05/bruh-meme-remake.mp3", icon: "😎", category: "effects" }
+            { name: "Bruh Slow", url: "https://cdn.instants.meme/2026/05/05/bruh-slow.mp3", icon: "🇷🇺", category: "classic" }
+            { name: "Bruh Slow 2", url: "https://cdn.instants.meme/2026/05/05/bruh-slow-2.mp3", icon: "🎤", category: "viral" }
+            { name: "Bruh Sound Effect 2", url: "https://cdn.instants.meme/2026/05/05/bruh-sound-effect-2.mp3", icon: "🚨", category: "gaming" }
+            { name: "Bruh Sound Effect 4 No Delay", url: "https://cdn.instants.meme/2026/05/05/bruh-sound-effect-4-no-delay.mp3", icon: "😤", category: "anime" }
+            { name: "Bruh U Looking Real Sussy", url: "https://cdn.instants.meme/2026/05/05/bruh-u-looking-real-sussy.mp3", icon: "🇱🇹", category: "funny" }
+            { name: "Dababy", url: "https://cdn.instants.meme/2026/05/05/dababy.mp3", icon: "💰", category: "effects" }
+            { name: "Dababy Ha", url: "https://cdn.instants.meme/2026/05/05/dababy-ha.mp3", icon: "🚽", category: "classic" }
+            { name: "Dababy Is Sussy", url: "https://cdn.instants.meme/2026/05/05/dababy-is-sussy.mp3", icon: "🤔", category: "viral" }
+            { name: "Dababy Lets Go Bass Boosted Better Version", url: "https://cdn.instants.meme/2026/05/05/dababy-lets-go-bass-boosted-better-version.mp3", icon: "😢", category: "gaming" }
+            { name: "Da Baby Lets Gooo", url: "https://cdn.instants.meme/2026/05/05/da-baby-lets-gooo.mp3", icon: "🐷", category: "anime" }
+            { name: "Dababy Lets Gooooooooooooooooooooooooooo", url: "https://cdn.instants.meme/2026/05/05/dababy-lets-gooooooooooooooooooooooooooo.mp3", icon: "🚂", category: "funny" }
+            { name: "Da Baby Lets Go Varning Hogt", url: "https://cdn.instants.meme/2026/05/05/da-baby-lets-go-varning-hogt.mp3", icon: "🎉", category: "effects" }
+            { name: "Dababy Turn Into A Convertible", url: "https://cdn.instants.meme/2026/05/05/dababy-turn-into-a-convertible.mp3", icon: "📢", category: "classic" }
+            { name: "Dababy Turns Into A Convertible", url: "https://cdn.instants.meme/2026/05/05/dababy-turns-into-a-convertible.mp3", icon: "🦆", category: "viral" }
+            { name: "Da Baby Yea Yea", url: "https://cdn.instants.meme/2026/05/05/da-baby-yea-yea.mp3", icon: "❓", category: "gaming" }
+            { name: "Dababy Ye Ye", url: "https://cdn.instants.meme/2026/05/05/dababy-ye-ye.mp3", icon: "😂", category: "anime" }
+            { name: "Damian Singing We Are Charlie Kirk", url: "https://cdn.instants.meme/2026/05/05/damian-singing-we-are-charlie-kirk.mp3", icon: "😇", category: "funny" }
+            { name: "Digital Circus Bubble Ne Diyoon Oglum", url: "https://cdn.instants.meme/2026/05/05/digital-circus-bubble-ne-diyoon-oglum.mp3", icon: "🎯", category: "effects" }
+            { name: "Dun Dun", url: "https://cdn.instants.meme/2026/05/05/dun-dun.mp3", icon: "🔊", category: "classic" }
+            { name: "Dun Dun Du", url: "https://cdn.instants.meme/2026/05/05/dun-dun-du.mp3", icon: "🎵", category: "viral" }
+            { name: "Dun Dun Dun", url: "https://cdn.instants.meme/2026/05/05/dun-dun-dun.mp3", icon: "ඞ", category: "gaming" }
+            { name: "Dun Dun Dun Dun", url: "https://cdn.instants.meme/2026/05/05/dun-dun-dun-dun.mp3", icon: "🍄", category: "anime" }
+            { name: "Dun Dun Dun Dun Dun The End", url: "https://cdn.instants.meme/2026/05/05/dun-dun-dun-dun-dun-the-end.mp3", icon: "🧱", category: "funny" }
+            { name: "Dun Dun Dunnnnn", url: "https://cdn.instants.meme/2026/05/05/dun-dun-dunnnnn.mp3", icon: "😮", category: "effects" }
+            { name: "Dun Dun Dunnnnnn", url: "https://cdn.instants.meme/2026/05/05/dun-dun-dunnnnnn.mp3", icon: "🙀", category: "classic" }
+            { name: "Dun Dun Dun Rainbow Dash", url: "https://cdn.instants.meme/2026/05/05/dun-dun-dun-rainbow-dash.mp3", icon: "🐱", category: "viral" }
+            { name: "Dun Dun Dun The Blob", url: "https://cdn.instants.meme/2026/05/05/dun-dun-dun-the-blob.mp3", icon: "🏎️", category: "gaming" }
+            { name: "Dun Dun Dun Xd", url: "https://cdn.instants.meme/2026/05/05/dun-dun-dun-xd.mp3", icon: "🏙️", category: "anime" }
+            { name: "Dun Dun Duuun", url: "https://cdn.instants.meme/2026/05/05/dun-dun-duuun.mp3", icon: "🦎", category: "funny" }
+            { name: "Dun Dun Duuuuuun Ii", url: "https://cdn.instants.meme/2026/05/05/dun-dun-duuuuuun-ii.mp3", icon: "🧽", category: "effects" }
+            { name: "Eagle Rahhh", url: "https://cdn.instants.meme/2026/05/05/eagle-rahhh.mp3", icon: "😴", category: "classic" }
+            { name: "Faaahhhhhhhhhhhh", url: "https://cdn.instants.meme/2026/05/05/faaahhhhhhhhhhhh.mp3", icon: "👶", category: "viral" }
+            { name: "Fahhhhhhhhhhhhhhhhhhhh", url: "https://cdn.instants.meme/2026/05/05/fahhhhhhhhhhhhhhhhhhhh.mp3", icon: "😿", category: "gaming" }
+            { name: "Fahhhhhhhhhhhhhhhhhhhhhhh", url: "https://cdn.instants.meme/2026/05/05/fahhhhhhhhhhhhhhhhhhhhhhh.mp3", icon: "⏱️", category: "anime" }
+            { name: "Goofy Ahh Soundboard", url: "https://cdn.instants.meme/2026/05/05/goofy-ahh-soundboard.mp3", icon: "😠", category: "funny" }
+            { name: "Greene Giant", url: "https://cdn.instants.meme/2026/05/05/greene-giant.mp3", icon: "💕", category: "effects" }
+            { name: "Green Giant Backwards", url: "https://cdn.instants.meme/2026/05/05/green-giant-backwards.mp3", icon: "🤢", category: "classic" }
+            { name: "Green Giant No Ho Ho Ho", url: "https://cdn.instants.meme/2026/05/05/green-giant-no-ho-ho-ho.mp3", icon: "🤼", category: "viral" }
+            { name: "Ho Ho Ho Green Giant Reversed", url: "https://cdn.instants.meme/2026/05/05/ho-ho-ho-green-giant-reversed.mp3", icon: "😲", category: "gaming" }
+            { name: "Loud Alarm", url: "https://cdn.instants.meme/2026/05/05/loud-alarm.mp3", icon: "🪠", category: "anime" }
+            { name: "Loud Bang", url: "https://cdn.instants.meme/2026/05/05/loud-bang.mp3", icon: "🍎", category: "funny" }
+            { name: "Loud Bing Chilling", url: "https://cdn.instants.meme/2026/05/05/loud-bing-chilling.mp3", icon: "👋", category: "effects" }
+            { name: "Loud Explosion", url: "https://cdn.instants.meme/2026/05/05/loud-explosion.mp3", icon: "📷", category: "classic" }
+            { name: "Loud Fart", url: "https://cdn.instants.meme/2026/05/05/loud-fart.mp3", icon: "🪢", category: "viral" }
+            { name: "Loud Gay Scream", url: "https://cdn.instants.meme/2026/05/05/loud-gay-scream.mp3", icon: "💥", category: "gaming" }
+            { name: "Loud Jumpscare Scream", url: "https://cdn.instants.meme/2026/05/05/loud-jumpscare-scream.mp3", icon: "🤦", category: "anime" }
+            { name: "Loud Keyboard Spamming Sound Speedrun", url: "https://cdn.instants.meme/2026/05/05/loud-keyboard-spamming-sound-speedrun.mp3", icon: "🎻", category: "funny" }
+            { name: "Loud Metal Pipe Clang", url: "https://cdn.instants.meme/2026/05/05/loud-metal-pipe-clang.mp3", icon: "📯", category: "effects" }
+            { name: "Loud Noises", url: "https://cdn.instants.meme/2026/05/05/loud-noises.mp3", icon: "🏛️", category: "classic" }
+            { name: "Loud Phonk Lol", url: "https://cdn.instants.meme/2026/05/05/loud-phonk-lol.mp3", icon: "🥁", category: "viral" }
+            { name: "Loud Scream", url: "https://cdn.instants.meme/2026/05/05/loud-scream.mp3", icon: "⚠️", category: "gaming" }
+            { name: "Loud Shitpost Fart", url: "https://cdn.instants.meme/2026/05/05/loud-shitpost-fart.mp3", icon: "🎵", category: "anime" }
+            { name: "Loud Taco Bell Bong", url: "https://cdn.instants.meme/2026/05/05/loud-taco-bell-bong.mp3", icon: "📢", category: "funny" }
+            { name: "Loud Vine Boom Sound", url: "https://cdn.instants.meme/2026/05/05/loud-vine-boom-sound.mp3", icon: "🔇", category: "effects" }
+            { name: "Mega Knight Evolution", url: "https://cdn.instants.meme/2026/05/05/mega-knight-evolution.mp3", icon: "🔔", category: "classic" }
+            { name: "Metal Pipe", url: "https://cdn.instants.meme/2026/05/05/metal-pipe.mp3", icon: "👊", category: "viral" }
+            { name: "Metal Pipe Big Clangingsound Effect", url: "https://cdn.instants.meme/2026/05/05/metal-pipe-big-clangingsound-effect.mp3", icon: "💨", category: "gaming" }
+            { name: "Metal Pipe But Way Too Loud", url: "https://cdn.instants.meme/2026/05/05/metal-pipe-but-way-too-loud.mp3", icon: "💬", category: "anime" }
+            { name: "Metal Pipe Cut Off", url: "https://cdn.instants.meme/2026/05/05/metal-pipe-cut-off.mp3", icon: "📞", category: "funny" }
+            { name: "Metal Pipe Falling Spam", url: "https://cdn.instants.meme/2026/05/05/metal-pipe-falling-spam.mp3", icon: "🔩", category: "effects" }
+            { name: "Metal Pipe Low Quality", url: "https://cdn.instants.meme/2026/05/05/metal-pipe-low-quality.mp3", icon: "📱", category: "classic" }
+            { name: "Metal Pipe Meme But Louder", url: "https://cdn.instants.meme/2026/05/05/metal-pipe-meme-but-louder.mp3", icon: "🎭", category: "viral" }
+            { name: "Metal Pipe Smash", url: "https://cdn.instants.meme/2026/05/05/metal-pipe-smash.mp3", icon: "💳", category: "gaming" }
+            { name: "Metal Pipe Sound Sfx", url: "https://cdn.instants.meme/2026/05/05/metal-pipe-sound-sfx.mp3", icon: "🔢", category: "anime" }
+            { name: "Metal Pipe Sound Sfx 3", url: "https://cdn.instants.meme/2026/05/05/metal-pipe-sound-sfx-3.mp3", icon: "🧠", category: "funny" }
+            { name: "Metal Pipe X Blue Lobster", url: "https://cdn.instants.meme/2026/05/05/metal-pipe-x-blue-lobster.mp3", icon: "🌸", category: "effects" }
+            { name: "Ne Diyon Olumm", url: "https://cdn.instants.meme/2026/05/05/ne-diyon-olumm.mp3", icon: "🦗", category: "classic" }
+            { name: "Ne Diyoo Oglum", url: "https://cdn.instants.meme/2026/05/05/ne-diyoo-oglum.mp3", icon: "🚪", category: "viral" }
+            { name: "Omg Bruh", url: "https://cdn.instants.meme/2026/05/05/omg-bruh.mp3", icon: "🖱️", category: "gaming" }
+            { name: "Raahhh", url: "https://cdn.instants.meme/2026/05/05/raahhh.mp3", icon: "💀", category: "anime" }
+            { name: "Rahh", url: "https://cdn.instants.meme/2026/05/05/rahh.mp3", icon: "🗣️", category: "funny" }
+            { name: "Rahh Caldruki Style", url: "https://cdn.instants.meme/2026/05/05/rahh-caldruki-style.mp3", icon: "😱", category: "effects" }
+            { name: "Rahhhhhh", url: "https://cdn.instants.meme/2026/05/05/rahhhhhh.mp3", icon: "🏃", category: "classic" }
+            { name: "Rahhhhhhhh", url: "https://cdn.instants.meme/2026/05/05/rahhhhhhhh.mp3", icon: "🌌", category: "viral" }
+            { name: "Rahhhhhhhhhhh", url: "https://cdn.instants.meme/2026/05/05/rahhhhhhhhhhh.mp3", icon: "🕷️", category: "gaming" }
+            { name: "Rahhhhhhhhhhhh", url: "https://cdn.instants.meme/2026/05/05/rahhhhhhhhhhhh.mp3", icon: "😎", category: "anime" }
+            { name: "Rahhhhhhhhhhhhhh", url: "https://cdn.instants.meme/2026/05/05/rahhhhhhhhhhhhhh.mp3", icon: "🇷🇺", category: "funny" }
+            { name: "Rahhhhhhhhhhhhhhhhhhh", url: "https://cdn.instants.meme/2026/05/05/rahhhhhhhhhhhhhhhhhhh.mp3", icon: "🎤", category: "effects" }
+            { name: "Rahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh", url: "https://cdn.instants.meme/2026/05/05/rahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh.mp3", icon: "🚨", category: "classic" }
+            { name: "Rahhhhhhhhhhhhhhhhhhh Louder", url: "https://cdn.instants.meme/2026/05/05/rahhhhhhhhhhhhhhhhhhh-louder.mp3", icon: "😤", category: "viral" }
+            { name: "Rahhhhhhhhhhhhhhhh Pipi Lankous", url: "https://cdn.instants.meme/2026/05/05/rahhhhhhhhhhhhhhhh-pipi-lankous.mp3", icon: "🇱🇹", category: "gaming" }
+            { name: "Rahhhh Not As Distorted", url: "https://cdn.instants.meme/2026/05/05/rahhhh-not-as-distorted.mp3", icon: "💰", category: "anime" }
+            { name: "Rahhhh Yba", url: "https://cdn.instants.meme/2026/05/05/rahhhh-yba.mp3", icon: "🚽", category: "funny" }
+            { name: "Rahhh Skeleton", url: "https://cdn.instants.meme/2026/05/05/rahhh-skeleton.mp3", icon: "🤔", category: "effects" }
+            { name: "Rahhh Skeletons", url: "https://cdn.instants.meme/2026/05/05/rahhh-skeletons.mp3", icon: "😢", category: "classic" }
+            { name: "Salah Anime Ahh", url: "https://cdn.instants.meme/2026/05/05/salah-anime-ahh.mp3", icon: "🐷", category: "viral" }
+            { name: "The Loudest We Are Charlie Kirk Asf", url: "https://cdn.instants.meme/2026/05/05/the-loudest-we-are-charlie-kirk-asf.mp3", icon: "🚂", category: "gaming" }
+            { name: "Tom Rahhhhhhhhhhhhhhhhhh", url: "https://cdn.instants.meme/2026/05/05/tom-rahhhhhhhhhhhhhhhhhh.mp3", icon: "🎉", category: "anime" }
+            { name: "Very Loud Airhorn", url: "https://cdn.instants.meme/2026/05/05/very-loud-airhorn.mp3", icon: "📢", category: "funny" }
+            { name: "We Are Charlie Berg", url: "https://cdn.instants.meme/2026/05/05/we-are-charlie-berg.mp3", icon: "🦆", category: "effects" }
+            { name: "We Are Charliee Kirk", url: "https://cdn.instants.meme/2026/05/05/we-are-charliee-kirk.mp3", icon: "❓", category: "classic" }
+            { name: "We Are Charlie Kirk", url: "https://cdn.instants.meme/2026/05/05/we-are-charlie-kirk.mp3", icon: "😂", category: "viral" }
+            { name: "We Are Charlie Kirkkkk", url: "https://cdn.instants.meme/2026/05/05/we-are-charlie-kirkkkk.mp3", icon: "😇", category: "gaming" }
+            { name: "We Are Charlie Kirkkkkkkkkkkkkkkkkkkkkkkk", url: "https://cdn.instants.meme/2026/05/05/we-are-charlie-kirkkkkkkkkkkkkkkkkkkkkkkk.mp3", icon: "🎯", category: "anime" }
+            { name: "We Are Charlie Kirk Loud Asf", url: "https://cdn.instants.meme/2026/05/05/we-are-charlie-kirk-loud-asf.mp3", icon: "🔊", category: "funny" }
+            { name: "We Are Charlie Kirk Loud As Fah", url: "https://cdn.instants.meme/2026/05/05/we-are-charlie-kirk-loud-as-fah.mp3", icon: "🎵", category: "effects" }
+            { name: "We Are Charlie Kirk Nightcore Loud", url: "https://cdn.instants.meme/2026/05/05/we-are-charlie-kirk-nightcore-loud.mp3", icon: "ඞ", category: "classic" }
+            { name: "We Are Charlie Kirk Phone", url: "https://cdn.instants.meme/2026/05/05/we-are-charlie-kirk-phone.mp3", icon: "🍄", category: "viral" }
+            { name: "14 Baby Laughing Meme Franks Wear", url: "https://cdn.instants.meme/2026/05/06/14-baby-laughing-meme-franks-wear.mp3", icon: "🧱", category: "gaming" }
+            { name: "Anime Wow Bass Boosted", url: "https://cdn.instants.meme/2026/05/06/anime-wow-bass-boosted.mp3", icon: "😮", category: "anime" }
+            { name: "Anime Wow Male", url: "https://cdn.instants.meme/2026/05/06/anime-wow-male.mp3", icon: "🙀", category: "funny" }
+            { name: "Anime Wow No Background", url: "https://cdn.instants.meme/2026/05/06/anime-wow-no-background.mp3", icon: "🐱", category: "effects" }
+            { name: "Anime Wow Sound Effect Q", url: "https://cdn.instants.meme/2026/05/06/anime-wow-sound-effect-q.mp3", icon: "🏎️", category: "classic" }
+            { name: "Anime Wow Sound No Bgm Original", url: "https://cdn.instants.meme/2026/05/06/anime-wow-sound-no-bgm-original.mp3", icon: "🏙️", category: "viral" }
+            { name: "Apple Pay Failed", url: "https://cdn.instants.meme/2026/05/06/apple-pay-failed.mp3", icon: "🦎", category: "gaming" }
+            { name: "Apple Pay Jingle Bells", url: "https://cdn.instants.meme/2026/05/06/apple-pay-jingle-bells.mp3", icon: "🧽", category: "anime" }
+            { name: "Apple Pay Original", url: "https://cdn.instants.meme/2026/05/06/apple-pay-original.mp3", icon: "😴", category: "funny" }
+            { name: "Apple Pay Ping", url: "https://cdn.instants.meme/2026/05/06/apple-pay-ping.mp3", icon: "👶", category: "effects" }
+            { name: "Apple Pay Sound Affects", url: "https://cdn.instants.meme/2026/05/06/apple-pay-sound-affects.mp3", icon: "😿", category: "classic" }
+            { name: "Apple Pay Sound Kanz And Jevin", url: "https://cdn.instants.meme/2026/05/06/apple-pay-sound-kanz-and-jevin.mp3", icon: "⏱️", category: "viral" }
+            { name: "Asian Gong Music", url: "https://cdn.instants.meme/2026/05/06/asian-gong-music.mp3", icon: "😠", category: "gaming" }
+            { name: "Asian Gong Sound Chung", url: "https://cdn.instants.meme/2026/05/06/asian-gong-sound-chung.mp3", icon: "💕", category: "anime" }
+            { name: "Baby Crying Tears", url: "https://cdn.instants.meme/2026/05/06/baby-crying-tears.mp3", icon: "🤢", category: "funny" }
+            { name: "Babyfirst Tv Baby Laughing", url: "https://cdn.instants.meme/2026/05/06/babyfirst-tv-baby-laughing.mp3", icon: "🤼", category: "effects" }
+            { name: "Baby Laughing", url: "https://cdn.instants.meme/2026/05/06/baby-laughing.mp3", icon: "😲", category: "classic" }
+            { name: "Baby Laughing Aldeano", url: "https://cdn.instants.meme/2026/05/06/baby-laughing-aldeano.mp3", icon: "🪠", category: "viral" }
+            { name: "Baby Laughing Gen Alpha Comments", url: "https://cdn.instants.meme/2026/05/06/baby-laughing-gen-alpha-comments.mp3", icon: "🍎", category: "gaming" }
+            { name: "Baby Laughing Jj", url: "https://cdn.instants.meme/2026/05/06/baby-laughing-jj.mp3", icon: "👋", category: "anime" }
+            { name: "Baby Laughing Meme But Its Too Loud", url: "https://cdn.instants.meme/2026/05/06/baby-laughing-meme-but-its-too-loud.mp3", icon: "📷", category: "funny" }
+            { name: "Baby Laughing Meme Slowed", url: "https://cdn.instants.meme/2026/05/06/baby-laughing-meme-slowed.mp3", icon: "🪢", category: "effects" }
+            { name: "Baby Laughing Remix", url: "https://cdn.instants.meme/2026/05/06/baby-laughing-remix.mp3", icon: "💥", category: "classic" }
+            { name: "Baby Launghing Bass Boosted", url: "https://cdn.instants.meme/2026/05/06/baby-launghing-bass-boosted.mp3", icon: "🤦", category: "viral" }
+            { name: "Bass Boosted Sad Violin Meme", url: "https://cdn.instants.meme/2026/05/06/bass-boosted-sad-violin-meme.mp3", icon: "🎻", category: "gaming" }
+            { name: "Burp Fart", url: "https://cdn.instants.meme/2026/05/06/burp-fart.mp3", icon: "📯", category: "anime" }
+            { name: "Chicken On Tree Loud", url: "https://cdn.instants.meme/2026/05/06/chicken-on-tree-loud.mp3", icon: "🏛️", category: "funny" }
+            { name: "Chicken On Tree Loud Af", url: "https://cdn.instants.meme/2026/05/06/chicken-on-tree-loud-af.mp3", icon: "🥁", category: "effects" }
+            { name: "Chicken On Tree Screaming But Very Loud Warning", url: "https://cdn.instants.meme/2026/05/06/chicken-on-tree-screaming-but-very-loud-warning.mp3", icon: "⚠️", category: "classic" }
+            { name: "Chicken On Tree Screaming Loud", url: "https://cdn.instants.meme/2026/05/06/chicken-on-tree-screaming-loud.mp3", icon: "🎵", category: "viral" }
+            { name: "Chicken On Tree Screaming Meme", url: "https://cdn.instants.meme/2026/05/06/chicken-on-tree-screaming-meme.mp3", icon: "📢", category: "gaming" }
+            { name: "Chicken On Tree Very Loud Afffffff", url: "https://cdn.instants.meme/2026/05/06/chicken-on-tree-very-loud-afffffff.mp3", icon: "🔇", category: "anime" }
+            { name: "Dexter Meme Rizz", url: "https://cdn.instants.meme/2026/05/06/dexter-meme-rizz.mp3", icon: "🔔", category: "funny" }
+            { name: "Dramatic Fart", url: "https://cdn.instants.meme/2026/05/06/dramatic-fart.mp3", icon: "👊", category: "effects" }
+            { name: "Evil Baby Laughing", url: "https://cdn.instants.meme/2026/05/06/evil-baby-laughing.mp3", icon: "💨", category: "classic" }
+            { name: "Fail Spongebobs", url: "https://cdn.instants.meme/2026/05/06/fail-spongebobs.mp3", icon: "💬", category: "viral" }
+            { name: "Fart And Vomiting Infra", url: "https://cdn.instants.meme/2026/05/06/fart-and-vomiting-infra.mp3", icon: "📞", category: "gaming" }
+            { name: "Fart Bass Boosted", url: "https://cdn.instants.meme/2026/05/06/fart-bass-boosted.mp3", icon: "🔩", category: "anime" }
+            { name: "Fart Beat By Itsjerryandharry", url: "https://cdn.instants.meme/2026/05/06/fart-beat-by-itsjerryandharry.mp3", icon: "📱", category: "funny" }
+            { name: "Fart Button", url: "https://cdn.instants.meme/2026/05/06/fart-button.mp3", icon: "🎭", category: "effects" }
+            { name: "Fart Echo", url: "https://cdn.instants.meme/2026/05/06/fart-echo.mp3", icon: "💳", category: "classic" }
+            { name: "Fart Effect", url: "https://cdn.instants.meme/2026/05/06/fart-effect.mp3", icon: "🔢", category: "viral" }
+            { name: "Fart Hard Long", url: "https://cdn.instants.meme/2026/05/06/fart-hard-long.mp3", icon: "🧠", category: "gaming" }
+            { name: "Fart Lord", url: "https://cdn.instants.meme/2026/05/06/fart-lord.mp3", icon: "🌸", category: "anime" }
+            { name: "Fart Meme", url: "https://cdn.instants.meme/2026/05/06/fart-meme.mp3", icon: "🦗", category: "funny" }
+            { name: "Fart Meme Sound", url: "https://cdn.instants.meme/2026/05/06/fart-meme-sound.mp3", icon: "🚪", category: "effects" }
+            { name: "Fart Noise Bruh", url: "https://cdn.instants.meme/2026/05/06/fart-noise-bruh.mp3", icon: "🖱️", category: "classic" }
+            { name: "Fart On My Roommates Door", url: "https://cdn.instants.meme/2026/05/06/fart-on-my-roommates-door.mp3", icon: "💀", category: "viral" }
+            { name: "Fart Poop", url: "https://cdn.instants.meme/2026/05/06/fart-poop.mp3", icon: "🗣️", category: "gaming" }
+            { name: "Fart Squeak", url: "https://cdn.instants.meme/2026/05/06/fart-squeak.mp3", icon: "😱", category: "anime" }
+            { name: "Fart Then Moan Mp3 By Mango", url: "https://cdn.instants.meme/2026/05/06/fart-then-moan-mp3-by-mango.mp3", icon: "🏃", category: "funny" }
+            { name: "Fart Toot", url: "https://cdn.instants.meme/2026/05/06/fart-toot.mp3", icon: "🌌", category: "effects" }
+            { name: "Fart Two", url: "https://cdn.instants.meme/2026/05/06/fart-two.mp3", icon: "🕷️", category: "classic" }
+            { name: "Fart With Extra Reverb", url: "https://cdn.instants.meme/2026/05/06/fart-with-extra-reverb.mp3", icon: "😎", category: "viral" }
+            { name: "Fart With Reverb", url: "https://cdn.instants.meme/2026/05/06/fart-with-reverb.mp3", icon: "🇷🇺", category: "gaming" }
+            { name: "Funny Baby Laughing", url: "https://cdn.instants.meme/2026/05/06/funny-baby-laughing.mp3", icon: "🎤", category: "anime" }
+            { name: "Get Out Freakbob", url: "https://cdn.instants.meme/2026/05/06/get-out-freakbob.mp3", icon: "🚨", category: "funny" }
+            { name: "Get Out Frog Song", url: "https://cdn.instants.meme/2026/05/06/get-out-frog-song.mp3", icon: "😤", category: "effects" }
+            { name: "Get Out Out Out Out", url: "https://cdn.instants.meme/2026/05/06/get-out-out-out-out.mp3", icon: "🇱🇹", category: "classic" }
+            { name: "Get Out Slowed", url: "https://cdn.instants.meme/2026/05/06/get-out-slowed.mp3", icon: "💰", category: "viral" }
+            { name: "Get Out Slowed And Sped Up", url: "https://cdn.instants.meme/2026/05/06/get-out-slowed-and-sped-up.mp3", icon: "🚽", category: "gaming" }
+            { name: "Get Out Song", url: "https://cdn.instants.meme/2026/05/06/get-out-song.mp3", icon: "🤔", category: "anime" }
+            { name: "Get Out Tuco", url: "https://cdn.instants.meme/2026/05/06/get-out-tuco.mp3", icon: "😢", category: "funny" }
+            { name: "Get Out Tuco Estourado By Nubx", url: "https://cdn.instants.meme/2026/05/06/get-out-tuco-estourado-by-nubx.mp3", icon: "🐷", category: "effects" }
+            { name: "Get Out Tuco High Pitched", url: "https://cdn.instants.meme/2026/05/06/get-out-tuco-high-pitched.mp3", icon: "🚂", category: "classic" }
+            { name: "Get Out Tuco Loud Bass Boosted", url: "https://cdn.instants.meme/2026/05/06/get-out-tuco-loud-bass-boosted.mp3", icon: "🎉", category: "viral" }
+            { name: "Goofy Wide Putin Meme", url: "https://cdn.instants.meme/2026/05/06/goofy-wide-putin-meme.mp3", icon: "📢", category: "gaming" }
+            { name: "Hard Fart", url: "https://cdn.instants.meme/2026/05/06/hard-fart.mp3", icon: "🦆", category: "anime" }
+            { name: "Laughing Baby", url: "https://cdn.instants.meme/2026/05/06/laughing-baby.mp3", icon: "❓", category: "funny" }
+            { name: "Laughing Baby Remix", url: "https://cdn.instants.meme/2026/05/06/laughing-baby-remix.mp3", icon: "😂", category: "effects" }
+            { name: "Mix Sad Violin", url: "https://cdn.instants.meme/2026/05/06/mix-sad-violin.mp3", icon: "😇", category: "classic" }
+            { name: "Oe Oi Oe Eye Eye", url: "https://cdn.instants.meme/2026/05/06/oe-oi-oe-eye-eye.mp3", icon: "🎯", category: "viral" }
+            { name: "Oi Oe Oi Eye Eye", url: "https://cdn.instants.meme/2026/05/06/oi-oe-oi-eye-eye.mp3", icon: "🔊", category: "gaming" }
+            { name: "Oi Oe Oi Loud", url: "https://cdn.instants.meme/2026/05/06/oi-oe-oi-loud.mp3", icon: "🎵", category: "anime" }
+            { name: "Oi Oi Oe Oi A Eye Eye Bass Boost", url: "https://cdn.instants.meme/2026/05/06/oi-oi-oe-oi-a-eye-eye-bass-boost.mp3", icon: "ඞ", category: "funny" }
+            { name: "Oi Oi Oi Oe A Eye Eye Bass Boosted", url: "https://cdn.instants.meme/2026/05/06/oi-oi-oi-oe-a-eye-eye-bass-boosted.mp3", icon: "🍄", category: "effects" }
+            { name: "Sad Violin", url: "https://cdn.instants.meme/2026/05/06/sad-violin.mp3", icon: "🧱", category: "classic" }
+            { name: "Sad Violin 14Sec", url: "https://cdn.instants.meme/2026/05/06/sad-violin-14sec.mp3", icon: "😮", category: "viral" }
+            { name: "Sad Violin Air Horn", url: "https://cdn.instants.meme/2026/05/06/sad-violin-air-horn.mp3", icon: "🙀", category: "gaming" }
+            { name: "Sad Violin Airhorn Cover", url: "https://cdn.instants.meme/2026/05/06/sad-violin-airhorn-cover.mp3", icon: "🐱", category: "anime" }
+            { name: "Sad Violin Bass Boosted", url: "https://cdn.instants.meme/2026/05/06/sad-violin-bass-boosted.mp3", icon: "🏎️", category: "funny" }
+            { name: "Sad Violin Fat Tonys Tune", url: "https://cdn.instants.meme/2026/05/06/sad-violin-fat-tonys-tune.mp3", icon: "🏙️", category: "effects" }
+            { name: "Sad Violin High", url: "https://cdn.instants.meme/2026/05/06/sad-violin-high.mp3", icon: "🦎", category: "classic" }
+            { name: "Sad Violin Mlg", url: "https://cdn.instants.meme/2026/05/06/sad-violin-mlg.mp3", icon: "🧽", category: "viral" }
+            { name: "Sad Violin Pod", url: "https://cdn.instants.meme/2026/05/06/sad-violin-pod.mp3", icon: "😴", category: "gaming" }
+            { name: "Sad Violinss", url: "https://cdn.instants.meme/2026/05/06/sad-violinss.mp3", icon: "👶", category: "anime" }
+            { name: "Spongbobfail", url: "https://cdn.instants.meme/2026/05/06/spongbobfail.mp3", icon: "😿", category: "funny" }
+            { name: "Spongebob Fail Sound Bass Boosted", url: "https://cdn.instants.meme/2026/05/06/spongebob-fail-sound-bass-boosted.mp3", icon: "⏱️", category: "effects" }
+            { name: "Spongebob Fail Sound Meme Mp3", url: "https://cdn.instants.meme/2026/05/06/spongebob-fail-sound-meme-mp3.mp3", icon: "😠", category: "classic" }
+            { name: "Spongebob Sad Song", url: "https://cdn.instants.meme/2026/05/06/spongebob-sad-song.mp3", icon: "💕", category: "viral" }
+            { name: "Wide Putin 1", url: "https://cdn.instants.meme/2026/05/06/wide-putin-1.mp3", icon: "🤢", category: "gaming" }
+            { name: "Wide Putin Bass", url: "https://cdn.instants.meme/2026/05/06/wide-putin-bass.mp3", icon: "🤼", category: "anime" }
+            { name: "Wide Putin Full", url: "https://cdn.instants.meme/2026/05/06/wide-putin-full.mp3", icon: "😲", category: "funny" }
+            { name: "Wide Putin Meme Full", url: "https://cdn.instants.meme/2026/05/06/wide-putin-meme-full.mp3", icon: "🪠", category: "effects" }
+            { name: "Wide Putin Meme Loud", url: "https://cdn.instants.meme/2026/05/06/wide-putin-meme-loud.mp3", icon: "🍎", category: "classic" }
+            { name: "Wide Putin Original", url: "https://cdn.instants.meme/2026/05/06/wide-putin-original.mp3", icon: "👋", category: "viral" }
+            { name: "Wide Putin Walkin", url: "https://cdn.instants.meme/2026/05/06/wide-putin-walkin.mp3", icon: "📷", category: "gaming" }
+            { name: "Wide Putin Walking Down A Corridor", url: "https://cdn.instants.meme/2026/05/06/wide-putin-walking-down-a-corridor.mp3", icon: "🪢", category: "anime" }
+            { name: "Wow Anime Voice Accent", url: "https://cdn.instants.meme/2026/05/06/wow-anime-voice-accent.mp3", icon: "💥", category: "funny" }
+            { name: "Wow Anime Wow", url: "https://cdn.instants.meme/2026/05/06/wow-anime-wow.mp3", icon: "🤦", category: "effects" }
+            { name: "Yo Phone Ringing Chino", url: "https://cdn.instants.meme/2026/05/06/yo-phone-ringing-chino.mp3", icon: "🎻", category: "classic" }
+            { name: "You Are An Idiot But Scary", url: "https://cdn.instants.meme/2026/05/06/you-are-an-idiot-but-scary.mp3", icon: "📯", category: "viral" }
+            { name: "You Are An Idiot Hahaha", url: "https://cdn.instants.meme/2026/05/06/you-are-an-idiot-hahaha.mp3", icon: "🏛️", category: "gaming" }
+            { name: "You Are An Idiot Hahahahaha", url: "https://cdn.instants.meme/2026/05/06/you-are-an-idiot-hahahahaha.mp3", icon: "🥁", category: "anime" }
+            { name: "You Are An Idiot Yaai Noli Chase Theme", url: "https://cdn.instants.meme/2026/05/06/you-are-an-idiot-yaai-noli-chase-theme.mp3", icon: "⚠️", category: "funny" }
+            { name: "You Are An Idiot Yaai Noli Chase Theme Pt4", url: "https://cdn.instants.meme/2026/05/06/you-are-an-idiot-yaai-noli-chase-theme-pt4.mp3", icon: "🎵", category: "effects" }
+            { name: "Your Phone Lingoging Bass Boosted", url: "https://cdn.instants.meme/2026/05/06/your-phone-lingoging-bass-boosted.mp3", icon: "📢", category: "classic" }
+            { name: "Your Phone Ls Llnglng", url: "https://cdn.instants.meme/2026/05/06/your-phone-ls-llnglng.mp3", icon: "🔇", category: "viral" }
+            { name: "Your Phone Ringing Meme", url: "https://cdn.instants.meme/2026/05/06/your-phone-ringing-meme.mp3", icon: "🔔", category: "gaming" }
+            { name: "Z Wow Anime Voice Accent", url: "https://cdn.instants.meme/2026/05/06/z-wow-anime-voice-accent.mp3", icon: "👊", category: "anime" }
+            { name: "Huh", url: "https://cdn.instants.meme/2026/05/07/huh.mp3", icon: "💨", category: "funny" }
+            { name: "Huh ", url: "https://cdn.instants.meme/2026/05/07/huh-.mp3", icon: "💬", category: "effects" }
+            { name: "Huh Cute Anime Voice Magicalmysticva", url: "https://cdn.instants.meme/2026/05/07/huh-cute-anime-voice-magicalmysticva.mp3", icon: "📞", category: "classic" }
+            { name: "Huh Rblx Se", url: "https://cdn.instants.meme/2026/05/07/huh-rblx-se.mp3", icon: "🔩", category: "viral" }
+            { name: "Huh Roblox Pizza Place", url: "https://cdn.instants.meme/2026/05/07/huh-roblox-pizza-place.mp3", icon: "📱", category: "gaming" }
+            { name: "Huh Shitpost", url: "https://cdn.instants.meme/2026/05/07/huh-shitpost.mp3", icon: "🎭", category: "anime" }
+            { name: "Huh Xd", url: "https://cdn.instants.meme/2026/05/07/huh-xd.mp3", icon: "💳", category: "funny" }
+            { name: "Indian Meme Song", url: "https://cdn.instants.meme/2026/05/07/indian-meme-song.mp3", icon: "🔢", category: "effects" }
+            { name: "Indian Song Bass Boosted", url: "https://cdn.instants.meme/2026/05/07/indian-song-bass-boosted.mp3", icon: "🧠", category: "classic" }
+            { name: "Indian Song Full", url: "https://cdn.instants.meme/2026/05/07/indian-song-full.mp3", icon: "🌸", category: "viral" }
+            { name: "Indian Song Long", url: "https://cdn.instants.meme/2026/05/07/indian-song-long.mp3", icon: "🦗", category: "gaming" }
+            { name: "Indian Song Mundian Tu Bach Ke", url: "https://cdn.instants.meme/2026/05/07/indian-song-mundian-tu-bach-ke.mp3", icon: "🚪", category: "anime" }
+            { name: "Indian Song Reggaeton Beat", url: "https://cdn.instants.meme/2026/05/07/indian-song-reggaeton-beat.mp3", icon: "🖱️", category: "funny" }
+            { name: "Indian Song Ringtone", url: "https://cdn.instants.meme/2026/05/07/indian-song-ringtone.mp3", icon: "💀", category: "effects" }
+            { name: "Indian Song Viral", url: "https://cdn.instants.meme/2026/05/07/indian-song-viral.mp3", icon: "🗣️", category: "classic" }
+            { name: "Indian Song Yanex", url: "https://cdn.instants.meme/2026/05/07/indian-song-yanex.mp3", icon: "😱", category: "viral" }
+            { name: "Jump Mario", url: "https://cdn.instants.meme/2026/05/07/jump-mario.mp3", icon: "🏃", category: "gaming" }
+            { name: "Mario Big Jump Sound Effect", url: "https://cdn.instants.meme/2026/05/07/mario-big-jump-sound-effect.mp3", icon: "🌌", category: "anime" }
+            { name: "Mario Bros Wonder Jump Sound", url: "https://cdn.instants.meme/2026/05/07/mario-bros-wonder-jump-sound.mp3", icon: "🕷️", category: "funny" }
+            { name: "Mario Galaxy Spring Jump 2", url: "https://cdn.instants.meme/2026/05/07/mario-galaxy-spring-jump-2.mp3", icon: "😎", category: "effects" }
+            { name: "Mario Jump200", url: "https://cdn.instants.meme/2026/05/07/mario-jump200.mp3", icon: "🇷🇺", category: "classic" }
+            { name: "Mario Jump Death", url: "https://cdn.instants.meme/2026/05/07/mario-jump-death.mp3", icon: "🎤", category: "viral" }
+            { name: "Mario Jump Semmyboy", url: "https://cdn.instants.meme/2026/05/07/mario-jump-semmyboy.mp3", icon: "🚨", category: "gaming" }
+            { name: "Michael Dont Leave Me Here Higher Pitch", url: "https://cdn.instants.meme/2026/05/07/michael-dont-leave-me-here-higher-pitch.mp3", icon: "😤", category: "anime" }
+            { name: "Michel Dont Leave Me Here Toad", url: "https://cdn.instants.meme/2026/05/07/michel-dont-leave-me-here-toad.mp3", icon: "🇱🇹", category: "funny" }
+            { name: "Snore Mimimimi", url: "https://cdn.instants.meme/2026/05/07/snore-mimimimi.mp3", icon: "💰", category: "effects" }
+            { name: "Super Loud Indian Song", url: "https://cdn.instants.meme/2026/05/07/super-loud-indian-song.mp3", icon: "🚽", category: "classic" }
+            { name: "Super Mario Bros 3 Jump", url: "https://cdn.instants.meme/2026/05/07/super-mario-bros-3-jump.mp3", icon: "🤔", category: "viral" }
+            { name: "Sussy Indian Song", url: "https://cdn.instants.meme/2026/05/07/sussy-indian-song.mp3", icon: "😢", category: "gaming" }
+            { name: "Very Loud Song Of India", url: "https://cdn.instants.meme/2026/05/07/very-loud-song-of-india.mp3", icon: "🐷", category: "anime" }
+            { name: "We Are Charliee Kirk", url: "https://cdn.instants.meme/2026/05/07/we-are-charliee-kirk.mp3", icon: "🚂", category: "funny" }
+            { name: "We Are Charlie Kirk", url: "https://cdn.instants.meme/2026/05/07/we-are-charlie-kirk.mp3", icon: "🎉", category: "effects" }
+            { name: "We Are Charlie Kirk Full", url: "https://cdn.instants.meme/2026/05/07/we-are-charlie-kirk-full.mp3", icon: "📢", category: "classic" }
+            { name: "We Are Charlie Kirk Hoodtrap", url: "https://cdn.instants.meme/2026/05/07/we-are-charlie-kirk-hoodtrap.mp3", icon: "🦆", category: "viral" }
+            { name: "We Are Charlie Kirk Loud As Fah", url: "https://cdn.instants.meme/2026/05/07/we-are-charlie-kirk-loud-as-fah.mp3", icon: "❓", category: "gaming" }
+            { name: "We Are Charlie Kirk Nightcore Loud", url: "https://cdn.instants.meme/2026/05/07/we-are-charlie-kirk-nightcore-loud.mp3", icon: "😂", category: "anime" }
+            { name: "We Are Charlie Kirk Song", url: "https://cdn.instants.meme/2026/05/07/we-are-charlie-kirk-song.mp3", icon: "😇", category: "funny" }
+            { name: "Yenidena Yozgat Yarigi Remix", url: "https://cdn.instants.meme/2026/05/07/yenidena-yozgat-yarigi-remix.mp3", icon: "🎯", category: "effects" }
+            { name: "Yogat Yarragi", url: "https://cdn.instants.meme/2026/05/07/yogat-yarragi.mp3", icon: "🔊", category: "classic" }
+            { name: "Yozgat Yarra", url: "https://cdn.instants.meme/2026/05/07/yozgat-yarra.mp3", icon: "🎵", category: "viral" }
+            { name: "67", url: "https://cdn.instants.meme/2026/05/08/67.mp3", icon: "ඞ", category: "gaming" }
+            { name: "67 Horror Kid", url: "https://cdn.instants.meme/2026/05/08/67-horror-kid.mp3", icon: "🍄", category: "anime" }
+            { name: "67Kid", url: "https://cdn.instants.meme/2026/05/08/67kid.mp3", icon: "🧱", category: "funny" }
+            { name: "67 Kid Offbrand", url: "https://cdn.instants.meme/2026/05/08/67-kid-offbrand.mp3", icon: "😮", category: "effects" }
+            { name: "67 Kid Phonk", url: "https://cdn.instants.meme/2026/05/08/67-kid-phonk.mp3", icon: "🙀", category: "classic" }
+            { name: "67 Kid Remix 2 Times", url: "https://cdn.instants.meme/2026/05/08/67-kid-remix-2-times.mp3", icon: "🐱", category: "viral" }
+            { name: "67 Little Kid", url: "https://cdn.instants.meme/2026/05/08/67-little-kid.mp3", icon: "🏎️", category: "gaming" }
+            { name: "67 Russian Kid Parody", url: "https://cdn.instants.meme/2026/05/08/67-russian-kid-parody.mp3", icon: "🏙️", category: "anime" }
+            { name: "Bass Boosted Fortnite Death Sound", url: "https://cdn.instants.meme/2026/05/08/bass-boosted-fortnite-death-sound.mp3", icon: "🦎", category: "funny" }
+            { name: "Bass Boosted Metal Pipe", url: "https://cdn.instants.meme/2026/05/08/bass-boosted-metal-pipe.mp3", icon: "🧽", category: "effects" }
+            { name: "City Boy City Boy Audio From Gravity Falls", url: "https://cdn.instants.meme/2026/05/08/city-boy-city-boy-audio-from-gravity-falls.mp3", icon: "😴", category: "classic" }
+            { name: "City Boy Distorced", url: "https://cdn.instants.meme/2026/05/08/city-boy-distorced.mp3", icon: "👶", category: "viral" }
+            { name: "City Boy Saturated", url: "https://cdn.instants.meme/2026/05/08/city-boy-saturated.mp3", icon: "😿", category: "gaming" }
+            { name: "City Boy Super Estourado", url: "https://cdn.instants.meme/2026/05/08/city-boy-super-estourado.mp3", icon: "⏱️", category: "anime" }
+            { name: "Citys Boy Is Chelseas Man", url: "https://cdn.instants.meme/2026/05/08/citys-boy-is-chelseas-man.mp3", icon: "😠", category: "funny" }
+            { name: "Daddychill", url: "https://cdn.instants.meme/2026/05/08/daddychill.mp3", icon: "💕", category: "effects" }
+            { name: "Deathsound Duo Fortnite", url: "https://cdn.instants.meme/2026/05/08/deathsound-duo-fortnite.mp3", icon: "🤢", category: "classic" }
+            { name: "Discord Call", url: "https://cdn.instants.meme/2026/05/08/discord-call.mp3", icon: "🤼", category: "viral" }
+            { name: "Discord Halloween", url: "https://cdn.instants.meme/2026/05/08/discord-halloween.mp3", icon: "😲", category: "gaming" }
+            { name: "Discord Halloween 2025", url: "https://cdn.instants.meme/2026/05/08/discord-halloween-2025.mp3", icon: "🪠", category: "anime" }
+            { name: "Discord Halloween Notification", url: "https://cdn.instants.meme/2026/05/08/discord-halloween-notification.mp3", icon: "🍎", category: "funny" }
+            { name: "Discord Leave Noise", url: "https://cdn.instants.meme/2026/05/08/discord-leave-noise.mp3", icon: "👋", category: "effects" }
+            { name: "Discord Notification Bass Boosted", url: "https://cdn.instants.meme/2026/05/08/discord-notification-bass-boosted.mp3", icon: "📷", category: "classic" }
+            { name: "Discord Notification Keyboard Edition", url: "https://cdn.instants.meme/2026/05/08/discord-notification-keyboard-edition.mp3", icon: "🪢", category: "viral" }
+            { name: "Discord Notification Remix Sound Effect", url: "https://cdn.instants.meme/2026/05/08/discord-notification-remix-sound-effect.mp3", icon: "💥", category: "gaming" }
+            { name: "Discord Spaming Notification", url: "https://cdn.instants.meme/2026/05/08/discord-spaming-notification.mp3", icon: "🤦", category: "anime" }
+            { name: "Earrape Low Honor Rdr 2", url: "https://cdn.instants.meme/2026/05/08/earrape-low-honor-rdr-2.mp3", icon: "🎻", category: "funny" }
+            { name: "Ea Sports Run Vine", url: "https://cdn.instants.meme/2026/05/08/ea-sports-run-vine.mp3", icon: "📯", category: "effects" }
+            { name: "Enrique Brainrot", url: "https://cdn.instants.meme/2026/05/08/enrique-brainrot.mp3", icon: "🏛️", category: "classic" }
+            { name: "Enrique Fart Super Slowed", url: "https://cdn.instants.meme/2026/05/08/enrique-fart-super-slowed.mp3", icon: "🥁", category: "viral" }
+            { name: "Enrique Loud", url: "https://cdn.instants.meme/2026/05/08/enrique-loud.mp3", icon: "⚠️", category: "gaming" }
+            { name: "Enrique Piano Rage", url: "https://cdn.instants.meme/2026/05/08/enrique-piano-rage.mp3", icon: "🎵", category: "anime" }
+            { name: "Enrique Slowed", url: "https://cdn.instants.meme/2026/05/08/enrique-slowed.mp3", icon: "📢", category: "funny" }
+            { name: "Enrique Sped Up", url: "https://cdn.instants.meme/2026/05/08/enrique-sped-up.mp3", icon: "🔇", category: "effects" }
+            { name: "Faahhhhhh", url: "https://cdn.instants.meme/2026/05/08/faahhhhhh.mp3", icon: "🔔", category: "classic" }
+            { name: "Fahhhhhhhh", url: "https://cdn.instants.meme/2026/05/08/fahhhhhhhh.mp3", icon: "👊", category: "viral" }
+            { name: "Fahhhhhhhh 2", url: "https://cdn.instants.meme/2026/05/08/fahhhhhhhh-2.mp3", icon: "💨", category: "gaming" }
+            { name: "Fahhhhhhhhhh Ear Rape", url: "https://cdn.instants.meme/2026/05/08/fahhhhhhhhhh-ear-rape.mp3", icon: "💬", category: "anime" }
+            { name: "Fornite Death Sound Effect Meme", url: "https://cdn.instants.meme/2026/05/08/fornite-death-sound-effect-meme.mp3", icon: "📞", category: "funny" }
+            { name: "Fortnite Death Sound Earrape", url: "https://cdn.instants.meme/2026/05/08/fortnite-death-sound-earrape.mp3", icon: "🔩", category: "effects" }
+            { name: "Fortnite Death Sound Not Knockout", url: "https://cdn.instants.meme/2026/05/08/fortnite-death-sound-not-knockout.mp3", icon: "📱", category: "classic" }
+            { name: "Galaxy Brain Meme Full", url: "https://cdn.instants.meme/2026/05/08/galaxy-brain-meme-full.mp3", icon: "🎭", category: "viral" }
+            { name: "Galaxy Brain Meme Speedy", url: "https://cdn.instants.meme/2026/05/08/galaxy-brain-meme-speedy.mp3", icon: "💳", category: "gaming" }
+            { name: "Galaxy Meme Mp3", url: "https://cdn.instants.meme/2026/05/08/galaxy-meme-mp3.mp3", icon: "🔢", category: "anime" }
+            { name: "Galaxy Meme Nostalgia Mode", url: "https://cdn.instants.meme/2026/05/08/galaxy-meme-nostalgia-mode.mp3", icon: "🧠", category: "funny" }
+            { name: "Galaxy Meme Super Duper Loud", url: "https://cdn.instants.meme/2026/05/08/galaxy-meme-super-duper-loud.mp3", icon: "🌸", category: "effects" }
+            { name: "Gta V Wasted Sfx Alt", url: "https://cdn.instants.meme/2026/05/08/gta-v-wasted-sfx-alt.mp3", icon: "🦗", category: "classic" }
+            { name: "Gta V Wasted Sound Effect", url: "https://cdn.instants.meme/2026/05/08/gta-v-wasted-sound-effect.mp3", icon: "🚪", category: "viral" }
+            { name: "Heh Yeah Boii", url: "https://cdn.instants.meme/2026/05/08/heh-yeah-boii.mp3", icon: "🖱️", category: "gaming" }
+            { name: "Lil Yeah Boiii Dixie", url: "https://cdn.instants.meme/2026/05/08/lil-yeah-boiii-dixie.mp3", icon: "💀", category: "anime" }
+            { name: "Lil Yeah Boiiii", url: "https://cdn.instants.meme/2026/05/08/lil-yeah-boiiii.mp3", icon: "🗣️", category: "funny" }
+            { name: "Lil Yeah Boiiiii", url: "https://cdn.instants.meme/2026/05/08/lil-yeah-boiiiii.mp3", icon: "😱", category: "effects" }
+            { name: "Lil Yeah Boiiiii Queta", url: "https://cdn.instants.meme/2026/05/08/lil-yeah-boiiiii-queta.mp3", icon: "🏃", category: "classic" }
+            { name: "Lil Yeah Boiii Organic", url: "https://cdn.instants.meme/2026/05/08/lil-yeah-boiii-organic.mp3", icon: "🌌", category: "viral" }
+            { name: "Low Honour Bass Boosted Rdr2", url: "https://cdn.instants.meme/2026/05/08/low-honour-bass-boosted-rdr2.mp3", icon: "🕷️", category: "gaming" }
+            { name: "Mlg Airhorn", url: "https://cdn.instants.meme/2026/05/08/mlg-airhorn.mp3", icon: "😎", category: "anime" }
+            { name: "Mlg Legolas Lord Of The Rings", url: "https://cdn.instants.meme/2026/05/08/mlg-legolas-lord-of-the-rings.mp3", icon: "🇷🇺", category: "funny" }
+            { name: "Please Speed", url: "https://cdn.instants.meme/2026/05/08/please-speed.mp3", icon: "🎤", category: "effects" }
+            { name: "Que Significa El Enrique Salte", url: "https://cdn.instants.meme/2026/05/08/que-significa-el-enrique-salte.mp3", icon: "🚨", category: "classic" }
+            { name: "Sleeping Snoring", url: "https://cdn.instants.meme/2026/05/08/sleeping-snoring.mp3", icon: "😤", category: "viral" }
+            { name: "Snoring Guy", url: "https://cdn.instants.meme/2026/05/08/snoring-guy.mp3", icon: "🇱🇹", category: "gaming" }
+            { name: "Snoring With Whistle", url: "https://cdn.instants.meme/2026/05/08/snoring-with-whistle.mp3", icon: "💰", category: "anime" }
+            { name: "Snoring Wolf Sfx", url: "https://cdn.instants.meme/2026/05/08/snoring-wolf-sfx.mp3", icon: "🚽", category: "funny" }
+            { name: "We Are Charliee Kirk", url: "https://cdn.instants.meme/2026/05/08/we-are-charliee-kirk.mp3", icon: "🤔", category: "effects" }
+            { name: "We Are Charlie Kirkkkk", url: "https://cdn.instants.meme/2026/05/08/we-are-charlie-kirkkkk.mp3", icon: "😢", category: "classic" }
+            { name: "We Are Charlie Kirk Loud Asf", url: "https://cdn.instants.meme/2026/05/08/we-are-charlie-kirk-loud-asf.mp3", icon: "🐷", category: "viral" }
+            { name: "We Are Charlie Kirk Loud As Fah", url: "https://cdn.instants.meme/2026/05/08/we-are-charlie-kirk-loud-as-fah.mp3", icon: "🚂", category: "gaming" }
+            { name: "We Are Charlie Kirk Nightcore Loud", url: "https://cdn.instants.meme/2026/05/08/we-are-charlie-kirk-nightcore-loud.mp3", icon: "🎉", category: "anime" }
+            { name: "We Are Charlie Kirk Phonk", url: "https://cdn.instants.meme/2026/05/08/we-are-charlie-kirk-phonk.mp3", icon: "📢", category: "funny" }
+            { name: "We Are Charlie Kirk Song", url: "https://cdn.instants.meme/2026/05/08/we-are-charlie-kirk-song.mp3", icon: "🦆", category: "effects" }
+            { name: "We Are Enrique", url: "https://cdn.instants.meme/2026/05/08/we-are-enrique.mp3", icon: "❓", category: "classic" }
+            { name: "Where Are You Going Fahhh", url: "https://cdn.instants.meme/2026/05/08/where-are-you-going-fahhh.mp3", icon: "😂", category: "viral" }
+            { name: "Where Are You Going I Dunno", url: "https://cdn.instants.meme/2026/05/08/where-are-you-going-i-dunno.mp3", icon: "😇", category: "gaming" }
+            { name: "Where Are You Going Soldier", url: "https://cdn.instants.meme/2026/05/08/where-are-you-going-soldier.mp3", icon: "🎯", category: "anime" }
+            { name: "Yeah Boiii", url: "https://cdn.instants.meme/2026/05/08/yeah-boiii.mp3", icon: "🔊", category: "funny" }
+            { name: "Yeah Boiiii", url: "https://cdn.instants.meme/2026/05/08/yeah-boiiii.mp3", icon: "🎵", category: "effects" }
+            { name: "Yeah Boiii I I I Bass Boosted", url: "https://cdn.instants.meme/2026/05/08/yeah-boiii-i-i-i-bass-boosted.mp3", icon: "ඞ", category: "classic" }
+            { name: "Yeah Boiii Organic", url: "https://cdn.instants.meme/2026/05/08/yeah-boiii-organic.mp3", icon: "🍄", category: "viral" }
+            { name: "4 Taco Bell Bong Sfx", url: "https://cdn.instants.meme/2026/05/09/4-taco-bell-bong-sfx.mp3", icon: "🧱", category: "gaming" }
+            { name: "999 Social Credit Siren High Pitched", url: "https://cdn.instants.meme/2026/05/09/999-social-credit-siren-high-pitched.mp3", icon: "😮", category: "anime" }
+            { name: "999 Social Credit Siren With The Rock Eyebrow", url: "https://cdn.instants.meme/2026/05/09/999-social-credit-siren-with-the-rock-eyebrow.mp3", icon: "🙀", category: "funny" }
+            { name: "Buzzer Mp3", url: "https://cdn.instants.meme/2026/05/09/buzzer-mp3.mp3", icon: "🐱", category: "effects" }
+            { name: "Buzzer Ooosh", url: "https://cdn.instants.meme/2026/05/09/buzzer-ooosh.mp3", icon: "🏎️", category: "classic" }
+            { name: "Buzzer Question Pour Un Champion", url: "https://cdn.instants.meme/2026/05/09/buzzer-question-pour-un-champion.mp3", icon: "🏙️", category: "viral" }
+            { name: "Buzzer Scoreboard", url: "https://cdn.instants.meme/2026/05/09/buzzer-scoreboard.mp3", icon: "🦎", category: "gaming" }
+            { name: "Buzzer Sound", url: "https://cdn.instants.meme/2026/05/09/buzzer-sound.mp3", icon: "🧽", category: "anime" }
+            { name: "Cat Laugh 2023", url: "https://cdn.instants.meme/2026/05/09/cat-laugh-2023.mp3", icon: "😴", category: "funny" }
+            { name: "Cat Laughing 2", url: "https://cdn.instants.meme/2026/05/09/cat-laughing-2.mp3", icon: "👶", category: "effects" }
+            { name: "Cat Laugh Original Sound", url: "https://cdn.instants.meme/2026/05/09/cat-laugh-original-sound.mp3", icon: "😿", category: "classic" }
+            { name: "Cat Laugh Saturdado Dos", url: "https://cdn.instants.meme/2026/05/09/cat-laugh-saturdado-dos.mp3", icon: "⏱️", category: "viral" }
+            { name: "Dan Capucion A Few Moments Later", url: "https://cdn.instants.meme/2026/05/09/dan-capucion-a-few-moments-later.mp3", icon: "😠", category: "gaming" }
+            { name: "Discord Call Bass Boosted Low Quality Meme", url: "https://cdn.instants.meme/2026/05/09/discord-call-bass-boosted-low-quality-meme.mp3", icon: "💕", category: "anime" }
+            { name: "Discord Call But Bass Boosted", url: "https://cdn.instants.meme/2026/05/09/discord-call-but-bass-boosted.mp3", icon: "🤢", category: "funny" }
+            { name: "Discord Call Calling Sound Winter", url: "https://cdn.instants.meme/2026/05/09/discord-call-calling-sound-winter.mp3", icon: "🤼", category: "effects" }
+            { name: "Discord Call Ear Damage", url: "https://cdn.instants.meme/2026/05/09/discord-call-ear-damage.mp3", icon: "😲", category: "classic" }
+            { name: "Discord Call Remix", url: "https://cdn.instants.meme/2026/05/09/discord-call-remix.mp3", icon: "🪠", category: "viral" }
+            { name: "Discord Call Reverse", url: "https://cdn.instants.meme/2026/05/09/discord-call-reverse.mp3", icon: "🍎", category: "gaming" }
+            { name: "Discord Call Totally Not A Bass Boost", url: "https://cdn.instants.meme/2026/05/09/discord-call-totally-not-a-bass-boost.mp3", icon: "👋", category: "anime" }
+            { name: "Distorted Strawberry Elephant", url: "https://cdn.instants.meme/2026/05/09/distorted-strawberry-elephant.mp3", icon: "📷", category: "funny" }
+            { name: "Drip Goku", url: "https://cdn.instants.meme/2026/05/09/drip-goku.mp3", icon: "🪢", category: "effects" }
+            { name: "Emotional Damage 1", url: "https://cdn.instants.meme/2026/05/09/emotional-damage-1.mp3", icon: "💥", category: "classic" }
+            { name: "Emotional Damage 2", url: "https://cdn.instants.meme/2026/05/09/emotional-damage-2.mp3", icon: "🤦", category: "viral" }
+            { name: "Emotional Damage Meme", url: "https://cdn.instants.meme/2026/05/09/emotional-damage-meme.mp3", icon: "🎻", category: "gaming" }
+            { name: "Emotional Damage Remix", url: "https://cdn.instants.meme/2026/05/09/emotional-damage-remix.mp3", icon: "📯", category: "anime" }
+            { name: "Emotional Damage Song", url: "https://cdn.instants.meme/2026/05/09/emotional-damage-song.mp3", icon: "🏛️", category: "funny" }
+            { name: "Emotional Damage X Game", url: "https://cdn.instants.meme/2026/05/09/emotional-damage-x-game.mp3", icon: "🥁", category: "effects" }
+            { name: "Emotional Damage X Pompeii 1", url: "https://cdn.instants.meme/2026/05/09/emotional-damage-x-pompeii-1.mp3", icon: "⚠️", category: "classic" }
+            { name: "Fart Taco Bell Bong", url: "https://cdn.instants.meme/2026/05/09/fart-taco-bell-bong.mp3", icon: "🎵", category: "viral" }
+            { name: "Foult Cc Taco Bell Bong Serie De Sonido", url: "https://cdn.instants.meme/2026/05/09/foult-cc-taco-bell-bong-serie-de-sonido.mp3", icon: "📢", category: "gaming" }
+            { name: "Frase Goku 2", url: "https://cdn.instants.meme/2026/05/09/frase-goku-2.mp3", icon: "🔇", category: "anime" }
+            { name: "Goku Drip Loud", url: "https://cdn.instants.meme/2026/05/09/goku-drip-loud.mp3", icon: "🔔", category: "funny" }
+            { name: "Goku Yelling Drip", url: "https://cdn.instants.meme/2026/05/09/goku-yelling-drip.mp3", icon: "👊", category: "effects" }
+            { name: "Joseph Oh My God", url: "https://cdn.instants.meme/2026/05/09/joseph-oh-my-god.mp3", icon: "💨", category: "classic" }
+            { name: "Loud Taco Bell Bong", url: "https://cdn.instants.meme/2026/05/09/loud-taco-bell-bong.mp3", icon: "💬", category: "viral" }
+            { name: "Meow Billie Eilish", url: "https://cdn.instants.meme/2026/05/09/meow-billie-eilish.mp3", icon: "📞", category: "gaming" }
+            { name: "No Spider Meme", url: "https://cdn.instants.meme/2026/05/09/no-spider-meme.mp3", icon: "🔩", category: "anime" }
+            { name: "Oh My God", url: "https://cdn.instants.meme/2026/05/09/oh-my-god.mp3", icon: "📱", category: "funny" }
+            { name: "Oh My God Anime", url: "https://cdn.instants.meme/2026/05/09/oh-my-god-anime.mp3", icon: "🎭", category: "effects" }
+            { name: "Oh My God Bro Is D Riding All You Do", url: "https://cdn.instants.meme/2026/05/09/oh-my-god-bro-is-d-riding-all-you-do.mp3", icon: "💳", category: "classic" }
+            { name: "Oh My God Bro Thats Insanity", url: "https://cdn.instants.meme/2026/05/09/oh-my-god-bro-thats-insanity.mp3", icon: "🔢", category: "viral" }
+            { name: "Oh My God He On X Games Mode", url: "https://cdn.instants.meme/2026/05/09/oh-my-god-he-on-x-games-mode.mp3", icon: "🧠", category: "gaming" }
+            { name: "Oh My God Meme", url: "https://cdn.instants.meme/2026/05/09/oh-my-god-meme.mp3", icon: "🌸", category: "anime" }
+            { name: "Oh My God Wow", url: "https://cdn.instants.meme/2026/05/09/oh-my-god-wow.mp3", icon: "🦗", category: "funny" }
+            { name: "Oh Oh Oh Oh My God Oooh", url: "https://cdn.instants.meme/2026/05/09/oh-oh-oh-oh-my-god-oooh.mp3", icon: "🚪", category: "effects" }
+            { name: "Outro Song Bass", url: "https://cdn.instants.meme/2026/05/09/outro-song-bass.mp3", icon: "🖱️", category: "classic" }
+            { name: "Outro Song Bass Boostad Xtreme", url: "https://cdn.instants.meme/2026/05/09/outro-song-bass-boostad-xtreme.mp3", icon: "💀", category: "viral" }
+            { name: "Outro Song Bass Boosted", url: "https://cdn.instants.meme/2026/05/09/outro-song-bass-boosted.mp3", icon: "🗣️", category: "gaming" }
+            { name: "Outro Song Lets Go", url: "https://cdn.instants.meme/2026/05/09/outro-song-lets-go.mp3", icon: "😱", category: "anime" }
+            { name: "Outro Song Not The Meme One", url: "https://cdn.instants.meme/2026/05/09/outro-song-not-the-meme-one.mp3", icon: "🏃", category: "funny" }
+            { name: "Outro Song Reversed Cause Why Not", url: "https://cdn.instants.meme/2026/05/09/outro-song-reversed-cause-why-not.mp3", icon: "🌌", category: "effects" }
+            { name: "Portal 2 Buzzer", url: "https://cdn.instants.meme/2026/05/09/portal-2-buzzer.mp3", icon: "🕷️", category: "classic" }
+            { name: "Sad Meow Larry Gadon Armando", url: "https://cdn.instants.meme/2026/05/09/sad-meow-larry-gadon-armando.mp3", icon: "😎", category: "viral" }
+            { name: "Sad Meow Meow Bass Boosted", url: "https://cdn.instants.meme/2026/05/09/sad-meow-meow-bass-boosted.mp3", icon: "🇷🇺", category: "gaming" }
+            { name: "Sad Meow Reverb", url: "https://cdn.instants.meme/2026/05/09/sad-meow-reverb.mp3", icon: "🎤", category: "anime" }
+            { name: "Saturado Cat Laugh Sjjssjjs", url: "https://cdn.instants.meme/2026/05/09/saturado-cat-laugh-sjjssjjs.mp3", icon: "🚨", category: "funny" }
+            { name: "Si Meme Spiderman", url: "https://cdn.instants.meme/2026/05/09/si-meme-spiderman.mp3", icon: "😤", category: "effects" }
+            { name: "Spider Man Meme", url: "https://cdn.instants.meme/2026/05/09/spider-man-meme.mp3", icon: "🇱🇹", category: "classic" }
+            { name: "Spiderman Meme Miguel O Harris", url: "https://cdn.instants.meme/2026/05/09/spiderman-meme-miguel-o-harris.mp3", icon: "💰", category: "viral" }
+            { name: "Strawberry Elephant Fortnite", url: "https://cdn.instants.meme/2026/05/09/strawberry-elephant-fortnite.mp3", icon: "🚽", category: "gaming" }
+            { name: "Strawberry Elephant Spawing Sound", url: "https://cdn.instants.meme/2026/05/09/strawberry-elephant-spawing-sound.mp3", icon: "🤔", category: "anime" }
+            { name: "Strawberry Elephant Spawn Troll", url: "https://cdn.instants.meme/2026/05/09/strawberry-elephant-spawn-troll.mp3", icon: "😢", category: "funny" }
+            { name: "Strawberry Elephant Steal A Brainrot", url: "https://cdn.instants.meme/2026/05/09/strawberry-elephant-steal-a-brainrot.mp3", icon: "🐷", category: "effects" }
+            { name: "Taco Bell Bass Boosted", url: "https://cdn.instants.meme/2026/05/09/taco-bell-bass-boosted.mp3", icon: "🚂", category: "classic" }
+            { name: "Taco Bell Bong Play At Full Vol", url: "https://cdn.instants.meme/2026/05/09/taco-bell-bong-play-at-full-vol.mp3", icon: "🎉", category: "viral" }
+            { name: "Taco Bell Mega Bong", url: "https://cdn.instants.meme/2026/05/09/taco-bell-mega-bong.mp3", icon: "📢", category: "gaming" }
 
-            { name: "Emotional Damage", url: "https://cdn.instants.meme/2026/01/18/emotional-damage-meme.mp3", icon: "😱", category: "viral" },
-            { name: "Tuco Get Out", url: "https://cdn.instants.meme/2026/01/18/tuco-get-out.mp3", icon: "🏃", category: "viral" },
-            { name: "Galaxy Meme", url: "https://cdn.instants.meme/2026/01/18/galaxy-meme.mp3", icon: "🌌", category: "viral" },
-            { name: "Spider-Man Song", url: "https://cdn.instants.meme/2026/01/18/spiderman-meme-song.mp3", icon: "🕷️", category: "viral" },
-            { name: "Rizz Sound", url: "https://cdn.instants.meme/2026/01/18/rizz-sound-effect.mp3", icon: "😎", category: "viral" },
-            { name: "Run Vine", url: "https://cdn.instants.meme/2026/01/18/run-vine.mp3", icon: "🏃", category: "viral" },
-            { name: "Wide Putin", url: "https://cdn.instants.meme/2026/01/19/wide-putin-meme.mp3", icon: "🇷🇺", category: "viral" },
-            { name: "Weeknd Rizz", url: "https://cdn.instants.meme/2026/01/18/the-weeknd-rizzz.mp3", icon: "🎤", category: "viral" },
-            { name: "Social Credit", url: "https://cdn.instants.meme/2026/01/18/999-social-credit-siren.mp3", icon: "🚨", category: "viral" },
-            { name: "Oh My God Bro", url: "https://cdn.instants.meme/2026/01/18/oh-my-god-bro-oh-hell-nah-man.mp3", icon: "😤", category: "viral" },
-            { name: "Zvuk Litvina", url: "https://cdn.instants.meme/2026/01/18/zvuk-litvina.mp3", icon: "🇱🇹", category: "viral" },
-            { name: "Mr Beast Money", url: "https://cdn.instants.meme/2026/01/19/mr-beast-give-me-sum-money.mp3", icon: "💰", category: "viral" },
-            { name: "Skibidi Toilet", url: "https://cdn.instants.meme/2026/01/18/my-mommy-said-no-more-skibidi-toilet.mp3", icon: "🚽", category: "viral" },
-            { name: "Asian Huh", url: "https://cdn.instants.meme/2026/01/18/asian-meme-huh.mp3", icon: "🤔", category: "viral" },
-            { name: "Womp Womp", url: "https://cdn.instants.meme/2026/01/19/womp-womp-womp.mp3", icon: "😢", category: "viral" },
-            { name: "Vizg Svini", url: "https://cdn.instants.meme/2026/01/19/vizg-svini.mp3", icon: "🐷", category: "viral" },
-            { name: "Gudok Poezda", url: "https://cdn.instants.meme/2026/01/19/gudok-poezda.mp3", icon: "🚂", category: "viral" },
-            { name: "Yeah Boiii", url: "https://cdn.instants.meme/2026/01/18/yeah-boiii-i-i-i.mp3", icon: "🎉", category: "viral" },
-            { name: "Let Me Know", url: "https://cdn.instants.meme/2026/01/18/let-me-know.mp3", icon: "📢", category: "viral" },
-            { name: "Mac Quack", url: "https://cdn.instants.meme/2026/01/18/mac-quack.mp3", icon: "🦆", category: "viral" },
-            { name: "Huh Ceeday", url: "https://cdn.instants.meme/2026/01/18/huh-ceeday.mp3", icon: "❓", category: "viral" },
-            { name: "Haha Funny Laugh", url: "https://cdn.instants.meme/2026/01/18/haha-funny-laugh.mp3", icon: "😂", category: "viral" },
-            { name: "Heavenly Music", url: "https://cdn.instants.meme/2026/01/18/heavenly-musiic.mp3", icon: "😇", category: "viral" },
-            { name: "Core Sound", url: "https://cdn.instants.meme/2026/01/18/core-sound-effect.mp3", icon: "🎯", category: "viral" },
-            { name: "We Are Charlie Kirk", url: "https://cdn.instants.meme/2026/01/18/we-are-charlie-kirk.mp3", icon: "📢", category: "viral" },
-            { name: "Pop Sfx", url: "https://cdn.instants.meme/2026/01/19/pop-sfx.mp3", icon: "🔊", category: "viral" },
-            { name: "Na Na Na", url: "https://cdn.instants.meme/2026/01/18/na-na-na.mp3", icon: "🎵", category: "viral" },
-
-            { name: "Among Us Reveal", url: "https://cdn.instants.meme/2026/01/18/among-us-role-reveal-sound.mp3", icon: "ඞ", category: "gaming" },
-            { name: "Fortnite Death", url: "https://cdn.instants.meme/2026/01/18/death-sound-fortnite.mp3", icon: "💀", category: "gaming" },
-            { name: "Mario Jump", url: "https://cdn.instants.meme/2026/01/18/mario-jump.mp3", icon: "🍄", category: "gaming" },
-            { name: "Prowler", url: "https://cdn.instants.meme/2026/01/18/prowler-sound-effect.mp3", icon: "🕷️", category: "gaming" },
-            { name: "Brainrot Troll", url: "https://cdn.instants.meme/2026/01/19/strawberry-elephant-spawn-troll-steal-a-brainrot.mp3", icon: "🧠", category: "gaming" },
-            { name: "67 Kid", url: "https://cdn.instants.meme/2026/01/19/67-kid.mp3", icon: "👶", category: "gaming" },
-            { name: "Goku Drip", url: "https://cdn.instants.meme/2026/01/18/goku-drip.mp3", icon: "🐉", category: "gaming" },
-            { name: "Low Honor RDR2", url: "https://cdn.instants.meme/2026/01/18/low-honor-rdr-2.mp3", icon: "🤠", category: "gaming" },
-            { name: "Lagging Loading", url: "https://cdn.instants.meme/2026/01/18/lagging-loading.mp3", icon: "⏳", category: "gaming" },
-            { name: "Daddyy Chill", url: "https://cdn.instants.meme/2026/01/18/daddyy-chill.mp3", icon: "🧊", category: "gaming" },
-            { name: "Stranger Things Clock", url: "https://cdn.instants.meme/2026/01/18/stranger-things-clock-sound.mp3", icon: "⏰", category: "gaming" },
-            { name: "Correct Answer", url: "https://cdn.instants.meme/2026/01/18/correct-answer-gameshow.mp3", icon: "✅", category: "gaming" },
-            { name: "Smoke Detector Beep", url: "https://cdn.instants.meme/2026/01/18/smoke-detector-beep.mp3", icon: "🚨", category: "gaming" },
-            { name: "Man Snoring", url: "https://cdn.instants.meme/2026/01/19/man-snoring-meme.mp3", icon: "😴", category: "gaming" },
-            { name: "He He He Ha", url: "https://cdn.instants.meme/2026/01/18/he-he-he-ha-clash-royale-deep-fried.mp3", icon: "👑", category: "gaming" },
-            { name: "Lego Breaking", url: "https://cdn.instants.meme/2026/01/18/lego-breaking.mp3", icon: "🧱", category: "gaming" },
-
-            { name: "Anime Wow", url: "https://cdn.instants.meme/2026/01/18/anime-wow.mp3", icon: "😮", category: "anime" },
-            { name: "Huh Cat", url: "https://cdn.instants.meme/2026/01/19/huh-cat.mp3", icon: "🙀", category: "anime" },
-            { name: "MEOW", url: "https://cdn.instants.meme/2026/01/18/m-e-o-w.mp3", icon: "🐱", category: "anime" },
-            { name: "Wow Anime", url: "https://cdn.instants.meme/2026/01/19/wow-anime-meme.mp3", icon: "😮", category: "anime" },
-            { name: "Where Are You Going", url: "https://cdn.instants.meme/2026/01/19/where-are-you-goingg.mp3", icon: "🏃", category: "anime" },
-            { name: "Michael Dont Leave", url: "https://cdn.instants.meme/2026/01/18/michael-dont-leave-me-here.mp3", icon: "😢", category: "anime" },
-            { name: "We Are Charlie Kirk Loud", url: "https://cdn.instants.meme/2026/01/18/we-are-charlie-kirk-loud-asf.mp3", icon: "📢", category: "anime" },
-            { name: "Ngakak Laugh", url: "https://cdn.instants.meme/2026/01/18/ngakak-laugh-annoying.mp3", icon: "😂", category: "anime" },
-            { name: "YAAAAAAAAY", url: "https://cdn.instants.meme/2026/01/18/yaaaaaaaay.mp3", icon: "🎉", category: "anime" },
-            { name: "Mambo Anime", url: "https://cdn.instants.meme/2026/01/19/mamboman-bo-shi-ge-ju-matikanetannhauser.mp3", icon: "🎵", category: "anime" },
-            { name: "Fahhhhh", url: "https://cdn.instants.meme/2026/01/18/fahhhhh.mp3", icon: "😫", category: "anime" },
-            { name: "Please Speed", url: "https://cdn.instants.meme/2026/01/18/please-speed-i-need-this.mp3", icon: "🏎️", category: "anime" },
-            { name: "City Boy", url: "https://cdn.instants.meme/2026/01/18/city-boy.mp3", icon: "🏙️", category: "anime" },
-            { name: "Lizard Button", url: "https://cdn.instants.meme/2026/01/18/lizard-button.mp3", icon: "🦎", category: "anime" },
-
-            { name: "SpongeBob Fail", url: "https://cdn.instants.meme/2026/01/18/spongebob-fail.mp3", icon: "🧽", category: "funny" },
-            { name: "Snore Mimimi", url: "https://cdn.instants.meme/2026/01/18/snore-mimimimimimi.mp3", icon: "😴", category: "funny" },
-            { name: "Baby Laughing", url: "https://cdn.instants.meme/2026/01/18/baby-laughing-meme.mp3", icon: "👶", category: "funny" },
-            { name: "Cat Laugh", url: "https://cdn.instants.meme/2026/01/18/cat-laugh-meme-1.mp3", icon: "🐱", category: "funny" },
-            { name: "Sad Meow", url: "https://cdn.instants.meme/2026/01/18/sad-meow-song.mp3", icon: "😿", category: "funny" },
-            { name: "Door Knocking", url: "https://cdn.instants.meme/2026/01/18/door-knocking-sound-effect.mp3", icon: "🚪", category: "funny" },
-            { name: "SpongeBob Later", url: "https://cdn.instants.meme/2026/01/18/a-few-moments-later-sponge-bob-sfx-fun.mp3", icon: "⏱️", category: "funny" },
-            { name: "ACK", url: "https://cdn.instants.meme/2026/01/18/ack.mp3", icon: "😠", category: "funny" },
-            { name: "Romance", url: "https://cdn.instants.meme/2026/01/18/romanceeeeeeeeeeeeee.mp3", icon: "💕", category: "funny" },
-            { name: "Oh Brother Stinks", url: "https://cdn.instants.meme/2026/01/18/oh-brother-this-guy-stinks.mp3", icon: "🤢", category: "funny" },
-            { name: "GopGopGop", url: "https://cdn.instants.meme/2026/01/18/gopgopgop.mp3", icon: "🗣️", category: "funny" },
-            { name: "Im Bout To Eat", url: "https://cdn.instants.meme/2026/01/18/im-bout-to-eat-this-chick-fil-a.mp3", icon: "🍗", category: "funny" },
-            { name: "Aaaa Lutador", url: "https://cdn.instants.meme/2026/01/18/aaaaaaaaaaaaaaaaaaaa-e-lutador.mp3", icon: "🤼", category: "funny" },
-
-            { name: "Shocked Sound", url: "https://cdn.instants.meme/2026/01/18/shocked-sound.mp3", icon: "😲", category: "effects" },
-            { name: "Metal Pipe Falling", url: "https://cdn.instants.meme/2026/01/18/jixaw-metal-pipe-falling-sound.mp3", icon: "🪠", category: "effects" },
-            { name: "Apple Pay Sound", url: "https://cdn.instants.meme/2026/01/19/apple-pay-sound.mp3", icon: "🍎", category: "effects" },
-            { name: "Slap Hard", url: "https://cdn.instants.meme/2026/01/18/slap-hard.mp3", icon: "👋", category: "effects" },
-            { name: "Fahhhhhhhh Earrape", url: "https://cdn.instants.meme/2026/01/18/fahhhhhhhh-earrape.mp3", icon: "🔊", category: "effects" },
-            { name: "Fahhhhhhhhhh", url: "https://cdn.instants.meme/2026/01/18/fahhhhhhhhhhhhhhh.mp3", icon: "🔊", category: "effects" },
-            { name: "Skachai Maks", url: "https://cdn.instants.meme/2026/01/19/skachai-maks.mp3", icon: "🎵", category: "effects" },
-            { name: "Zvuk Fotoapparata", url: "https://cdn.instants.meme/2026/01/18/zvuk-fotoapparata.mp3", icon: "📷", category: "effects" },
-            { name: "Undertaker Bell", url: "https://cdn.instants.meme/2026/01/18/the-undertaker-bell.mp3", icon: "🔔", category: "effects" },
-            { name: "Skeleton Banging", url: "https://cdn.instants.meme/2026/01/18/skeleton-banging.mp3", icon: "💀", category: "effects" },
-            { name: "Whip", url: "https://cdn.instants.meme/2026/01/18/whip.mp3", icon: "🪢", category: "effects" },
-            { name: "Enrique", url: "https://cdn.instants.meme/2026/01/18/enrique.mp3", icon: "🎵", category: "effects" },
-            { name: "Running Sound", url: "https://cdn.instants.meme/2026/01/19/running-sound.mp3", icon: "🏃", category: "effects" },
-            { name: "Bad to the Bone", url: "https://cdn.instants.meme/2026/01/18/bad-to-the-bone-meme.mp3", icon: "🎸", category: "effects" },
-            { name: "Skeleton Shield", url: "https://cdn.instants.meme/2026/01/18/skeleton-with-shield.mp3", icon: "🛡️", category: "effects" }
         ];
 
         // Audio Context & Analyzer
