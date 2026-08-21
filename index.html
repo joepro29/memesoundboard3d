@@ -87,6 +87,25 @@
             to { filter: drop-shadow(0 0 20px var(--accent)); }
         }
 
+        .site-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .site-nav a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .site-nav a:hover {
+            color: #fff;
+            background: rgba(255, 0, 97, 0.2);
+        }
+
         .search-container {
             flex: 1;
             max-width: 400px;
@@ -1071,6 +1090,11 @@
                         <span class="stat-value" id="playingCount">0</span>
                     </div>
                 </div>
+                <nav class="site-nav">
+                    <a href="/about.html">About</a>
+                    <a href="/blog.html">Blog</a>
+                    <a href="/faq.html">FAQ</a>
+                </nav>
             </div>
         </header>
 

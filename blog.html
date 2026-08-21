@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Meme Sounds, Sound Effects & Viral Audio Guide | Meme Soundboard 3D</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
+
+        nav {
+            background: rgba(10, 10, 15, 0.95);
+            border-bottom: 1px solid rgba(255, 0, 97, 0.15);
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #ff0061;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ff0061;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ff0061, #ff6b9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            color: #888;
+            font-size: 1.05rem;
+        }
+
+        .article-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 0, 97, 0.15);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 48px;
+        }
+
+        .article-card .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ff0061;
+            background: rgba(255, 0, 97, 0.1);
+            border: 1px solid rgba(255, 0, 97, 0.25);
+            border-radius: 6px;
+            padding: 4px 12px;
+            margin-bottom: 16px;
+        }
+
+        .article-card h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: #fff;
+            margin-bottom: 24px;
+            line-height: 1.4;
+        }
+
+        .article-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 500;
+            font-size: 1.05rem;
+            color: #ff6b9d;
+            margin-top: 28px;
+            margin-bottom: 12px;
+        }
+
+        .article-card p {
+            margin-bottom: 16px;
+            color: #bbb;
+        }
+
+        .article-card ul {
+            margin: 12px 0 20px 24px;
+            color: #bbb;
+        }
+
+        .article-card ul li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff0061, #ff6b9d);
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 28px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.3s;
+            margin-top: 8px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(255, 0, 97, 0.35);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid rgba(255, 0, 97, 0.1);
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #ff0061;
+            text-decoration: none;
+        }
+
+        @media (max-width: 640px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 14px 20px;
+            }
+
+            .nav-links {
+                gap: 18px;
+            }
+
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+
+            .article-card {
+                padding: 24px;
+            }
+
+            .article-card h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/" class="nav-logo">Meme Soundboard 3D</a>
+    <ul class="nav-links">
+        <li><a href="/">Soundboard</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/bio.html">Links</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="page-header">
+        <h1>The Meme Sound Blog</h1>
+        <p>Guides, lists, and stories about the sounds that shape internet culture.</p>
+    </div>
+
+    <!-- Article 1 -->
+    <article class="article-card">
+        <span class="tag">Guide</span>
+        <h2>Top 100 Meme Sounds of 2026</h2>
+
+        <p>Meme sounds are the backbone of internet culture. They compress an entire emotion, reaction, or joke into a single audio clip that anyone online instantly recognizes. Whether it is a one-second notification noise or a four-bar musical loop, these sounds act as a shared language across platforms, languages, and communities. In 2026 the meme-sound ecosystem is bigger than ever, spanning TikTok, YouTube Shorts, Twitch streams, Discord voice chats, and even everyday group chats. This guide breaks down the sounds that defined the year so far and explains why they stick.</p>
+
+        <h3>Classic Sounds That Never Get Old</h3>
+        <p>Some sounds refuse to die, and that is a compliment. They are so deeply embedded in online humor that using them almost feels mandatory. Here are the timeless heavy hitters that still dominate edits and streams:</p>
+        <ul>
+            <li><strong>Bruh</strong> — The universal sound of exasperation. Two letters, one syllable, infinite applications. It works as a punchline, a reaction, and a transition all at once.</li>
+            <li><strong>Vine Boom</strong> — That deep, reverberating bass hit. Originally from the now-defunct Vine platform, it survived the app's shutdown and became the go-to sound for emphasizing a dramatic or absurd moment.</li>
+            <li><strong>Sad Trombone</strong> — The classic "wah-wah-wah-waaah." It signals failure in the most cartoonishly unsympathetic way possible, which is exactly why people love it.</li>
+            <li><strong>Airhorn</strong> — Pure, unfiltered hype. The airhorn announces wins, trolls moments, and sometimes nothing at all. Its chaos is the point.</li>
+            <li><strong>Metal Gear Alert</strong> — That sharp "!" sting from the Metal Gear Solid series. It instantly communicates that someone has been caught, spotted, or made a terrible mistake.</li>
+            <li><strong>Dramatic Chipmunk</strong> — A three-second clip of a prairie dog turning its head sharply. Paired with an orchestral sting, it turns any mundane reveal into a thriller moment.</li>
+            <li><strong>Windows XP Error</strong> — The classic error sound layered over a freeze frame. It says "something broke" without needing a single word.</li>
+        </ul>
+
+        <h3>2026 Viral Sensations</h3>
+        <p>Every year brings new sounds that explode out of nowhere. In 2026, several categories of audio have dominated the trends:</p>
+        <ul>
+            <li><strong>TikTok Trending Audio</strong> — Short musical loops and vocal clips that creators pair with dance challenges, transition edits, and relatable skits. The platform's algorithm rewards sounds that get reused, so a single catchy clip can rack up millions of uses in a week.</li>
+            <li><strong>Gaming Streamer Reactions</strong> — Clips of streamers reacting to clutch plays, hilarious fails, or jump scares have become standalone meme sounds. Their raw, unscripted energy makes them perfect for edits.</li>
+            <li><strong>AI-Generated Catchphrases</strong> — Text-to-speech and voice-cloning tools have spawned a new wave of sounds. Creators type a phrase, pick a voice, and generate a clip that never existed before. Some of these have gone mega-viral.</li>
+            <li><strong>Retro Sound Effects</strong> — 8-bit power-up sounds, coin collection noises, and old-school phone ringtones are experiencing a comeback, especially in gaming content and nostalgia edits.</li>
+        </ul>
+
+        <h3>Why These Sounds Work</h3>
+        <p>Meme sounds persist because they solve a communication problem. Online, you cannot see someone's face or hear their tone of voice. A well-timed sound effect bridges that gap. Here is what makes them effective:</p>
+        <ul>
+            <li><strong>Universal Emotions</strong> — A sad trombone communicates disappointment without words. An airhorn communicates hype. These sounds tap into feelings that need no translation.</li>
+            <li><strong>Audio Shorthand</strong> — Instead of typing a paragraph explaining why something is funny, you play a two-second sound. It is faster, funnier, and more memorable.</li>
+            <li><strong>Comedic Timing</strong> — The sound itself is only half the joke. The other half is when and where you place it. A well-timed bruh after someone makes a questionable decision is comedy gold.</li>
+            <li><strong>Community Belonging</strong> — Using a meme sound signals that you are part of the culture. It is an inside joke that everyone is in on.</li>
+        </ul>
+
+        <h3>Try These Sounds Yourself</h3>
+        <p>The best way to understand meme sounds is to use them. Browse the collection, play around, and find the sounds that match your style. Whether you are editing a video, running a stream, or just sending clips to friends, the right sound makes everything better.</p>
+
+        <a href="/" class="cta-button">Open the Soundboard</a>
+    </article>
+
+    <!-- Article 2 -->
+    <article class="article-card">
+        <span class="tag">Guide</span>
+        <h2>How to Use a Soundboard for Content Creation</h2>
+
+        <p>Content creators live and die by engagement, and audio is one of the most powerful tools for keeping an audience locked in. A soundboard gives you instant access to dozens of effects, reactions, and musical stings that elevate your videos from good to unforgettable. This guide covers how to choose the right sounds, when to use them, and how to integrate a soundboard into your production workflow.</p>
+
+        <h3>Why Soundboards Matter for Creators</h3>
+        <p>Viewers decide within the first few seconds whether to keep watching or scroll away. Audio cues help you hold their attention. A well-placed sound effect punctuates a joke, emphasizes a reveal, or builds tension before a climax. For YouTubers, TikTokers, and streamers, a soundboard is not a luxury — it is a competitive advantage.</p>
+        <ul>
+            <li><strong>YouTubers</strong> — Use sound effects to break up long segments, add humor to tutorials, and create recognizable brand audio that viewers associate with your channel.</li>
+            <li><strong>TikTokers</strong> — Trending sounds drive the algorithm. Having a library of meme audio ready means you can jump on trends before they peak.</li>
+            <li><strong>Streamers</strong> — Live content benefits most from instant audio. A soundboard lets you react in real time to chat messages, game events, and donations without breaking your flow.</li>
+        </ul>
+
+        <h3>Choosing the Right Sounds</h3>
+        <p>Not every sound works for every situation. A useful soundboard covers a range of emotional beats. Think of your sound library as having four main categories:</p>
+        <ul>
+            <li><strong>Reaction Sounds</strong> — Bruh, facepalm, eye-roll, shocked gasp. These are your bread and butter for responding to moments in real time.</li>
+            <li><strong>Hype Sounds</strong> — Airhorn, crowd cheering, victory fanfare. Use these to celebrate wins, announce big moments, or energize your audience.</li>
+            <li><strong>Dramatic Sounds</strong> — Vine boom, dramatic chipmunk, suspense sting. These create tension and make ordinary moments feel cinematic.</li>
+            <li><strong>Funny Sounds</strong> — Sad trombone, cartoon slip, fart reverb. These are pure comedic relief for fails, awkward moments, and silly mistakes.</li>
+        </ul>
+
+        <h3>Timing Tips for Placing Sounds</h3>
+        <p>The difference between a funny edit and an annoying one is timing. Here are guidelines that work across platforms:</p>
+        <ul>
+            <li><strong>The Beat Drop</strong> — Time your sound effect to land on a visual cut or punchline. The synchronization makes the moment feel intentional and polished.</li>
+            <li><strong>The Pause-Then-Play</strong> — Let a moment breathe for half a second, then hit the sound. The brief silence builds anticipation and makes the audio hit harder.</li>
+            <li><strong>The Overlap</strong> — Layer a subtle sound under dialogue or narration. A quiet vine boom under a dramatic statement adds weight without distracting from the words.</li>
+            <li><strong>The Trail-Off</strong> — Let a sound ring out as the scene transitions. It smooths the cut and gives the viewer a moment to process what just happened.</li>
+        </ul>
+
+        <h3>Integration Tips for Video Editing Software</h3>
+        <p>Most video editors handle audio simply. Here is how to add soundboard clips to popular tools:</p>
+        <ul>
+            <li><strong>Premiere Pro / DaVinci Resolve</strong> — Import your sound files into the project, drag them onto an audio track, and trim to fit. Use keyframes to fade in/out if needed.</li>
+            <li><strong>CapCut / Mobile Editors</strong> — Most mobile editors support adding audio from your device's file system. Download the sound clip, import it, and place it on the timeline.</li>
+            <li><strong>Live Streaming (OBS)</strong> — Add sounds as Audio Input Capture sources or use a virtual audio cable from a soundboard app. Assign hotkeys so you can trigger sounds while keeping your hands on the game.</li>
+        </ul>
+
+        <h3>Start Building Your Sound Library</h3>
+        <p>The right sounds turn a good video into a great one. Browse the collection, download the clips that fit your style, and experiment with placement. Your audience will notice the difference.</p>
+
+        <a href="/" class="cta-button">Browse All Sounds</a>
+    </article>
+
+    <!-- Article 3 -->
+    <article class="article-card">
+        <span class="tag">List</span>
+        <h2>Best Meme Sounds for Gaming Streams</h2>
+
+        <p>Gaming streams thrive on energy, reaction, and personality. A soundboard gives streamers the ability to amplify all three without missing a beat. Whether you are pulling off a clutch play or getting destroyed by the first enemy, the right sound effect turns the moment into content. Here is a breakdown of the best meme sounds organized by stream situation, plus tips on setting up your audio toolkit.</p>
+
+        <h3>Win and Victory Sounds</h3>
+        <p>When something goes right, your audience wants to feel it. These sounds celebrate the moment:</p>
+        <ul>
+            <li><strong>Airhorn</strong> — The gold standard of hype. Nothing says "we just won" like a blast of airhorn. Use it after a clutch kill, a rank-up, or a lucky play.</li>
+            <li><strong>Celebration / Fanfare</strong> — A short victory jingle or crowd cheer. It signals to the audience that this was a moment worth celebrating.</li>
+            <li><strong>Level Up Sound</strong> — Classic RPG progression audio. It works for any game where you unlock something, complete a quest, or reach a milestone.</li>
+            <li><strong>Cash Register</strong> — The "cha-ching" sound. Perfect for when you score a big elimination, complete a profitable trade, or hit a jackpot.</li>
+        </ul>
+
+        <h3>Fail and Death Sounds</h3>
+        <p>Fails are funnier than wins. These sounds lean into the comedy of defeat:</p>
+        <ul>
+            <li><strong>Sad Trombone</strong> — The definitive failure sound. It tells your audience "yes, that just happened, and yes, it was terrible."</li>
+            <li><strong>Bruh</strong> — The sound of collective disappointment. Use it when you walk into a trap, miss an easy shot, or get outplayed by the most obvious strategy.</li>
+            <li><strong>Womp Womp</strong> — A cartoonish descent into sadness. It is less harsh than the sad trombone, making it ideal for lighthearted fails.</li>
+            <li><strong>RIP Sound</strong> — A dramatic death toll or mournful tone. Works perfectly when your character dies in a particularly stupid way.</li>
+        </ul>
+
+        <h3>Troll and Prank Sounds</h3>
+        <p>Sometimes the goal is to mess with people. These sounds are pure chaos:</p>
+        <ul>
+            <li><strong>Loud Earrape</strong> — An intentionally distorted, ear-splitting clip. Deploy sparingly. The over-the-top volume is the joke.</li>
+            <li><strong>Among Us Role Reveal</strong> — The dramatic sting from Among Us. Use it when someone is accused, when a betrayal is revealed, or when you are the impostor.</li>
+            <li><strong>Jumpscare Sound</strong> — A sudden, loud scare audio. Perfect for pranking your chat or reacting to a horror game moment.</li>
+            <li><strong>Confused Math Lady</strong> — The "wait, what?" energy of someone trying to process something absurd. Great for when a play makes no sense.</li>
+        </ul>
+
+        <h3>Reaction Sounds for Key Moments</h3>
+        <p>Some moments are too big for words. These sounds fill the gap:</p>
+        <ul>
+            <li><strong>Metal Gear Alert</strong> — Use it when you are spotted, when someone walks into your ambush, or when the game突然 surprises you.</li>
+            <li><strong>Dramatic Chipmunk</strong> — A sharp reveal sting. Perfect for when you check the kill cam and see something ridiculous.</li>
+            <li><strong>Oof</strong> — The Roblox death sound. It communicates pain, defeat, and comedy in a single syllable.</li>
+            <li><strong>Nani?!</strong> — The anime surprise sound. It adds a comedic, over-the-top reaction to unexpected moments.</li>
+        </ul>
+
+        <h3>Setting Up Your Stream Soundboard</h3>
+        <p>Having the right sounds is only half the equation. You need a fast, reliable way to trigger them during a live stream:</p>
+        <ul>
+            <li><strong>Hotkeys</strong> — Most soundboard apps let you assign keyboard shortcuts. Map your most-used sounds to keys you can reach without looking away from the game.</li>
+            <li><strong>Elgato Stream Deck</strong> — A physical button panel that sits next to your keyboard. Each button triggers a sound or action. It is the professional standard for streamers.</li>
+            <li><strong>Software Options</strong> — Apps like Soundpad, Voicemod, or VoiceMeeter route audio through your stream. They support custom sound libraries and hotkey triggers.</li>
+            <li><strong>OBS Integration</strong> — Add sounds as media sources in OBS and assign global hotkeys. This keeps everything in one place and syncs with your stream layout.</li>
+        </ul>
+
+        <h3>Get Your Gaming Sounds</h3>
+        <p>A great stream is part skill, part personality, and part production value. A soundboard covers that last piece. Pick the sounds that match your vibe, set up your hotkeys, and start turning every stream moment into content.</p>
+
+        <a href="/" class="cta-button">Get Gaming Sounds</a>
+    </article>
+
+    <!-- Article 4 -->
+    <article class="article-card">
+        <span class="tag">History</span>
+        <h2>The Evolution of Internet Meme Sounds</h2>
+
+        <p>Internet meme sounds have been around as long as the internet itself, but their role in culture has shifted dramatically. What started as silly clips shared on forums became a global language that shapes how we communicate online. Tracing the history of meme audio reveals how technology, platforms, and human humor evolved together.</p>
+
+        <h3>The Early Internet Era (2000s)</h3>
+        <p>The first wave of meme sounds came from a simpler internet. Bandwidth was limited, platforms were scattered, and sharing audio meant emailing files or hosting them on personal websites. Despite those constraints, several sounds broke through:</p>
+        <ul>
+            <li><strong>Keyboard Cat</strong> — A cat "playing" a keyboard, dubbed over with a jaunty tune. It became a symbol of early YouTube humor and was used to punctuate funny or awkward moments.</li>
+            <li><strong>Numa Numa</strong> — Gary Brolsma's webcam video lip-syncing to a Romanian pop song. It was one of the first viral video sensations and proved that audio-driven content could reach millions.</li>
+            <li><strong>LOLCats and Auto-Tune</strong> — The combination of cat photos with auto-tuned narration created a genre of meme audio that bridged images and music.</li>
+            <li><strong>Peanut Butter Jelly Time</strong> — A simple animated character dancing to a catchy song. The audio became an earworm that spread across forums,AIM, and early social media.</li>
+        </ul>
+        <p>These sounds were shared through email chains, forum posts, and early YouTube. The internet was smaller, so a sound could go viral within niche communities before reaching the mainstream.</p>
+
+        <h3>The Vine Era (2013-2017)</h3>
+        <p>Vine changed everything. Its six-second video limit forced creators to be concise, and audio became the backbone of comedy on the platform. Sounds had to be short, punchy, and instantly recognizable:</p>
+        <ul>
+            <li><strong>Vine Boom</strong> — The deep, bass-heavy hit that punctuated punchlines. It was so effective that it survived Vine's shutdown and remains ubiquitous in 2026.</li>
+            <li><strong>"Do it for the Vine"</strong> — A catchphrase that became a soundbite, encouraging increasingly absurd stunts.</li>
+            <li><strong>Road Work Ahead</strong> — A clip that turned mundane observations into comedy through delivery and timing.</li>
+            <li><strong>"Why you always lying"</strong> — A auto-tuned accusation that became the universal response to perceived dishonesty.</li>
+        </ul>
+        <p>Vine proved that short-form video with strong audio was the future of internet humor. When the app shut down in 2017, its sound library migrated to YouTube compilations, Instagram, and eventually TikTok.</p>
+
+        <h3>The TikTok Era (2020s)</h3>
+        <p>TikTok took the Vine formula and scaled it. The platform's algorithm rewards sound reuse, meaning a single audio clip can spawn thousands of variations. This created a new kind of meme sound — one that evolves as creators add their own twist:</p>
+        <ul>
+            <li><strong>Trending Audio Clips</strong> — Short vocal snippets or musical loops that creators pair with trends. The sound is the template; the video is the variation.</li>
+            <li><strong>Sound Challenges</strong> — Sounds that invite participation. A catchy beat or phrase becomes a challenge that millions attempt, each adding their own spin.</li>
+            <li><strong>Cross-Platform Migration</strong> — A TikTok sound jumps to YouTube Shorts, Instagram Reels, and Twitter. The best sounds transcend any single platform.</li>
+            <li><strong>Creator-Specific Sounds</strong> — Popular creators develop signature audio clips that their audience associates with them. These become meme sounds in their own right.</li>
+        </ul>
+
+        <h3>Modern Meme Sounds in 2026</h3>
+        <p>Today's meme-sound landscape is more diverse and fast-moving than ever. Several trends define the current era:</p>
+        <ul>
+            <li><strong>AI-Generated Sounds</strong> — Tools that generate audio from text prompts have exploded. Creators can now produce custom meme sounds in seconds, leading to an explosion of new audio.</li>
+            <li><strong>Cross-Platform Trends</strong> — A sound might start on TikTok, get remixed on YouTube, and end up as a Discord notification. The lifecycle of a meme sound spans the entire internet.</li>
+            <li><strong>Nostalgia Revival</strong> — Sounds from the Vine era and early YouTube are being rediscovered by younger audiences. Old sounds feel fresh to people who never heard them the first time.</li>
+            <li><strong>Interactive Soundboards</strong> — Websites and apps that let users play meme sounds on demand have become popular. They turn passive listening into active participation.</li>
+        </ul>
+
+        <h3>The Future of Meme Audio</h3>
+        <p>Meme sounds will keep evolving because they are tied to something fundamental: the human desire to share laughter and emotion. As platforms change, new sounds will emerge to fill the gaps. AI will make it easier to create custom audio. Virtual reality and spatial audio will add new dimensions. But the core idea — a short, funny, recognizable sound that connects people — will stay the same.</p>
+
+        <h3>Explore the Collection</h3>
+        <p>Every sound on this site carries a piece of internet history. From the earliest forum jokes to the latest TikTok trends, the collection spans two decades of meme audio. Play them, share them, and add your own chapter to the story.</p>
+
+        <a href="/" class="cta-button">Explore All Sounds</a>
+    </article>
+</div>
+
+<footer>
+    <p>&copy; 2026 <a href="/">Meme Soundboard 3D</a>. All rights reserved. Made with love for internet culture.</p>
+</footer>
+
+<script>
+    (function () {
+        var links = document.querySelectorAll('.nav-links a');
+        var currentPath = window.location.pathname;
+
+        links.forEach(function (link) {
+            var href = link.getAttribute('href');
+            if (href === currentPath || (href === '/blog.html' && currentPath.endsWith('/blog.html'))) {
+                link.classList.add('active');
+            } else if (href === '/' && (currentPath === '/' || currentPath === '')) {
+                link.classList.add('active');
+            }
+        });
+    })();
+</script>
+
+</body>
+</html>
